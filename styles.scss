@@ -1,0 +1,138 @@
+// Imports
+@import './design-token/border-radius.scss';
+@import './design-token/color.scss';
+@import './design-token/shadow.scss';
+@import './design-token/spacing.scss';
+@import './design-token/typography.scss';
+
+@import './reset.css';
+
+body {
+    font-family: $font-family;
+}
+
+// Button Component
+.button {
+    display: inline-flex;
+    padding: $button-medium-padding;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-2;
+    cursor: pointer;
+    font-weight: $button-font-weight;
+    line-height: $button-medium-line-height;
+    border-radius: $button-border-radius;
+    border: none;
+
+    transition: background-color 0.3s, box-shadow 0.3s;
+    
+    i {
+        font-size: $button-icon-font-size;
+        width: $button-icon-font-size;
+        height: $button-icon-font-size;
+    }
+}
+
+@mixin button-focus($focus-color) {
+    outline: 1px $focus-color;
+    box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
+  }
+
+@mixin button-style($background-color, $text-color){
+    background-color: $background-color;
+    color: $text-color;
+}
+
+// Button Sizes
+.button-sm {
+    font-size: $button-small-font-size;
+    line-height: $button-small-line-height;
+}
+
+.button-lg {
+    font-size: $button-large-font-size;
+    line-height: $button-large-line-height;
+}
+
+// Button Color Variant
+.button-primary {
+    @include button-style($button-primary-background-color, $button-text-color);
+
+    &:hover {
+        background-color: $button-primary-hover-background-color;
+    }
+    
+    &:active {
+        background-color: $button-primary-active-background-color;
+    }
+
+    &:focus {
+        @include button-focus($button-primary-focus-border-color);
+    }
+}
+
+.button-secondary {
+    @include button-style($button-secondary-background-color, $button-text-color);
+    
+    &:hover {
+        background-color: $button-secondary-hover-background-color;
+    }
+    
+    &:active {
+        background-color: $button-secondary-active-background-color;
+    }
+
+    &:focus {
+        @include button-focus($button-secondary-focus-border-color);
+    }
+}
+
+.button-success {
+    @include button-style($button-success-background-color, $button-text-color);
+
+    &:hover {
+        background-color: $button-success-hover-background-color;
+    }
+    
+    &:active {
+        background-color: $button-success-active-background-color;
+    }
+
+    &:focus {
+        @include button-focus($button-success-focus-border-color);
+    }
+}
+
+.button-warning {
+    @include button-style($button-warning-background-color, $button-text-color);
+
+    &:hover {
+        background-color: $button-warning-hover-background-color;
+    }
+    
+    &:active {
+        background-color: $button-warning-active-background-color;
+    }
+
+    &:focus {
+        @include button-focus($button-warning-focus-border-color);
+    }
+}
+
+.button-danger {
+    @include button-style($button-danger-background-color, $button-text-color);
+
+    &:hover {
+        background-color: $button-danger-hover-background-color;
+    }
+    
+    &:active {
+        background-color: $button-danger-active-background-color;
+    }
+
+    &:focus {
+        @include button-focus($button-danger-focus-border-color);
+    }
+}
+
+

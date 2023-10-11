@@ -7,3 +7,8 @@ $border-radius-xl: 12px;
 $border-radius-2xl: 16px;
 $border-radius-3xl: 24px;
 $border-radius-full: 9999px;
+
+// Hierarchical Naming Token
+
+// Button =========================================
+$button-border-radius: $border-radius-sm;

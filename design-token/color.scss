@@ -61,3 +61,51 @@ $danger-600: #DE3024;
 $danger-700: #BB241A;
 $danger-800: #B42318;
 $danger-900: #80231C;
+
+//Opacity 
+$opacity-10: 0.1;
+$opacity-20: 0.2;
+$opacity-30: 0.3;
+$opacity-40: 0.4;
+$opacity-50: 0.5;
+$opacity-60: 0.6;
+$opacity-70: 0.7;
+$opacity-80: 0.8;
+$opacity-90: 0.9;
+
+// Hierarchical Naming Token
+
+// Button =========================================
+
+// Primary Button
+$button-primary-background-color: $primary-400;
+$button-primary-hover-background-color: $primary-500;
+$button-primary-active-background-color: $primary-600;
+$button-primary-focus-border-color: $primary-400;
+
+// Secondary Button
+$button-secondary-background-color: $neutral-700;
+$button-secondary-hover-background-color: $neutral-800;
+$button-secondary-active-background-color: $neutral-900;
+$button-secondary-focus-border-color: $neutral-700;
+
+// Success Button
+$button-success-background-color: $success-400;
+$button-success-hover-background-color: $success-500;
+$button-success-active-background-color: $success-600;
+$button-success-focus-border-color: $success-400;
+
+// Warning Button
+$button-warning-background-color: $warning-500;
+$button-warning-hover-background-color: $warning-600;
+$button-warning-active-background-color: $warning-700;
+$button-warning-focus-border-color: $warning-500;
+
+// Danger Button
+$button-danger-background-color: $danger-500;
+$button-danger-hover-background-color: $danger-600;
+$button-danger-active-background-color: $danger-700;
+$button-danger-focus-border-color: $danger-500;
+
+// Button Text
+$button-text-color: $base-white;
