@@ -13,7 +13,6 @@ body {
   font-weight: 500;
   line-height: 1.5rem;
   border-radius: 4px;
-  border: none;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 .button i {
@@ -32,17 +31,18 @@ body {
   line-height: 1.75rem;
 }
 
-.button-primary {
+.button, .button-primary {
   background-color: #99CA45;
   color: #FFFFFF;
+  border: none;
 }
-.button-primary:hover {
+.button:hover, .button-primary:hover {
   background-color: #80B230;
 }
-.button-primary:active {
+.button:active, .button-primary:active {
   background-color: #628E22;
 }
-.button-primary:focus {
+.button:focus, .button-primary:focus {
   outline: 1px #99CA45;
   box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
 }
@@ -50,6 +50,7 @@ body {
 .button-secondary {
   background-color: #334155;
   color: #FFFFFF;
+  border: none;
 }
 .button-secondary:hover {
   background-color: #1E293B;
@@ -65,6 +66,7 @@ body {
 .button-success {
   background-color: #99CA45;
   color: #FFFFFF;
+  border: none;
 }
 .button-success:hover {
   background-color: #80B230;
@@ -80,6 +82,7 @@ body {
 .button-warning {
   background-color: #FDA712;
   color: #FFFFFF;
+  border: none;
 }
 .button-warning:hover {
   background-color: #F79009;
@@ -95,6 +98,7 @@ body {
 .button-danger {
   background-color: #F04438;
   color: #FFFFFF;
+  border: none;
 }
 .button-danger:hover {
   background-color: #DE3024;
@@ -103,6 +107,96 @@ body {
   background-color: #BB241A;
 }
 .button-danger:focus {
+  outline: 1px #F04438;
+  box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.5);
+}
+
+.button.button-outline, .button-primary.button-outline {
+  background-color: transparent;
+  color: #99CA45;
+  border: 1px solid #99CA45;
+}
+.button.button-outline:hover, .button-primary.button-outline:hover {
+  background-color: #99CA45;
+  color: #FFFFFF;
+}
+.button.button-outline:active, .button-primary.button-outline:active {
+  background-color: #628E22;
+  color: #FFFFFF;
+}
+.button.button-outline:focus, .button-primary.button-outline:focus {
+  outline: 1px #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+}
+
+.button-secondary.button-outline {
+  background-color: transparent;
+  color: #334155;
+  border: 1px solid #334155;
+}
+.button-secondary.button-outline:hover {
+  background-color: #334155;
+  color: #FFFFFF;
+}
+.button-secondary.button-outline:active {
+  background-color: #262626;
+  color: #FFFFFF;
+}
+.button-secondary.button-outline:focus {
+  outline: 1px #334155;
+  box-shadow: 0px 0px 0px 4px rgba(51, 65, 85, 0.5);
+}
+
+.button-success.button-outline {
+  background-color: transparent;
+  color: #99CA45;
+  border: 1px solid #99CA45;
+}
+.button-success.button-outline:hover {
+  background-color: #99CA45;
+  color: #FFFFFF;
+}
+.button-success.button-outline:active {
+  background-color: #628E22;
+  color: #FFFFFF;
+}
+.button-success.button-outline:focus {
+  outline: 1px #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+}
+
+.button-warning.button-outline {
+  background-color: transparent;
+  color: #FDA712;
+  border: 1px solid #FDA712;
+}
+.button-warning.button-outline:hover {
+  background-color: #FDA712;
+  color: #FFFFFF;
+}
+.button-warning.button-outline:active {
+  background-color: #C56A09;
+  color: #FFFFFF;
+}
+.button-warning.button-outline:focus {
+  outline: 1px #FDA712;
+  box-shadow: 0px 0px 0px 4px rgba(253, 167, 18, 0.5);
+}
+
+.button-danger .button-outline {
+  background-color: transparent;
+  color: #F04438;
+  border: 1px solid #F04438;
+}
+.button-danger .button-outline:hover {
+  background-color: #F04438;
+  color: #FFFFFF;
+}
+.button-danger .button-outline:active {
+  background-color: #BB241A;
+  color: #FFFFFF;
+}
+.button-danger .button-outline:focus {
   outline: 1px #F04438;
   box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.5);
 }

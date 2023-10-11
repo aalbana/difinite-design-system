@@ -22,7 +22,6 @@ body {
     font-weight: $button-font-weight;
     line-height: $button-medium-line-height;
     border-radius: $button-border-radius;
-    border: none;
 
     transition: background-color 0.3s, box-shadow 0.3s;
     
@@ -55,8 +54,9 @@ body {
 }
 
 // Button Color Variant
-.button-primary {
+.button, .button-primary {
     @include button-style($button-primary-background-color, $button-text-color);
+    border: none;
 
     &:hover {
         background-color: $button-primary-hover-background-color;
@@ -73,6 +73,7 @@ body {
 
 .button-secondary {
     @include button-style($button-secondary-background-color, $button-text-color);
+    border: none;
     
     &:hover {
         background-color: $button-secondary-hover-background-color;
@@ -89,6 +90,7 @@ body {
 
 .button-success {
     @include button-style($button-success-background-color, $button-text-color);
+    border: none;
 
     &:hover {
         background-color: $button-success-hover-background-color;
@@ -105,6 +107,7 @@ body {
 
 .button-warning {
     @include button-style($button-warning-background-color, $button-text-color);
+    border: none;
 
     &:hover {
         background-color: $button-warning-hover-background-color;
@@ -121,6 +124,7 @@ body {
 
 .button-danger {
     @include button-style($button-danger-background-color, $button-text-color);
+    border: none;
 
     &:hover {
         background-color: $button-danger-hover-background-color;
@@ -135,4 +139,98 @@ body {
     }
 }
 
+//Button Outline style
+.button.button-outline, .button-primary.button-outline {
+    @include button-style(transparent, $button-primary-outline-text-color);
+    border: 1px solid $button-primary-outline-border-color;
 
+    &:hover {
+        background-color: $button-primary-outline-hover-background-color;
+        color: $button-text-color;
+    }
+    
+    &:active {
+        background-color: $button-primary-active-background-color;
+        color: $button-text-color;
+    }
+
+    &:focus {
+        @include button-focus($button-primary-focus-border-color);
+    }
+}
+
+.button-secondary.button-outline {
+    @include button-style(transparent, $button-secondary-outline-text-color);
+    border: 1px solid $button-secondary-outline-border-color;
+    
+    &:hover {
+        background-color: $button-secondary-outline-hover-background-color;
+        color: $button-text-color;
+    }
+    
+    &:active {
+        background-color: $button-secondary-active-background-color;
+        color: $button-text-color;
+    }
+
+    &:focus {
+        @include button-focus($button-secondary-focus-border-color);
+    }
+}
+
+.button-success.button-outline {
+    @include button-style(transparent, $button-success-outline-text-color);
+    border: 1px solid $button-success-outline-border-color;
+
+    &:hover {
+        background-color: $button-success-outline-hover-background-color;
+        color: $button-text-color;
+    }
+    
+    &:active {
+        background-color: $button-success-active-background-color;
+        color: $button-text-color;
+    }
+
+    &:focus {
+        @include button-focus($button-success-focus-border-color);
+    }
+}
+
+.button-warning.button-outline {
+    @include button-style(transparent, $button-warning-outline-text-color);
+    border: 1px solid $button-warning-outline-border-color;
+
+    &:hover {
+        background-color: $button-warning-outline-hover-background-color;
+        color: $button-text-color;
+    }
+    
+    &:active {
+        background-color: $button-warning-active-background-color;
+        color: $button-text-color;
+    }
+
+    &:focus {
+        @include button-focus($button-warning-focus-border-color);
+    }
+}
+
+.button-danger .button-outline {
+    @include button-style(transparent, $button-danger-outline-text-color);
+    border: 1px solid $button-danger-outline-border-color;
+
+    &:hover {
+        background-color: $button-danger-outline-hover-background-color;
+        color: $button-text-color;
+    }
+    
+    &:active {
+        background-color: $button-danger-active-background-color;
+        color: $button-text-color;
+    }
+
+    &:focus {
+        @include button-focus($button-danger-focus-border-color);
+    }
+}
