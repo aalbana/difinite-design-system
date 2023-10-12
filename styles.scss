@@ -54,185 +54,152 @@ body {
 }
 
 // Button Color Variant
-.button, .button-primary {
-    @include button-style($button-primary-background-color, $button-text-color);
+
+$button-variants: (
+  primary: (
+    background-color: $button-primary-background-color,
+    hover-background-color: $button-primary-hover-background-color,
+    active-background-color: $button-primary-active-background-color,
+    focus-border-color: $button-primary-focus-border-color,
+    outline-border-color: $button-primary-outline-border-color,
+    outline-text-color: $button-primary-outline-text-color,
+    outline-hover-background-color: $button-primary-outline-hover-background-color,
+  ),
+  secondary: (
+    background-color: $button-secondary-background-color,
+    hover-background-color: $button-secondary-hover-background-color,
+    active-background-color: $button-secondary-active-background-color,
+    focus-border-color: $button-secondary-focus-border-color,
+    outline-border-color: $button-secondary-outline-border-color,
+    outline-text-color: $button-secondary-outline-text-color,
+    outline-hover-background-color: $button-secondary-outline-hover-background-color,
+  ),
+  success: (
+    background-color: $button-success-background-color,
+    hover-background-color: $button-success-hover-background-color,
+    active-background-color: $button-success-active-background-color,
+    focus-border-color: $button-success-focus-border-color,
+    outline-border-color: $button-success-outline-border-color,
+    outline-text-color: $button-success-outline-text-color,
+    outline-hover-background-color: $button-success-outline-hover-background-color,
+  ),
+  warning: (
+    background-color: $button-warning-background-color,
+    hover-background-color: $button-warning-hover-background-color,
+    active-background-color: $button-warning-active-background-color,
+    focus-border-color: $button-warning-focus-border-color,
+    outline-border-color: $button-warning-outline-border-color,
+    outline-text-color: $button-warning-outline-text-color,
+    outline-hover-background-color: $button-warning-outline-hover-background-color,
+  ),
+  danger: (
+    background-color: $button-danger-background-color,
+    hover-background-color: $button-danger-hover-background-color,
+    active-background-color: $button-danger-active-background-color,
+    focus-border-color: $button-danger-focus-border-color,
+    outline-border-color: $button-danger-outline-border-color,
+    outline-text-color: $button-danger-outline-text-color,
+    outline-hover-background-color: $button-danger-outline-hover-background-color,
+  ),
+);
+
+.button {
+  @include button-style(map-get(map-get($button-variants, primary), background-color), $button-text-color);
+  border: none;
+
+  &:hover {
+    background-color: map-get(map-get($button-variants, primary), hover-background-color);
+  }
+
+  &:active {
+    background-color: map-get(map-get($button-variants, primary), active-background-color);
+  }
+
+  &:focus {
+    @include button-focus(map-get(map-get($button-variants, primary), focus-border-color));
+  }
+}
+
+@each $variant, $styles in $button-variants {
+  .button.button-#{$variant} {
+    @include button-style(map-get($styles, background-color), $button-text-color);
     border: none;
 
     &:hover {
-        background-color: $button-primary-hover-background-color;
+      background-color: map-get($styles, hover-background-color);
     }
-    
+
     &:active {
-        background-color: $button-primary-active-background-color;
+      background-color: map-get($styles, active-background-color);
     }
 
     &:focus {
-        @include button-focus($button-primary-focus-border-color);
+      @include button-focus(map-get($styles, focus-border-color));
     }
+  }
 }
 
-.button-secondary {
-    @include button-style($button-secondary-background-color, $button-text-color);
-    border: none;
-    
-    &:hover {
-        background-color: $button-secondary-hover-background-color;
-    }
-    
-    &:active {
-        background-color: $button-secondary-active-background-color;
-    }
+//Button Outline Style
+.button.button-outline {
+  @include button-style(transparent, $button-primary-outline-text-color);
+  border: 1px solid $button-primary-outline-border-color;
 
-    &:focus {
-        @include button-focus($button-secondary-focus-border-color);
+  &:hover {
+    background-color: $button-primary-outline-hover-background-color;
+    color: $button-text-color;
+    
+    i, svg {
+      color: $button-text-color;
     }
+  }
+
+  &:active {
+    background-color: $button-primary-active-background-color;
+    color: $button-text-color;
+  }
+
+  &:focus {
+    @include button-focus($button-primary-focus-border-color);
+  }
+
+  i, svg {
+    color: $button-primary-outline-text-color;
+    font-size: $button-icon-font-size;
+    width: $button-icon-font-size;
+    height: $button-icon-font-size;
+  }
 }
 
-.button-success {
-    @include button-style($button-success-background-color, $button-text-color);
-    border: none;
-
+@each $variant, $styles in $button-variants {
+  .button.button-#{$variant}.button-outline {
+    @include button-style(transparent, map-get($styles, outline-text-color));
+    border: 1px solid map-get($styles, outline-border-color);
+  
     &:hover {
-        background-color: $button-success-hover-background-color;
+      background-color: map-get($styles, outline-hover-background-color);
+      color: $button-text-color;
+      
+      i, svg {
+        color: $button-text-color;
+      }
     }
-    
+  
     &:active {
-        background-color: $button-success-active-background-color;
+      background-color: map-get($styles, active-background-color);
+      color: $button-text-color;
     }
-
+  
     &:focus {
-        @include button-focus($button-success-focus-border-color);
-    }
-}
-
-.button-warning {
-    @include button-style($button-warning-background-color, $button-text-color);
-    border: none;
-
-    &:hover {
-        background-color: $button-warning-hover-background-color;
-    }
-    
-    &:active {
-        background-color: $button-warning-active-background-color;
+      @include button-focus(map-get($styles, focus-border-color));
     }
 
-    &:focus {
-        @include button-focus($button-warning-focus-border-color);
+    i, svg {
+      color: map-get($styles, outline-text-color);
+      font-size: $button-icon-font-size;
+      width: $button-icon-font-size;
+      height: $button-icon-font-size;
     }
-}
-
-.button-danger {
-    @include button-style($button-danger-background-color, $button-text-color);
-    border: none;
-
-    &:hover {
-        background-color: $button-danger-hover-background-color;
-    }
-    
-    &:active {
-        background-color: $button-danger-active-background-color;
-    }
-
-    &:focus {
-        @include button-focus($button-danger-focus-border-color);
-    }
-}
-
-//Button Outline style
-.button.button-outline, .button-primary.button-outline {
-    @include button-style(transparent, $button-primary-outline-text-color);
-    border: 1px solid $button-primary-outline-border-color;
-
-    &:hover {
-        background-color: $button-primary-outline-hover-background-color;
-        color: $button-text-color;
-    }
-    
-    &:active {
-        background-color: $button-primary-active-background-color;
-        color: $button-text-color;
-    }
-
-    &:focus {
-        @include button-focus($button-primary-focus-border-color);
-    }
-}
-
-.button-secondary.button-outline {
-    @include button-style(transparent, $button-secondary-outline-text-color);
-    border: 1px solid $button-secondary-outline-border-color;
-    
-    &:hover {
-        background-color: $button-secondary-outline-hover-background-color;
-        color: $button-text-color;
-    }
-    
-    &:active {
-        background-color: $button-secondary-active-background-color;
-        color: $button-text-color;
-    }
-
-    &:focus {
-        @include button-focus($button-secondary-focus-border-color);
-    }
-}
-
-.button-success.button-outline {
-    @include button-style(transparent, $button-success-outline-text-color);
-    border: 1px solid $button-success-outline-border-color;
-
-    &:hover {
-        background-color: $button-success-outline-hover-background-color;
-        color: $button-text-color;
-    }
-    
-    &:active {
-        background-color: $button-success-active-background-color;
-        color: $button-text-color;
-    }
-
-    &:focus {
-        @include button-focus($button-success-focus-border-color);
-    }
-}
-
-.button-warning.button-outline {
-    @include button-style(transparent, $button-warning-outline-text-color);
-    border: 1px solid $button-warning-outline-border-color;
-
-    &:hover {
-        background-color: $button-warning-outline-hover-background-color;
-        color: $button-text-color;
-    }
-    
-    &:active {
-        background-color: $button-warning-active-background-color;
-        color: $button-text-color;
-    }
-
-    &:focus {
-        @include button-focus($button-warning-focus-border-color);
-    }
-}
-
-.button-danger .button-outline {
-    @include button-style(transparent, $button-danger-outline-text-color);
-    border: 1px solid $button-danger-outline-border-color;
-
-    &:hover {
-        background-color: $button-danger-outline-hover-background-color;
-        color: $button-text-color;
-    }
-    
-    &:active {
-        background-color: $button-danger-active-background-color;
-        color: $button-text-color;
-    }
-
-    &:focus {
-        @include button-focus($button-danger-focus-border-color);
-    }
+  }  
 }
 
 // Square Button for Icon Only
@@ -249,4 +216,16 @@ body {
 .button-square.button-lg {
     width: 2.5rem;
     height: 2.5rem;
+}
+
+// Disabled Button
+.button.disabled , .button-primary.disabled, button:disabled, .button-primary:disabled {
+    @include button-style($button-primary-disabled-background-color, $button-text-color);
+    border: none;
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &:hover {
+      @include button-style($button-primary-disabled-background-color, $button-text-color);
+    }
 }
