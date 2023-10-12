@@ -14,7 +14,7 @@ body {
 // Button Component
 .button {
     display: inline-flex;
-    padding: $button-medium-padding;
+    padding: $button-padding;
     justify-content: center;
     align-items: center;
     gap: $spacing-2;
@@ -25,7 +25,7 @@ body {
 
     transition: background-color 0.3s, box-shadow 0.3s;
     
-    i {
+    i, svg {
         font-size: $button-icon-font-size;
         width: $button-icon-font-size;
         height: $button-icon-font-size;
@@ -233,4 +233,20 @@ body {
     &:focus {
         @include button-focus($button-danger-focus-border-color);
     }
+}
+
+// Square Button for Icon Only
+.button-square {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.button-square.button-sm {
+    width: 2rem;
+    height: 2rem;
+}
+
+.button-square.button-lg {
+    width: 2.5rem;
+    height: 2.5rem;
 }

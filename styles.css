@@ -15,7 +15,7 @@ body {
   border-radius: 4px;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
-.button i {
+.button i, .button svg {
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -199,6 +199,21 @@ body {
 .button-danger .button-outline:focus {
   outline: 1px #F04438;
   box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.5);
+}
+
+.button-square {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.button-square.button-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.button-square.button-lg {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
