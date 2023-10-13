@@ -4,6 +4,7 @@
 @import './design-token/shadow.scss';
 @import './design-token/spacing.scss';
 @import './design-token/typography.scss';
+@import './design-token/sizing.scss';
 
 @import './reset.css';
 
@@ -13,7 +14,7 @@ body {
 
 // Button Component
 .button {
-    display: inline-flex;
+    display: flex;
     padding: $button-padding;
     justify-content: center;
     align-items: center;
@@ -42,17 +43,6 @@ body {
     color: $text-color;
 }
 
-// Button Sizes
-.button-sm {
-    font-size: $button-small-font-size;
-    line-height: $button-small-line-height;
-}
-
-.button-lg {
-    font-size: $button-large-font-size;
-    line-height: $button-large-line-height;
-}
-
 // Button Color Variant
 
 $button-variants: (
@@ -61,47 +51,80 @@ $button-variants: (
     hover-background-color: $button-primary-hover-background-color,
     active-background-color: $button-primary-active-background-color,
     focus-border-color: $button-primary-focus-border-color,
+    
+    disabled-background-color: $button-primary-disabled-background-color,
+
     outline-border-color: $button-primary-outline-border-color,
     outline-text-color: $button-primary-outline-text-color,
     outline-hover-background-color: $button-primary-outline-hover-background-color,
+
+    outline-disabled-text-color: $button-primary-outline-disabled-text-color,
+    outline-disabled-border-color: $button-primary-outline-disabled-border-color,
   ),
   secondary: (
     background-color: $button-secondary-background-color,
     hover-background-color: $button-secondary-hover-background-color,
     active-background-color: $button-secondary-active-background-color,
     focus-border-color: $button-secondary-focus-border-color,
+
+    disabled-background-color: $button-secondary-disabled-background-color,
+
     outline-border-color: $button-secondary-outline-border-color,
     outline-text-color: $button-secondary-outline-text-color,
     outline-hover-background-color: $button-secondary-outline-hover-background-color,
+
+    outline-disabled-text-color: $button-secondary-outline-disabled-text-color,
+    outline-disabled-border-color: $button-secondary-outline-disabled-border-color,
   ),
   success: (
     background-color: $button-success-background-color,
     hover-background-color: $button-success-hover-background-color,
     active-background-color: $button-success-active-background-color,
+
+    disabled-background-color: $button-success-disabled-background-color,
+
     focus-border-color: $button-success-focus-border-color,
     outline-border-color: $button-success-outline-border-color,
     outline-text-color: $button-success-outline-text-color,
     outline-hover-background-color: $button-success-outline-hover-background-color,
+
+    outline-disabled-text-color: $button-success-outline-disabled-text-color,
+    outline-disabled-border-color: $button-success-outline-disabled-border-color,
   ),
   warning: (
     background-color: $button-warning-background-color,
     hover-background-color: $button-warning-hover-background-color,
     active-background-color: $button-warning-active-background-color,
     focus-border-color: $button-warning-focus-border-color,
+    
+    disabled-background-color: $button-warning-disabled-background-color,
+
     outline-border-color: $button-warning-outline-border-color,
     outline-text-color: $button-warning-outline-text-color,
     outline-hover-background-color: $button-warning-outline-hover-background-color,
+
+    outline-disabled-text-color: $button-warning-outline-disabled-text-color,
+    outline-disabled-border-color: $button-warning-outline-disabled-border-color,
   ),
   danger: (
     background-color: $button-danger-background-color,
     hover-background-color: $button-danger-hover-background-color,
     active-background-color: $button-danger-active-background-color,
     focus-border-color: $button-danger-focus-border-color,
+    
+    disabled-background-color: $button-danger-disabled-background-color,
+
     outline-border-color: $button-danger-outline-border-color,
     outline-text-color: $button-danger-outline-text-color,
     outline-hover-background-color: $button-danger-outline-hover-background-color,
+
+    outline-disabled-text-color: $button-danger-outline-disabled-text-color,
+    outline-disabled-border-color: $button-danger-outline-disabled-border-color,
+
   ),
 );
+
+// $button-primary-disabled-background-color, $button-text-color
 
 .button {
   @include button-style(map-get(map-get($button-variants, primary), background-color), $button-text-color);
@@ -202,30 +225,104 @@ $button-variants: (
   }  
 }
 
+
+// Button Sizes
+$button-sizes: (
+  sm: (
+    font-size: $button-small-font-size,
+    line-height: $button-small-line-height,
+    square-size: $button-square-small-size,
+  ),
+  md: (
+    font-size: $button-medium-font-size,
+    line-height: $button-medium-line-height,
+    square-size: $button-square-medium-size,
+  ),
+  lg: (
+    font-size: $button-large-font-size,
+    line-height: $button-large-line-height,
+    square-size: $button-square-large-size,
+  ),
+);
+
+.button {
+  font-size: map-get(map-get($button-sizes, md), font-size);
+  line-height: map-get(map-get($button-sizes, md), line-height);
+}
+
+@each $size, $style in $button-sizes {
+  .button.button-#{$size} {
+    font-size: map-get($style, font-size);
+    line-height: map-get($style, line-height);
+  }
+}
+
 // Square Button for Icon Only
+
 .button-square {
-    width: 2.25rem;
-    height: 2.25rem;
-}
+    width: map-get(map-get($button-sizes, md), square-size);
+    height: map-get(map-get($button-sizes, md), square-size);
+  }
 
-.button-square.button-sm {
-    width: 2rem;
-    height: 2rem;
-}
-
-.button-square.button-lg {
-    width: 2.5rem;
-    height: 2.5rem;
+@each $size, $style in $button-sizes {
+  .button-square.button-#{$size} {
+    width: map-get($style, square-size);
+    height: map-get($style, square-size);
+  }
 }
 
 // Disabled Button
-.button.disabled , .button-primary.disabled, button:disabled, .button-primary:disabled {
+.button.disabled, .button:disabled {
+  @include button-style($button-primary-disabled-background-color, $button-text-color);
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+
+  &:hover {
     @include button-style($button-primary-disabled-background-color, $button-text-color);
+  }
+}
+
+@each $variant, $style in $button-variants {
+  .button.button-#{$variant}.disabled, .button.button-#{$variant}:disabled {
+    @include button-style(map-get($style, disabled-background-color), $button-text-color);
     border: none;
     cursor: not-allowed;
     box-shadow: none;
 
     &:hover {
-      @include button-style($button-primary-disabled-background-color, $button-text-color);
+      @include button-style(map-get($style, disabled-background-color), $button-text-color);
     }
+  }
+}
+
+//Disabled Outlined Button
+
+.button.button-outline.disabled, .button.button.button-outline:disabled {
+  @include button-style(transparent, $button-primary-outline-disabled-text-color);
+    border: 1px solid $button-primary-outline-disabled-border-color;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+@each $variant, $style in $button-variants {
+  .button.button-#{$variant}.button-outline.disabled, .button.button-#{$variant}.button-outline:disabled {
+    @include button-style(transparent, map-get($style, outline-disabled-text-color));
+    border: 1px solid map-get($style, outline-disabled-border-color);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-4;
+  align-items:center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
 }

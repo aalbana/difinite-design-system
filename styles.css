@@ -4,7 +4,7 @@ body {
 }
 
 .button {
-  display: inline-flex;
+  display: flex;
   padding: 0.375rem 0.5rem;
   justify-content: center;
   align-items: center;
@@ -19,16 +19,6 @@ body {
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
-}
-
-.button-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.button-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .button {
@@ -289,6 +279,26 @@ body {
   height: 1rem;
 }
 
+.button {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.button.button-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.button.button-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.button.button-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .button-square {
   width: 2.25rem;
   height: 2.25rem;
@@ -299,21 +309,147 @@ body {
   height: 2rem;
 }
 
+.button-square.button-md {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
 .button-square.button-lg {
   width: 2.5rem;
   height: 2.5rem;
 }
 
-.button.disabled, .button-primary.disabled, button:disabled, .button-primary:disabled {
+.button.disabled, .button:disabled {
   background-color: #D6ECAA;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.button.disabled:hover, .button-primary.disabled:hover, button:disabled:hover, .button-primary:disabled:hover {
+.button.disabled:hover, .button:disabled:hover {
   background-color: #D6ECAA;
   color: #FFFFFF;
+}
+
+.button.button-primary.disabled, .button.button-primary:disabled {
+  background-color: #D6ECAA;
+  color: #FFFFFF;
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button.button-primary.disabled:hover, .button.button-primary:disabled:hover {
+  background-color: #D6ECAA;
+  color: #FFFFFF;
+}
+
+.button.button-secondary.disabled, .button.button-secondary:disabled {
+  background-color: #E2E8F0;
+  color: #FFFFFF;
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button.button-secondary.disabled:hover, .button.button-secondary:disabled:hover {
+  background-color: #E2E8F0;
+  color: #FFFFFF;
+}
+
+.button.button-success.disabled, .button.button-success:disabled {
+  background-color: #D6ECAA;
+  color: #FFFFFF;
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button.button-success.disabled:hover, .button.button-success:disabled:hover {
+  background-color: #D6ECAA;
+  color: #FFFFFF;
+}
+
+.button.button-warning.disabled, .button.button-warning:disabled {
+  background-color: #FFEBA8;
+  color: #FFFFFF;
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button.button-warning.disabled:hover, .button.button-warning:disabled:hover {
+  background-color: #FFEBA8;
+  color: #FFFFFF;
+}
+
+.button.button-danger.disabled, .button.button-danger:disabled {
+  background-color: #FFCDC9;
+  color: #FFFFFF;
+  border: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button.button-danger.disabled:hover, .button.button-danger:disabled:hover {
+  background-color: #FFCDC9;
+  color: #FFFFFF;
+}
+
+.button.button-outline.disabled, .button.button.button-outline:disabled {
+  background-color: transparent;
+  color: #D6ECAA;
+  border: 1px solid #D6ECAA;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.button-primary.button-outline.disabled, .button.button-primary.button-outline:disabled {
+  background-color: transparent;
+  color: #D6ECAA;
+  border: 1px solid #D6ECAA;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.button-secondary.button-outline.disabled, .button.button-secondary.button-outline:disabled {
+  background-color: transparent;
+  color: #E2E8F0;
+  border: 1px solid #E2E8F0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.button-success.button-outline.disabled, .button.button-success.button-outline:disabled {
+  background-color: transparent;
+  color: #D6ECAA;
+  border: 1px solid #D6ECAA;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.button-warning.button-outline.disabled, .button.button-warning.button-outline:disabled {
+  background-color: transparent;
+  color: #FFEBA8;
+  border: 1px solid #FFEBA8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.button-danger.button-outline.disabled, .button.button-danger.button-outline:disabled {
+  background-color: transparent;
+  color: #FFCDC9;
+  border: 1px solid #FFCDC9;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
