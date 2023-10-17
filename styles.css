@@ -439,6 +439,68 @@ body {
   box-shadow: none;
 }
 
+input[type=text], input[type=password], textarea {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #E2E8F0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #334155;
+  transition: box-shadow 0.3s;
+}
+input[type=text]::placeholder, input[type=password]::placeholder, textarea::placeholder {
+  color: #94A3B8;
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: 1px solid #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+}
+
+.input-control {
+  position: relative;
+}
+.input-control input[type=password], .input-control .password-input {
+  padding-right: 2.225rem;
+}
+.input-control i, .input-control svg, .input-control img {
+  position: absolute;
+  color: #334155;
+  right: 12px;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+input[type=number] {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #E2E8F0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #334155;
+  transition: box-shadow 0.3s;
+  -moz-appearance: textfield;
+}
+input[type=number]::placeholder {
+  color: #94A3B8;
+}
+input[type=number]:focus {
+  outline: 1px solid #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label-input {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #334155;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

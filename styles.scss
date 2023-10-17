@@ -12,7 +12,7 @@ body {
     font-family: $font-family;
 }
 
-// Button Component
+// Button Component =========================================
 .button {
     display: flex;
     padding: $button-padding;
@@ -124,7 +124,6 @@ $button-variants: (
   ),
 );
 
-// $button-primary-disabled-background-color, $button-text-color
 
 .button {
   @include button-style(map-get(map-get($button-variants, primary), background-color), $button-text-color);
@@ -296,7 +295,7 @@ $button-sizes: (
   }
 }
 
-//Disabled Outlined Button
+// Disabled Outlined Button
 
 .button.button-outline.disabled, .button.button.button-outline:disabled {
   @include button-style(transparent, $button-primary-outline-disabled-text-color);
@@ -312,6 +311,80 @@ $button-sizes: (
     cursor: not-allowed;
     box-shadow: none;
   }
+}
+
+// Input Field ====================================
+
+@mixin input-focus($focus-color) {
+  outline: 1px solid $focus-color;
+  box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
+}
+
+input[type="text"], input[type="password"], textarea{
+  padding: $input-padding;
+  border-radius: $input-border-radius;
+  border: 1px solid $input-border-color;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-font-color;
+  transition: box-shadow 0.3s;
+
+  &::placeholder{
+    color: $input-placeholder-font-color;
+  }
+
+  &:focus {
+    @include input-focus($input-focus-border-color)
+  }
+}
+
+.input-control {
+  position: relative;
+
+  input[type="password"], .password-input {
+    padding-right: $password-input-right-padding;
+  }
+
+  i, svg, img {
+    position: absolute;
+    color: $input-font-color;
+    right: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+  }
+}
+
+input[type="number"] {
+  padding: $input-padding;
+  border-radius: $input-border-radius;
+  border: 1px solid $input-border-color;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-font-color;
+  transition: box-shadow 0.3s;
+
+  &::placeholder{
+    color: $input-placeholder-font-color;
+  }
+
+  &:focus {
+    @include input-focus($input-focus-border-color)
+  }
+
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label-input {
+  font-size: $input-label-font-size;
+  line-height: $input-label-line-height;
+  color: $input-label-font-color;
 }
 
 .flex-row {
