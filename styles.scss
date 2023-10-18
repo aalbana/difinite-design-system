@@ -60,6 +60,10 @@ $button-variants: (
 
     outline-disabled-text-color: $button-primary-outline-disabled-text-color,
     outline-disabled-border-color: $button-primary-outline-disabled-border-color,
+
+    link-text-color: $button-primary-link-text-color,
+    link-hover-text-color: $button-primary-link-hover-text-color,
+    link-active-text-color: $button-primary-link-active-text-color,
   ),
   secondary: (
     background-color: $button-secondary-background-color,
@@ -75,6 +79,10 @@ $button-variants: (
 
     outline-disabled-text-color: $button-secondary-outline-disabled-text-color,
     outline-disabled-border-color: $button-secondary-outline-disabled-border-color,
+    
+    link-text-color: $button-secondary-link-text-color,
+    link-hover-text-color: $button-secondary-link-hover-text-color,
+    link-active-text-color: $button-secondary-link-active-text-color,
   ),
   success: (
     background-color: $button-success-background-color,
@@ -90,6 +98,10 @@ $button-variants: (
 
     outline-disabled-text-color: $button-success-outline-disabled-text-color,
     outline-disabled-border-color: $button-success-outline-disabled-border-color,
+    
+    link-text-color: $button-success-link-text-color,
+    link-hover-text-color: $button-success-link-hover-text-color,
+    link-active-text-color: $button-success-link-active-text-color,
   ),
   warning: (
     background-color: $button-warning-background-color,
@@ -105,6 +117,10 @@ $button-variants: (
 
     outline-disabled-text-color: $button-warning-outline-disabled-text-color,
     outline-disabled-border-color: $button-warning-outline-disabled-border-color,
+    
+    link-text-color: $button-warning-link-text-color,
+    link-hover-text-color: $button-warning-link-hover-text-color,
+    link-active-text-color: $button-warning-link-active-text-color,
   ),
   danger: (
     background-color: $button-danger-background-color,
@@ -120,6 +136,10 @@ $button-variants: (
 
     outline-disabled-text-color: $button-danger-outline-disabled-text-color,
     outline-disabled-border-color: $button-danger-outline-disabled-border-color,
+    
+    link-text-color: $button-danger-link-text-color,
+    link-hover-text-color: $button-danger-link-hover-text-color,
+    link-active-text-color: $button-danger-link-active-text-color,
 
   ),
 );
@@ -137,7 +157,7 @@ $button-variants: (
     background-color: map-get(map-get($button-variants, primary), active-background-color);
   }
 
-  &:focus {
+  &:focus-visible {
     @include button-focus(map-get(map-get($button-variants, primary), focus-border-color));
   }
 }
@@ -155,7 +175,7 @@ $button-variants: (
       background-color: map-get($styles, active-background-color);
     }
 
-    &:focus {
+    &:focus-visible {
       @include button-focus(map-get($styles, focus-border-color));
     }
   }
@@ -180,7 +200,7 @@ $button-variants: (
     color: $button-text-color;
   }
 
-  &:focus {
+  &:focus-visible {
     @include button-focus($button-primary-focus-border-color);
   }
 
@@ -192,13 +212,13 @@ $button-variants: (
   }
 }
 
-@each $variant, $styles in $button-variants {
+@each $variant, $style in $button-variants {
   .button.button-#{$variant}.button-outline {
-    @include button-style(transparent, map-get($styles, outline-text-color));
-    border: 1px solid map-get($styles, outline-border-color);
+    @include button-style(transparent, map-get($style, outline-text-color));
+    border: 1px solid map-get($style, outline-border-color);
   
     &:hover {
-      background-color: map-get($styles, outline-hover-background-color);
+      background-color: map-get($style, outline-hover-background-color);
       color: $button-text-color;
       
       i, svg {
@@ -207,16 +227,16 @@ $button-variants: (
     }
   
     &:active {
-      background-color: map-get($styles, active-background-color);
+      background-color: map-get($style, active-background-color);
       color: $button-text-color;
     }
   
-    &:focus {
-      @include button-focus(map-get($styles, focus-border-color));
+    &:focus-visible {
+      @include button-focus(map-get($style, focus-border-color));
     }
 
     i, svg {
-      color: map-get($styles, outline-text-color);
+      color: map-get($style, outline-text-color);
       font-size: $button-icon-font-size;
       width: $button-icon-font-size;
       height: $button-icon-font-size;
@@ -313,6 +333,48 @@ $button-sizes: (
   }
 }
 
+// Link Button;
+
+  .button-link, .button.button-link {
+    @include button-style(transparent, $button-primary-link-text-color);
+      border: none;
+
+      &:hover {
+      color: $button-primary-link-hover-text-color;
+      background-color: transparent;
+      }
+
+      &:active {
+        color: $button-primary-link-active-text-color;
+      }
+
+      &:focus {
+        border: none;
+        box-shadow: none;
+      }
+  }
+
+  @each $variant, $style in $button-variants {
+    .button.button-#{$variant}.button-link, .button-#{$variant}.button-link {
+      @include button-style(transparent, map-get($style, link-text-color));
+      border: none;
+
+      &:hover {
+      color: map-get($style, link-hover-text-color);
+      background-color: transparent;
+      }
+
+      &:active {
+        color: map-get($style, link-active-text-color);
+      }
+
+      &:focus {
+        border: none;
+        box-shadow: none;
+      }
+    }
+}
+
 // Input Field ====================================
 
 @mixin input-focus($focus-color) {
@@ -326,11 +388,11 @@ input[type="text"], input[type="password"], textarea{
   border: 1px solid $input-border-color;
   font-size: $input-font-size;
   line-height: $input-line-height;
-  color: $input-font-color;
+  color: $input-text-color;
   transition: box-shadow 0.3s;
 
   &::placeholder{
-    color: $input-placeholder-font-color;
+    color: $input-placeholder-text-color;
   }
 
   &:focus {
@@ -347,7 +409,7 @@ input[type="text"], input[type="password"], textarea{
 
   i, svg, img {
     position: absolute;
-    color: $input-font-color;
+    color: $input-text-color;
     right: 12px;
     top: 50%;
     transform: translate(0, -50%);
@@ -361,11 +423,11 @@ input[type="number"] {
   border: 1px solid $input-border-color;
   font-size: $input-font-size;
   line-height: $input-line-height;
-  color: $input-font-color;
+  color: $input-text-color;
   transition: box-shadow 0.3s;
 
   &::placeholder{
-    color: $input-placeholder-font-color;
+    color: $input-placeholder-text-color;
   }
 
   &:focus {
@@ -384,7 +446,7 @@ input::-webkit-inner-spin-button {
 .label-input {
   font-size: $input-label-font-size;
   line-height: $input-label-line-height;
-  color: $input-label-font-color;
+  color: $input-label-text-color;
 }
 
 .flex-row {
