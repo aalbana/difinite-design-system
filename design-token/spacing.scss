@@ -29,10 +29,12 @@ $spacing-60: 16rem;       // 256px
 // Hierarchical Naming Token
 
 // Button =========================================
+
 $button-padding: $spacing-1_5 $spacing-2;
 $button-square-padding: $spacing-0;
 
 // Input Field ====================================
+
 $input-padding: $spacing-2 $spacing-3;
 $input-control-bottom-margin: $spacing-4;
 
@@ -43,4 +45,9 @@ $password-input-right-padding: $spacing-9;
 $input-helper-text-top-padding: $spacing-1_5;
 
 // Radio Button
+
 $radio-button-margin-right: $spacing-2;
+
+// Checkbox
+
+$checkbox-margin-right: $spacing-2;

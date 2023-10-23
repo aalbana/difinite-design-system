@@ -686,7 +686,7 @@ input[type=password] {
 
 .radio input[type=radio] {
   position: absolute;
-  display: none;
+  opacity: 0;
 }
 .radio input[type=radio] + .radio-label {
   font-size: 0.875rem;
@@ -698,7 +698,7 @@ input[type=password] {
   content: "";
   background: #FFFFFF;
   box-sizing: border-box;
-  border-radius: 100%;
+  border-radius: 9999px;
   border: 1px solid #E2E8F0;
   display: inline-flex;
   width: 1.25rem;
@@ -718,6 +718,8 @@ input[type=password] {
 .radio input[type=radio]:focus + .radio-label::before {
   outline: 1px solid #99CA45;
   box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+  outline: 1px solid #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5), inset 0 0 0 4px #FFFFFF;
 }
 .radio input[type=radio]:checked:disabled + .radio-label::before {
   box-shadow: inset 0 0 0 4px #F1F5F9;
@@ -728,8 +730,59 @@ input[type=password] {
   border-color: #CBD5E1;
   background: #F1F5F9;
 }
-.radio input[type=radio] + .radio-label:empty:before {
-  margin-right: 0;
+
+.checkbox input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox input[type=checkbox] + .checkbox-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #334155;
+}
+.checkbox input[type=checkbox] + .checkbox-label::before {
+  content: "";
+  background: #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #E2E8F0;
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+  margin-right: 0.5rem;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-label::before {
+  content: "\f272";
+  font-family: "bootstrap-icons";
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center;
+  color: #FFFFFF;
+  background-color: #99CA45;
+  border: 1px solid #99CA45;
+}
+.checkbox input[type=checkbox]:focus + .checkbox-label::before {
+  outline: 1px solid #99CA45;
+  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+}
+.checkbox input[type=checkbox]:checked:disabled + .checkbox-label::before {
+  font-family: "bootstrap-icons";
+  align-items: center;
+  font-size: 16px;
+  justify-content: center;
+  color: #CBD5E1;
+  border-color: #CBD5E1;
+  background: #F1F5F9;
+}
+.checkbox input[type=checkbox]:disabled + .checkbox-label::before {
+  border-color: #CBD5E1;
+  background: #F1F5F9;
 }
 
 .flex-row {

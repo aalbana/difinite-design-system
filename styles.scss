@@ -500,10 +500,11 @@ input[type="password"] {
 }
 
 // Radio Button
+
 .radio {
   input[type="radio"] {
     position: absolute;
-    display: none;
+    opacity: 0;
 
     + .radio-label {
       font-size: $radio-button-font-size;
@@ -516,7 +517,7 @@ input[type="password"] {
         content: '';
         background: $radio-button-background-color;
         box-sizing: border-box;
-        border-radius: 100%;
+        border-radius: $radio-button-border-radius;
         border: 1px solid $radio-button-border-color;
         display: inline-flex;
         width: $radio-button-size;
@@ -529,34 +530,91 @@ input[type="password"] {
         transition: all 0.3s ease;
       }
 
-    &:checked {
-      + .radio-label::before {
+    &:checked + .radio-label::before {
           background-color: $radio-button-checked-color;
           border: 1px solid $radio-button-checked-border-color;
           box-shadow: inset 0 0 0 4px $base-white;
-        }
     }
 
     &:focus + .radio-label::before  {
-      @include input-focus($radio-button-checked-color)      
-      }
+      @include input-focus($radio-button-checked-color);
+      outline: 1px solid $radio-button-checked-color;
+      box-shadow: 0px 0px 0px 4px rgba($radio-button-checked-color, $opacity-50), inset 0 0 0 4px $base-white;
+    }
     
     &:checked:disabled + .radio-label::before {
-          box-shadow: inset 0 0 0 4px $radio-button-disabled-box-shadow-color;
-          border-color: $radio-button-disabled-border-color;
-          background: $radio-button-disabled-color;      
+      box-shadow: inset 0 0 0 4px $radio-button-disabled-box-shadow-color;
+      border-color: $radio-button-disabled-border-color;
+      background: $radio-button-disabled-color;      
     } 
     
     &:disabled + .radio-label::before {
           border-color: $radio-button-disabled-border-color;
           background: $radio-button-disabled-background-color;      
     } 
+  }
+}
 
-    + .radio-label:empty {
-      &:before {
-        margin-right: 0;
-      }
+// Checkbox
+
+.checkbox {
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+
+    + .checkbox-label {
+      font-size: $checkbox-font-size;
+      font-weight: $checkbox-font-weight;
+      line-height: $checkbox-line-height;
+      color: $checkbox-text-color;
     }
+
+    + .checkbox-label::before {
+        content: '';
+      background: $checkbox-background-color;
+      box-sizing: border-box;
+      border-radius: $checkbox-border-radius;
+      border: 1px solid $checkbox-border-color;
+      display: inline-flex;
+      width: $checkbox-button-size;
+      height: $checkbox-button-size;
+      position: relative;
+      margin-right: $checkbox-margin-right;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    &:checked + .checkbox-label::before {
+      content: '\F272';
+      font-family: 'bootstrap-icons';
+      align-items: center;
+      font-size: $checkbox-icon-size;
+      justify-content: center;
+      color: $base-white;
+      background-color: $checkbox-checked-background-color;
+      border: 1px solid $checkbox-checked-border-color;
+    }
+
+    &:focus + .checkbox-label::before  {
+      @include input-focus($checkbox-checked-border-color);
+    }
+    
+    &:checked:disabled + .checkbox-label::before {
+      font-family: 'bootstrap-icons';
+      align-items: center;
+      font-size: 16px;
+      justify-content: center;
+      color: $checkbox-disabled-color;
+      border-color: $checkbox-disabled-border-color;
+      background: $checkbox-disabled-background-color;      
+    } 
+    
+    &:disabled + .checkbox-label::before {
+      border-color: $checkbox-disabled-border-color;
+      background: $checkbox-disabled-background-color;      
+    } 
   }
 }
 
@@ -570,5 +628,3 @@ input[type="password"] {
   display: flex;
   flex-direction: column;
 }
-
-
