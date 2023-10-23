@@ -1,8 +1,8 @@
 // Toggle password show and hidden button
 
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleButtons = document.querySelectorAll(".toggle-password");
-    const passwordInputs = document.querySelectorAll(".password-input");
+    const toggleButtons = document.querySelectorAll(".toggle-show-password");
+    const passwordInputs = document.querySelectorAll(".input-password");
   
     toggleButtons.forEach((toggleButton, index) => {
       toggleButton.addEventListener("click", function () {

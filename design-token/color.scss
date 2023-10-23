@@ -3,16 +3,16 @@ $base-white: #FFFFFF;
 $base-black: #000000;
 
 //Primary Brand Color
-$primary-50: #F6FBEA;
-$primary-100: #EAF5D2;
-$primary-200: #D6ECAA;
-$primary-300: #BADE78;
-$primary-400: #99CA45;
-$primary-500: #80B230;
-$primary-600: #628E22;
-$primary-700: #4C6C1F;
-$primary-800: #3F571D;
-$primary-900: #354A1D;
+$primary-50: #F5FAEC;
+$primary-100: #E0EFC7;
+$primary-200: #CCE5A2;
+$primary-300: #B8DA7D;
+$primary-400: #A3CF58;
+$primary-500: #99CA45;
+$primary-600: #7AA237;
+$primary-700: #5C7929;
+$primary-800: #3D511C;
+$primary-900: #2E3D15;
 
 //Neutral Color
 $neutral-50: #F8FAFC;
@@ -27,16 +27,16 @@ $neutral-800: #1E293B;
 $neutral-900: #262626;
 
 //Success Color
-$success-50: #F6FBEA;
-$success-100: #EAF5D2;
-$success-200: #D6ECAA;
-$success-300: #BADE78;
-$success-400: #99CA45;
-$success-500: #80B230;
-$success-600: #628E22;
-$success-700: #4C6C1F;
-$success-800: #3F571D;
-$success-900: #354A1D;
+$success-50: #F5FAEC;
+$success-100: #E0EFC7;
+$success-200: #CCE5A2;
+$success-300: #B8DA7D;
+$success-400: #A3CF58;
+$success-500: #99CA45;
+$success-600: #7AA237;
+$success-700: #5C7929;
+$success-800: #3D511C;
+$success-900: #2E3D15;
 
 //Warning Color
 $warning-50: #FFFAEB;
@@ -78,23 +78,28 @@ $opacity-90: 0.9;
 // Button =========================================
 
 // Primary Button
-$button-primary-background-color: $primary-400;
-$button-primary-hover-background-color: $primary-500;
-$button-primary-active-background-color: $primary-600;
-$button-primary-focus-border-color: $primary-400;
+$button-primary-background-color: $primary-500;
+$button-primary-hover-background-color: $primary-600;
+$button-primary-active-background-color: $primary-700;
+$button-primary-focus-border-color: $primary-500;
 
 $button-primary-disabled-background-color: $primary-200;
 
-$button-primary-outline-border-color: $primary-400;
-$button-primary-outline-text-color: $primary-400;
-$button-primary-outline-hover-background-color: $primary-400;
+$button-primary-outline-border-color: $primary-500;
+$button-primary-outline-text-color: $primary-500;
+$button-primary-outline-hover-background-color: $primary-600;
+$button-primary-outline-hover-border-color: $primary-600;
 
 $button-primary-outline-disabled-text-color: $primary-200;
 $button-primary-outline-disabled-border-color: $primary-200;
 
-$button-primary-link-text-color: $primary-400;
-$button-primary-link-hover-text-color: $primary-500;
-$button-primary-link-active-text-color: $primary-600;
+$button-primary-link-text-color: $primary-500;
+$button-primary-link-hover-text-color: $primary-600;
+$button-primary-link-active-text-color: $primary-700;
+
+$link-primary-text-color: $primary-500;
+$link-primary-hover-text-color: $primary-600;
+$link-primary-active-text-color: $primary-700;
 
 // Secondary Button
 $button-secondary-background-color: $neutral-700;
@@ -106,7 +111,8 @@ $button-secondary-disabled-background-color: $neutral-200;
 
 $button-secondary-outline-border-color: $neutral-700;
 $button-secondary-outline-text-color: $neutral-700;
-$button-secondary-outline-hover-background-color: $neutral-700;
+$button-secondary-outline-hover-background-color: $neutral-800;
+$button-secondary-outline-hover-border-color: $neutral-800;
 
 $button-secondary-outline-disabled-text-color: $neutral-200;
 $button-secondary-outline-disabled-border-color: $neutral-200;
@@ -116,23 +122,24 @@ $button-secondary-link-hover-text-color: $neutral-800;
 $button-secondary-link-active-text-color: $neutral-900;
 
 // Success Button
-$button-success-background-color: $success-400;
-$button-success-hover-background-color: $success-500;
-$button-success-active-background-color: $success-600;
-$button-success-focus-border-color: $success-400;
+$button-success-background-color: $success-500;
+$button-success-hover-background-color: $success-600;
+$button-success-active-background-color: $success-700;
+$button-success-focus-border-color: $success-500;
 
 $button-success-disabled-background-color: $success-200;
 
-$button-success-outline-border-color: $success-400;
-$button-success-outline-text-color: $success-400;
-$button-success-outline-hover-background-color: $success-400;
+$button-success-outline-border-color: $success-500;
+$button-success-outline-text-color: $success-500;
+$button-success-outline-hover-background-color: $success-600;
+$button-success-outline-hover-border-color: $success-600;
 
 $button-success-outline-disabled-text-color: $success-200;
 $button-success-outline-disabled-border-color: $success-200;
 
-$button-success-link-text-color: $success-400;
-$button-success-link-hover-text-color: $success-500;
-$button-success-link-active-text-color: $success-600;
+$button-success-link-text-color: $success-500;
+$button-success-link-hover-text-color: $success-600;
+$button-success-link-active-text-color: $success-700;
 
 // Warning Button
 $button-warning-background-color: $warning-500;
@@ -144,7 +151,8 @@ $button-warning-disabled-background-color: $warning-200;
 
 $button-warning-outline-border-color: $warning-500;
 $button-warning-outline-text-color: $warning-500;
-$button-warning-outline-hover-background-color: $warning-500;
+$button-warning-outline-hover-background-color: $warning-600;
+$button-warning-outline-hover-border-color: $warning-600;
 
 $button-warning-outline-disabled-text-color: $warning-200;
 $button-warning-outline-disabled-border-color: $warning-200;
@@ -163,7 +171,8 @@ $button-danger-disabled-background-color: $danger-200;
 
 $button-danger-outline-border-color: $danger-500;
 $button-danger-outline-text-color: $danger-500;
-$button-danger-outline-hover-background-color: $danger-500;
+$button-danger-outline-hover-background-color: $danger-600;
+$button-danger-outline-hover-border-color: $danger-600;
 
 $button-danger-outline-disabled-text-color: $danger-200;
 $button-danger-outline-disabled-border-color: $danger-200;
@@ -177,8 +186,37 @@ $button-text-color: $base-white;
 
 // Input Field ====================================
 $input-border-color: $neutral-200;
-$input-focus-border-color: $primary-400;
+$input-focus-color: $primary-500;
 $input-text-color: $neutral-700;
 $input-placeholder-text-color: $neutral-400;
 
 $input-label-text-color: $neutral-700;
+
+$input-helper-text-color: $neutral-400;
+
+$input-disabled-background-color: $neutral-50;
+$input-disabled-border-color: $neutral-100;
+$input-disabled-text-color: $neutral-400;
+
+// Error State Input
+$input-danger-border-color: $danger-500;
+$input-danger-focus-color: $danger-500;
+
+$input-feedback-text-color: $danger-500;
+
+// Radio Button
+$radio-button-focus-border-color: $primary-500;
+$radio-button-text-color: $neutral-700;
+
+$radio-button-background-color: $base-white;
+$radio-button-border-color: $neutral-200;
+
+$radio-button-checked-color: $primary-500;
+$radio-button-checked-border-color: $primary-500;
+
+$radio-button-disabled-box-shadow-color: $neutral-100;
+$radio-button-disabled-border-color: $neutral-300;
+$radio-button-disabled-color: $neutral-300;
+
+$radio-button-disabled-background-color: $neutral-100;
+

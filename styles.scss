@@ -28,9 +28,11 @@ body {
     
     i, svg {
         font-size: $button-icon-font-size;
-        width: $button-icon-font-size;
-        height: $button-icon-font-size;
     }
+}
+
+i {
+  vertical-align: middle;
 }
 
 @mixin button-focus($focus-color) {
@@ -57,6 +59,7 @@ $button-variants: (
     outline-border-color: $button-primary-outline-border-color,
     outline-text-color: $button-primary-outline-text-color,
     outline-hover-background-color: $button-primary-outline-hover-background-color,
+    outline-hover-border-color: $button-primary-outline-hover-border-color,
 
     outline-disabled-text-color: $button-primary-outline-disabled-text-color,
     outline-disabled-border-color: $button-primary-outline-disabled-border-color,
@@ -76,6 +79,7 @@ $button-variants: (
     outline-border-color: $button-secondary-outline-border-color,
     outline-text-color: $button-secondary-outline-text-color,
     outline-hover-background-color: $button-secondary-outline-hover-background-color,
+    outline-hover-border-color: $button-secondary-outline-hover-border-color,
 
     outline-disabled-text-color: $button-secondary-outline-disabled-text-color,
     outline-disabled-border-color: $button-secondary-outline-disabled-border-color,
@@ -95,6 +99,7 @@ $button-variants: (
     outline-border-color: $button-success-outline-border-color,
     outline-text-color: $button-success-outline-text-color,
     outline-hover-background-color: $button-success-outline-hover-background-color,
+    outline-hover-border-color: $button-success-outline-hover-border-color,
 
     outline-disabled-text-color: $button-success-outline-disabled-text-color,
     outline-disabled-border-color: $button-success-outline-disabled-border-color,
@@ -114,6 +119,7 @@ $button-variants: (
     outline-border-color: $button-warning-outline-border-color,
     outline-text-color: $button-warning-outline-text-color,
     outline-hover-background-color: $button-warning-outline-hover-background-color,
+    outline-hover-border-color: $button-warning-outline-hover-border-color,
 
     outline-disabled-text-color: $button-warning-outline-disabled-text-color,
     outline-disabled-border-color: $button-warning-outline-disabled-border-color,
@@ -133,6 +139,7 @@ $button-variants: (
     outline-border-color: $button-danger-outline-border-color,
     outline-text-color: $button-danger-outline-text-color,
     outline-hover-background-color: $button-danger-outline-hover-background-color,
+    outline-hover-border-color: $button-danger-outline-hover-border-color,
 
     outline-disabled-text-color: $button-danger-outline-disabled-text-color,
     outline-disabled-border-color: $button-danger-outline-disabled-border-color,
@@ -189,6 +196,7 @@ $button-variants: (
   &:hover {
     background-color: $button-primary-outline-hover-background-color;
     color: $button-text-color;
+    border: 1px solid $button-primary-outline-hover-border-color;
     
     i, svg {
       color: $button-text-color;
@@ -207,8 +215,6 @@ $button-variants: (
   i, svg {
     color: $button-primary-outline-text-color;
     font-size: $button-icon-font-size;
-    width: $button-icon-font-size;
-    height: $button-icon-font-size;
   }
 }
 
@@ -220,6 +226,7 @@ $button-variants: (
     &:hover {
       background-color: map-get($style, outline-hover-background-color);
       color: $button-text-color;
+      border: 1px solid map-get($style, outline-hover-border-color);
       
       i, svg {
         color: $button-text-color;
@@ -238,8 +245,6 @@ $button-variants: (
     i, svg {
       color: map-get($style, outline-text-color);
       font-size: $button-icon-font-size;
-      width: $button-icon-font-size;
-      height: $button-icon-font-size;
     }
   }  
 }
@@ -295,6 +300,7 @@ $button-sizes: (
   @include button-style($button-primary-disabled-background-color, $button-text-color);
   border: none;
   cursor: not-allowed;
+  pointer-events: none;
   box-shadow: none;
 
   &:hover {
@@ -375,6 +381,20 @@ $button-sizes: (
     }
 }
 
+// <a> Link style
+
+a, a .link {
+  color: $button-primary-link-text-color;
+
+  &:hover {
+    color: $link-primary-hover-text-color;
+  }
+
+  &:active{
+    color: $link-primary-active-text-color;
+  }
+}
+
 // Input Field ====================================
 
 @mixin input-focus($focus-color) {
@@ -382,32 +402,70 @@ $button-sizes: (
   box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
 }
 
-input[type="text"], input[type="password"], textarea{
+@mixin input-style() {
   padding: $input-padding;
   border-radius: $input-border-radius;
-  border: 1px solid $input-border-color;
   font-size: $input-font-size;
   line-height: $input-line-height;
   color: $input-text-color;
   transition: box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 
   &::placeholder{
     color: $input-placeholder-text-color;
   }
+}
+
+@mixin input-validation-style($border-color, $focus-color) {
+  border: 1px solid $border-color;
 
   &:focus {
-    @include input-focus($input-focus-border-color)
+    @include input-focus($focus-color)
   }
+}
+
+.form-input,
+input[type="text"], 
+input[type="password"], 
+input[type="number"],
+input[type="email"],
+textarea {
+  @include input-style();
+  @include input-validation-style($input-border-color, $input-focus-color);
+
+  &:invalid,
+  &.input-invalid {
+    @include input-validation-style($input-danger-border-color, $input-danger-focus-color);
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-text-color;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+input[type="password"] {
+  padding-right: $password-input-right-padding;
 }
 
 .input-control {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
 
-  input[type="password"], .password-input {
-    padding-right: $password-input-right-padding;
-  }
-
-  i, svg, img {
+  i, 
+  svg, 
+  img {
     position: absolute;
     color: $input-text-color;
     right: 12px;
@@ -417,47 +475,100 @@ input[type="text"], input[type="password"], textarea{
   }
 }
 
-input[type="number"] {
-  padding: $input-padding;
-  border-radius: $input-border-radius;
-  border: 1px solid $input-border-color;
-  font-size: $input-font-size;
-  line-height: $input-line-height;
-  color: $input-text-color;
-  transition: box-shadow 0.3s;
-
-  &::placeholder{
-    color: $input-placeholder-text-color;
-  }
-
-  &:focus {
-    @include input-focus($input-focus-border-color)
-  }
-
-  -moz-appearance: textfield;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .label-input {
   font-size: $input-label-font-size;
   line-height: $input-label-line-height;
   color: $input-label-text-color;
+  display: block;
+  margin-bottom: $input-label-margin-bottom;
+}
+
+.input-helper-text {
+  font-size: $input-helper-text-font-size;
+  font-weight: $input-helper-text-font-weight;
+  line-height: $input-helper-text-line-height;
+  color: $input-helper-text-color;
+  margin-top: $input-helper-text-top-padding;
+}
+
+.input-feedback-invalid {
+  font-size: $input-feedback-text-font-size;
+  font-weight: $input-feedback-text-font-weight;
+  line-height: $input-feedback-text-line-height;
+  color: $input-feedback-text-color;
+  margin-top: $input-helper-text-top-padding;
+}
+
+// Radio Button
+.radio {
+  input[type="radio"] {
+    position: absolute;
+    display: none;
+
+    + .radio-label {
+      font-size: $radio-button-font-size;
+      font-weight: $radio-button-font-weight;
+      line-height: $radio-button-line-height;
+      color: $radio-button-text-color;
+    }
+
+    + .radio-label::before {
+        content: '';
+        background: $radio-button-background-color;
+        box-sizing: border-box;
+        border-radius: 100%;
+        border: 1px solid $radio-button-border-color;
+        display: inline-flex;
+        width: $radio-button-size;
+        height: $radio-button-size;
+        position: relative;
+        margin-right: $radio-button-margin-right;
+        vertical-align: top;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+    &:checked {
+      + .radio-label::before {
+          background-color: $radio-button-checked-color;
+          border: 1px solid $radio-button-checked-border-color;
+          box-shadow: inset 0 0 0 4px $base-white;
+        }
+    }
+
+    &:focus + .radio-label::before  {
+      @include input-focus($radio-button-checked-color)      
+      }
+    
+    &:checked:disabled + .radio-label::before {
+          box-shadow: inset 0 0 0 4px $radio-button-disabled-box-shadow-color;
+          border-color: $radio-button-disabled-border-color;
+          background: $radio-button-disabled-color;      
+    } 
+    
+    &:disabled + .radio-label::before {
+          border-color: $radio-button-disabled-border-color;
+          background: $radio-button-disabled-background-color;      
+    } 
+
+    + .radio-label:empty {
+      &:before {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
-  gap: $spacing-4;
-  align-items:center;
+  align-items: center;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
-  gap: $spacing-4;
 }
+
+
