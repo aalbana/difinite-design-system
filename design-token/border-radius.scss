@@ -11,9 +11,15 @@ $border-radius-full: 9999px;
 // Hierarchical Naming Token
 
 // Button =========================================
+
 $button-border-radius: $border-radius-sm;
 
 // Input Field ====================================
+
 $input-border-radius: $border-radius-sm;
 $radio-button-border-radius: $border-radius-full;
 $checkbox-border-radius: $border-radius-xs;
+
+// Radio Button
+
+$radio-button-check-border-radius: $border-radius-full;

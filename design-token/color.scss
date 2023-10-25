@@ -211,13 +211,12 @@ $radio-button-text-color: $neutral-700;
 $radio-button-background-color: $base-white;
 $radio-button-border-color: $neutral-200;
 
-$radio-button-checked-color: $primary-500;
+$radio-button-check-color: $primary-500;
 $radio-button-checked-border-color: $primary-500;
+$radio-button-focus-color: $primary-500;
 
-$radio-button-disabled-box-shadow-color: $neutral-100;
+$radio-button-disabled-check-color: $neutral-300;
 $radio-button-disabled-border-color: $neutral-300;
-$radio-button-disabled-color: $neutral-300;
-
 $radio-button-disabled-background-color: $neutral-100;
 
 // Checkbox

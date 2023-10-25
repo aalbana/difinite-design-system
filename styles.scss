@@ -507,6 +507,9 @@ input[type="password"] {
     opacity: 0;
 
     + .radio-label {
+      display: flex;
+      align-items: center;
+      position: relative;
       font-size: $radio-button-font-size;
       font-weight: $radio-button-font-weight;
       line-height: $radio-button-line-height;
@@ -514,43 +517,58 @@ input[type="password"] {
     }
 
     + .radio-label::before {
-        content: '';
-        background: $radio-button-background-color;
-        box-sizing: border-box;
-        border-radius: $radio-button-border-radius;
-        border: 1px solid $radio-button-border-color;
-        display: inline-flex;
-        width: $radio-button-size;
-        height: $radio-button-size;
-        position: relative;
-        margin-right: $radio-button-margin-right;
-        vertical-align: top;
-        cursor: pointer;
-        text-align: center;
-        transition: all 0.3s ease;
-      }
+      content: '';
+      background: $radio-button-background-color;
+      box-sizing: border-box;
+      border-radius: $radio-button-border-radius;
+      border: 1px solid $radio-button-border-color;
+      display: inline-flex;
+      width: $radio-button-size;
+      height: $radio-button-size;
+      position: relative;
+      margin-right: $radio-button-margin-right;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    + .radio-label::after {
+      content: '';
+      width: $radio-button-check-size;
+      height: $radio-button-check-size;
+      background-color: transparent;
+      position: absolute;
+      left: 4px;
+      border-radius: $radio-button-check-border-radius;
+      transition: background-color 0.3s ease;
+    }
 
     &:checked + .radio-label::before {
-          background-color: $radio-button-checked-color;
-          border: 1px solid $radio-button-checked-border-color;
-          box-shadow: inset 0 0 0 4px $base-white;
+      background-color: $base-white;
+      border: 1px solid $radio-button-checked-border-color;
+    }
+    
+    &:checked + .radio-label::after {
+      background-color: $radio-button-check-color;
     }
 
     &:focus + .radio-label::before  {
-      @include input-focus($radio-button-checked-color);
-      outline: 1px solid $radio-button-checked-color;
-      box-shadow: 0px 0px 0px 4px rgba($radio-button-checked-color, $opacity-50), inset 0 0 0 4px $base-white;
+      @include input-focus($radio-button-focus-color);
     }
     
     &:checked:disabled + .radio-label::before {
-      box-shadow: inset 0 0 0 4px $radio-button-disabled-box-shadow-color;
       border-color: $radio-button-disabled-border-color;
-      background: $radio-button-disabled-color;      
+      background:  $radio-button-disabled-background-color;      
     } 
+
+    &:checked:disabled + .radio-label::after {
+      background-color: $radio-button-disabled-check-color;
+    }
     
     &:disabled + .radio-label::before {
-          border-color: $radio-button-disabled-border-color;
-          background: $radio-button-disabled-background-color;      
+      border-color: $radio-button-disabled-border-color;
+      background: $radio-button-disabled-background-color;      
     } 
   }
 }
@@ -615,6 +633,118 @@ input[type="password"] {
       border-color: $checkbox-disabled-border-color;
       background: $checkbox-disabled-background-color;      
     } 
+  }
+}
+
+// Toggle
+.toggle {
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    
+    + .toggle-label {
+      position: relative;
+      display: flex;
+      font-size: $font-size-2xs;
+      font-weight: $font-weight-regular;
+      line-height: $line-height-2xs;
+      color: $neutral-700;
+      align-items: center;
+    }
+
+    + .toggle-label::before {
+      content: '';
+      width: $sizing-9;
+      height: $sizing-5;
+      background-color: $neutral-100;
+      border-radius: $border-radius-full;
+      margin-right: $spacing-2;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    + .toggle-label::after {
+      content: "";
+      position: absolute;
+      width: $sizing-4;
+      height: $sizing-4;
+      background-color: $base-white;
+      border-radius: $border-radius-full;
+      left: $spacing-0_5;
+      box-shadow: $shadow-xs;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    
+    &:checked + .toggle-label::before {
+      background-color: $primary-500;
+    }
+
+    &:checked + .toggle-label::after {
+      transform: translateX(100%);
+    }
+
+    &:focus + .toggle-label::before {
+      @include input-focus($primary-500)
+    }
+
+    &:disabled + .toggle-label::after {
+      background-color: $neutral-300;
+      cursor: default;
+    }
+
+    &:checked:disabled + .toggle-label::after {
+      background-color: $neutral-300;
+      cursor: default;
+    }
+
+    &:disabled + .toggle-label::before {
+      cursor: default; 
+    }
+
+    &:checked:disabled + .toggle-label::before {
+      cursor: default;
+      background-color: $neutral-100;
+    }
+  }
+}
+
+// Select
+
+// select {
+//   &.form-input  {
+//     position: relative;
+//     appearance: none;
+
+//     &::before {
+//       content: '\F282';
+//       font-family: 'bootstrap-icons';
+//       position: absolute;
+//       align-items: center;
+//       font-size: $checkbox-icon-size;
+//       color: $neutral-700;
+//     }
+//   }
+// }
+
+.select {
+  position: relative;
+  display: flex;
+
+  select {
+    appearance: none;
+  }
+
+  &::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    top: 12px;
+    right: 8px;
+    font-size: $sizing-3 !important;
+    position: absolute;
+    align-items: center;
+    font-size: $checkbox-icon-size;
+    color: $neutral-700;
   }
 }
 
