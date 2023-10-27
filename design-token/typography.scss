@@ -1,7 +1,9 @@
 // Font Family
+
 $font-family: 'Inter', sans-serif;
 
 // Font Size
+
 $font-size-display: 3.75rem;    //60px
 $font-size-3xl: 3rem;           //48px
 $font-size-2xl: 2.25rem;        //36px
@@ -14,12 +16,14 @@ $font-size-2xs: 0.875rem;       //14px
 $font-size-3xs: 0.75rem;        //12px
 
 // Font Weight
+
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Line Height
+
 $line-height-display: 4.5rem;   //72px
 $line-height-3xl: 3.75rem;      //60px      
 $line-height-2xl: 2.75rem;      //44px
@@ -34,22 +38,27 @@ $line-height-3xs: 1rem;         //16px
 // Hierarchical Naming Token
 
 // Button =========================================
+
 $button-font-weight: $font-weight-medium;
 $button-icon-font-size: $font-size-xs;
 
 // Small Size Button
+
 $button-small-font-size: $font-size-2xs;
 $button-small-line-height: $line-height-2xs;
 
 // Medium Size Button
+
 $button-medium-font-size: $font-size-xs;
 $button-medium-line-height: $line-height-xs;
 
 // Large Size Button
+
 $button-large-font-size: $font-size-sm;
 $button-large-line-height: $line-height-sm;
 
 // Input Field =====================================
+
 $input-font-size: $font-size-2xs;
 $input-line-height: $line-height-2xs;
 
@@ -65,11 +74,19 @@ $input-feedback-text-font-weight: $font-weight-regular;
 $input-feedback-text-line-height: $line-height-3xs;
 
 // Radio Button
+
 $radio-button-font-size: $font-size-2xs;
 $radio-button-font-weight: $font-weight-regular;
 $radio-button-line-height: $line-height-2xs;
 
 // Checkbox
+
 $checkbox-font-size: $font-size-2xs;
 $checkbox-font-weight: $font-weight-regular;
 $checkbox-line-height: $line-height-2xs;
+
+// Toggle
+
+$toggle-font-size: $font-size-2xs;
+$toggle-font-weight: $font-weight-regular;
+$toggle-line-height: $line-height-2xs;

@@ -18,8 +18,16 @@ $button-border-radius: $border-radius-sm;
 
 $input-border-radius: $border-radius-sm;
 $radio-button-border-radius: $border-radius-full;
-$checkbox-border-radius: $border-radius-xs;
 
 // Radio Button
 
 $radio-button-check-border-radius: $border-radius-full;
+
+// Checkbox
+
+$checkbox-border-radius: $border-radius-xs;
+
+// Toggle
+
+$toggle-border-radius: $border-radius-full;
+$toggle-circle-border-radius:  $border-radius-full;

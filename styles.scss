@@ -249,7 +249,6 @@ $button-variants: (
   }  
 }
 
-
 // Button Sizes
 $button-sizes: (
   sm: (
@@ -398,6 +397,8 @@ a, a .link {
 // Input Field ====================================
 
 @mixin input-focus($focus-color) {
+
+  border: 1px solid $focus-color;
   outline: 1px solid $focus-color;
   box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
 }
@@ -411,6 +412,8 @@ a, a .link {
   transition: box-shadow 0.3s;
   width: 100%;
   box-sizing: border-box;
+  background-color: $input-background-color;
+
 
   &::placeholder{
     color: $input-placeholder-text-color;
@@ -539,7 +542,7 @@ input[type="password"] {
       height: $radio-button-check-size;
       background-color: transparent;
       position: absolute;
-      left: 4px;
+      left: $spacing-1;
       border-radius: $radio-button-check-border-radius;
       transition: background-color 0.3s ease;
     }
@@ -648,17 +651,17 @@ input[type="password"] {
       font-size: $font-size-2xs;
       font-weight: $font-weight-regular;
       line-height: $line-height-2xs;
-      color: $neutral-700;
+      color: $toggle-text-color;
       align-items: center;
     }
 
     + .toggle-label::before {
       content: '';
-      width: $sizing-9;
-      height: $sizing-5;
-      background-color: $neutral-100;
-      border-radius: $border-radius-full;
-      margin-right: $spacing-2;
+      width: $toggle-width-size;
+      height: $toggle-height-size;
+      background-color: $toggle-background-color;
+      border-radius:$toggle-border-radius;
+      margin-right: $toggle-margin-right;
       transition: background-color 0.3s ease;
       cursor: pointer;
     }
@@ -666,18 +669,18 @@ input[type="password"] {
     + .toggle-label::after {
       content: "";
       position: absolute;
-      width: $sizing-4;
-      height: $sizing-4;
-      background-color: $base-white;
-      border-radius: $border-radius-full;
+      width: $toggle-circle-size;
+      height: $toggle-circle-size;
+      background-color: $toggle-circle-background-color;
+      border-radius: $toggle-circle-border-radius;
       left: $spacing-0_5;
-      box-shadow: $shadow-xs;
+      box-shadow: $toggle-circle-shadow;
       transition: transform 0.3s ease;
       cursor: pointer;
     }
     
     &:checked + .toggle-label::before {
-      background-color: $primary-500;
+      background-color: $toggle-checked-background-color;
     }
 
     &:checked + .toggle-label::after {
@@ -685,67 +688,144 @@ input[type="password"] {
     }
 
     &:focus + .toggle-label::before {
-      @include input-focus($primary-500)
+      @include input-focus($toggle-focus-color)
     }
 
     &:disabled + .toggle-label::after {
-      background-color: $neutral-300;
+      background-color: $toggle-disabled-circle-color;
       cursor: default;
     }
 
     &:checked:disabled + .toggle-label::after {
-      background-color: $neutral-300;
+      background-color:$toggle-disabled-circle-color;
       cursor: default;
     }
 
     &:disabled + .toggle-label::before {
-      cursor: default; 
+      cursor: default;
     }
 
     &:checked:disabled + .toggle-label::before {
       cursor: default;
-      background-color: $neutral-100;
+      background-color: $toggle-disabled-background-color;
+      ;
     }
   }
 }
 
 // Select
 
-// select {
-//   &.form-input  {
-//     position: relative;
-//     appearance: none;
+// .select {
+//   position: relative;
+//   display: flex;
 
-//     &::before {
-//       content: '\F282';
-//       font-family: 'bootstrap-icons';
-//       position: absolute;
-//       align-items: center;
-//       font-size: $checkbox-icon-size;
-//       color: $neutral-700;
-//     }
+//   select {
+//     appearance: none;
+//     -moz-appearance: none;
+
+//   }
+
+//   &::after {
+//     content: '\F282';
+//     font-family: 'bootstrap-icons';
+//     top: 12px;
+//     right: 8px;
+//     font-size: $sizing-3 !important;
+//     position: absolute;
+//     align-items: center;
+//     font-size: $checkbox-icon-size;
+//     color: $neutral-700;
 //   }
 // }
 
-.select {
+.select-input-container {
+  display: inline-block;
   position: relative;
-  display: flex;
+  width: 100%;
 
-  select {
-    appearance: none;
+  &:focus-within > .select-input-value {
+    @include input-focus($radio-button-focus-color);
   }
 
+  &:focus-visible > .select-input-value {
+    outline: none;
+    border: none;
+  }
+}
+
+.select-input-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include input-style();
+  border: 1px solid $neutral-300;
+  cursor: pointer;
+  user-select: none;
+  
   &::after {
     content: '\F282';
     font-family: 'bootstrap-icons';
-    top: 12px;
     right: 8px;
     font-size: $sizing-3 !important;
     position: absolute;
     align-items: center;
     font-size: $checkbox-icon-size;
-    color: $neutral-700;
+    color: $neutral-900;
   }
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.select-input-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 1px solid $neutral-300;
+  border-radius: $border-radius-sm;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto; 
+  margin: 8px 0px;
+  z-index: 1;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.select-input-options.show {
+  display: block;
+}
+
+.select-input-option {
+  background-color: $base-white;
+  position: relative;
+  padding: 6px 12px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $neutral-700;
+  cursor: pointer;
+}
+
+.select-input-option:hover {
+  background-color: $neutral-200;
+}
+
+.select-input-option.selected::before  {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 4px;
+  background-color: $primary-500;
 }
 
 .flex-row {

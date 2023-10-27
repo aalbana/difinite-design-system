@@ -189,6 +189,7 @@ $input-border-color: $neutral-200;
 $input-focus-color: $primary-500;
 $input-text-color: $neutral-700;
 $input-placeholder-text-color: $neutral-400;
+$input-background-color: $base-white;
 
 $input-label-text-color: $neutral-700;
 
@@ -233,3 +234,16 @@ $checkbox-checked-border-color: $primary-500;
 $checkbox-disabled-border-color: $neutral-300;
 $checkbox-disabled-color: $neutral-300;
 $checkbox-disabled-background-color: $neutral-100;
+
+// Toggle
+
+$toggle-text-color: $neutral-700;
+$toggle-background-color: $neutral-100;
+$toggle-circle-background-color: $base-white;
+
+$toggle-checked-background-color: $primary-500;
+
+$toggle-focus-color: $primary-500;
+
+$toggle-disabled-circle-color: $neutral-300;
+$toggle-disabled-background-color: $neutral-100;
