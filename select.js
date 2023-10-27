@@ -54,8 +54,10 @@ export default class Select {
       const optionElement = document.createElement("li")
       optionElement.classList.add("select-input-option")
       optionElement.classList.toggle("selected", option.selected)
+      optionElement.classList.toggle("disabled", option.disabled)
       optionElement.innerText = option.label
       optionElement.dataset.value = option.value
+      optionElement.dataset.disabled = option.disabled ? "true" : "false"
       optionElement.addEventListener("click", () => {
         select.selectValue(option.value)
         select.optionsCustomElement.classList.remove("show")
@@ -80,14 +82,14 @@ export default class Select {
           select.optionsCustomElement.classList.toggle("show")
           break
         case "ArrowUp": {
-          const prevOption = select.options[select.selectedOptionIndex - 1]
+          const prevOption = select.findPreviousEnabledOption()
           if (prevOption) {
             select.selectValue(prevOption.value)
           }
           break
         }
         case "ArrowDown": {
-          const nextOption = select.options[select.selectedOptionIndex + 1]
+          const nextOption = select.findNextEnabledOption()
           if (nextOption) {
             select.selectValue(nextOption.value)
           }
@@ -113,6 +115,24 @@ export default class Select {
         }
       }
     })
+
+    select.findPreviousEnabledOption = () => {
+      for (let i = select.selectedOptionIndex - 1; i >= 0; i--) {
+        if (!select.options[i].disabled) {
+          return select.options[i]
+        }
+      }
+      return null;
+    }
+  
+    select.findNextEnabledOption = () => {
+      for (let i = select.selectedOptionIndex + 1; i < select.options.length; i++) {
+        if (!select.options[i].disabled) {
+          return select.options[i]
+        }
+      }
+      return null;
+    }
   }
   
   function getFormattedOptions(optionElements) {
@@ -121,6 +141,7 @@ export default class Select {
         value: optionElement.value,
         label: optionElement.label,
         selected: optionElement.selected,
+        disabled: optionElement.disabled,
         element: optionElement,
       }
     })

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInputs = document.querySelectorAll(".input-password");
   
     toggleButtons.forEach((toggleButton, index) => {
-      toggleButton.addEventListener("click", function () {
+      toggleButton.addEventListener("click", function (){
         if (passwordInputs[index].type === "password") {
           passwordInputs[index].type = "text";
           toggleButton.classList.remove("bi-eye-slash-fill");
