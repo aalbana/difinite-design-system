@@ -9,26 +9,27 @@
 @import './reset.css';
 
 body {
-    font-family: $font-family;
+  font-family: $font-family;
 }
 
 // Button Component =========================================
 .button {
-    display: flex;
-    padding: $button-padding;
-    justify-content: center;
-    align-items: center;
-    gap: $spacing-2;
-    cursor: pointer;
-    font-weight: $button-font-weight;
-    line-height: $button-medium-line-height;
-    border-radius: $button-border-radius;
+  display: flex;
+  padding: $button-padding;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-2;
+  cursor: pointer;
+  font-weight: $button-font-weight;
+  line-height: $button-medium-line-height;
+  border-radius: $button-border-radius;
 
-    transition: background-color 0.3s, box-shadow 0.3s;
-    
-    i, svg {
-        font-size: $button-icon-font-size;
-    }
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  i,
+  svg {
+    font-size: $button-icon-font-size;
+  }
 }
 
 i {
@@ -36,13 +37,13 @@ i {
 }
 
 @mixin button-focus($focus-color) {
-    outline: 1px $focus-color;
-    box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
-  }
+  outline: 1px $focus-color;
+  box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
+}
 
-@mixin button-style($background-color, $text-color){
-    background-color: $background-color;
-    color: $text-color;
+@mixin button-style($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
 }
 
 // Button Color Variant
@@ -53,12 +54,13 @@ $button-variants: (
     hover-background-color: $button-primary-hover-background-color,
     active-background-color: $button-primary-active-background-color,
     focus-border-color: $button-primary-focus-border-color,
-    
+
     disabled-background-color: $button-primary-disabled-background-color,
 
     outline-border-color: $button-primary-outline-border-color,
     outline-text-color: $button-primary-outline-text-color,
-    outline-hover-background-color: $button-primary-outline-hover-background-color,
+    outline-hover-background-color:
+      $button-primary-outline-hover-background-color,
     outline-hover-border-color: $button-primary-outline-hover-border-color,
 
     outline-disabled-text-color: $button-primary-outline-disabled-text-color,
@@ -78,12 +80,14 @@ $button-variants: (
 
     outline-border-color: $button-secondary-outline-border-color,
     outline-text-color: $button-secondary-outline-text-color,
-    outline-hover-background-color: $button-secondary-outline-hover-background-color,
+    outline-hover-background-color:
+      $button-secondary-outline-hover-background-color,
     outline-hover-border-color: $button-secondary-outline-hover-border-color,
 
     outline-disabled-text-color: $button-secondary-outline-disabled-text-color,
-    outline-disabled-border-color: $button-secondary-outline-disabled-border-color,
-    
+    outline-disabled-border-color:
+      $button-secondary-outline-disabled-border-color,
+
     link-text-color: $button-secondary-link-text-color,
     link-hover-text-color: $button-secondary-link-hover-text-color,
     link-active-text-color: $button-secondary-link-active-text-color,
@@ -98,12 +102,13 @@ $button-variants: (
     focus-border-color: $button-success-focus-border-color,
     outline-border-color: $button-success-outline-border-color,
     outline-text-color: $button-success-outline-text-color,
-    outline-hover-background-color: $button-success-outline-hover-background-color,
+    outline-hover-background-color:
+      $button-success-outline-hover-background-color,
     outline-hover-border-color: $button-success-outline-hover-border-color,
 
     outline-disabled-text-color: $button-success-outline-disabled-text-color,
     outline-disabled-border-color: $button-success-outline-disabled-border-color,
-    
+
     link-text-color: $button-success-link-text-color,
     link-hover-text-color: $button-success-link-hover-text-color,
     link-active-text-color: $button-success-link-active-text-color,
@@ -113,17 +118,18 @@ $button-variants: (
     hover-background-color: $button-warning-hover-background-color,
     active-background-color: $button-warning-active-background-color,
     focus-border-color: $button-warning-focus-border-color,
-    
+
     disabled-background-color: $button-warning-disabled-background-color,
 
     outline-border-color: $button-warning-outline-border-color,
     outline-text-color: $button-warning-outline-text-color,
-    outline-hover-background-color: $button-warning-outline-hover-background-color,
+    outline-hover-background-color:
+      $button-warning-outline-hover-background-color,
     outline-hover-border-color: $button-warning-outline-hover-border-color,
 
     outline-disabled-text-color: $button-warning-outline-disabled-text-color,
     outline-disabled-border-color: $button-warning-outline-disabled-border-color,
-    
+
     link-text-color: $button-warning-link-text-color,
     link-hover-text-color: $button-warning-link-hover-text-color,
     link-active-text-color: $button-warning-link-active-text-color,
@@ -133,45 +139,58 @@ $button-variants: (
     hover-background-color: $button-danger-hover-background-color,
     active-background-color: $button-danger-active-background-color,
     focus-border-color: $button-danger-focus-border-color,
-    
+
     disabled-background-color: $button-danger-disabled-background-color,
 
     outline-border-color: $button-danger-outline-border-color,
     outline-text-color: $button-danger-outline-text-color,
-    outline-hover-background-color: $button-danger-outline-hover-background-color,
+    outline-hover-background-color:
+      $button-danger-outline-hover-background-color,
     outline-hover-border-color: $button-danger-outline-hover-border-color,
 
     outline-disabled-text-color: $button-danger-outline-disabled-text-color,
     outline-disabled-border-color: $button-danger-outline-disabled-border-color,
-    
+
     link-text-color: $button-danger-link-text-color,
     link-hover-text-color: $button-danger-link-hover-text-color,
     link-active-text-color: $button-danger-link-active-text-color,
-
   ),
 );
 
-
 .button {
-  @include button-style(map-get(map-get($button-variants, primary), background-color), $button-text-color);
+  @include button-style(
+    map-get(map-get($button-variants, primary), background-color),
+    $button-text-color
+  );
   border: none;
 
   &:hover {
-    background-color: map-get(map-get($button-variants, primary), hover-background-color);
+    background-color: map-get(
+      map-get($button-variants, primary),
+      hover-background-color
+    );
   }
 
   &:active {
-    background-color: map-get(map-get($button-variants, primary), active-background-color);
+    background-color: map-get(
+      map-get($button-variants, primary),
+      active-background-color
+    );
   }
 
   &:focus-visible {
-    @include button-focus(map-get(map-get($button-variants, primary), focus-border-color));
+    @include button-focus(
+      map-get(map-get($button-variants, primary), focus-border-color)
+    );
   }
 }
 
 @each $variant, $styles in $button-variants {
   .button.button-#{$variant} {
-    @include button-style(map-get($styles, background-color), $button-text-color);
+    @include button-style(
+      map-get($styles, background-color),
+      $button-text-color
+    );
     border: none;
 
     &:hover {
@@ -197,8 +216,9 @@ $button-variants: (
     background-color: $button-primary-outline-hover-background-color;
     color: $button-text-color;
     border: 1px solid $button-primary-outline-hover-border-color;
-    
-    i, svg {
+
+    i,
+    svg {
       color: $button-text-color;
     }
   }
@@ -212,7 +232,8 @@ $button-variants: (
     @include button-focus($button-primary-focus-border-color);
   }
 
-  i, svg {
+  i,
+  svg {
     color: $button-primary-outline-text-color;
     font-size: $button-icon-font-size;
   }
@@ -222,31 +243,33 @@ $button-variants: (
   .button.button-#{$variant}.button-outline {
     @include button-style(transparent, map-get($style, outline-text-color));
     border: 1px solid map-get($style, outline-border-color);
-  
+
     &:hover {
       background-color: map-get($style, outline-hover-background-color);
       color: $button-text-color;
       border: 1px solid map-get($style, outline-hover-border-color);
-      
-      i, svg {
+
+      i,
+      svg {
         color: $button-text-color;
       }
     }
-  
+
     &:active {
       background-color: map-get($style, active-background-color);
       color: $button-text-color;
     }
-  
+
     &:focus-visible {
       @include button-focus(map-get($style, focus-border-color));
     }
 
-    i, svg {
+    i,
+    svg {
       color: map-get($style, outline-text-color);
       font-size: $button-icon-font-size;
     }
-  }  
+  }
 }
 
 // Button Sizes
@@ -283,9 +306,9 @@ $button-sizes: (
 // Square Button for Icon Only
 
 .button-square {
-    width: map-get(map-get($button-sizes, md), square-size);
-    height: map-get(map-get($button-sizes, md), square-size);
-  }
+  width: map-get(map-get($button-sizes, md), square-size);
+  height: map-get(map-get($button-sizes, md), square-size);
+}
 
 @each $size, $style in $button-sizes {
   .button-square.button-#{$size} {
@@ -295,43 +318,65 @@ $button-sizes: (
 }
 
 // Disabled Button
-.button.disabled, .button:disabled {
-  @include button-style($button-primary-disabled-background-color, $button-text-color);
+.button.disabled,
+.button:disabled {
+  @include button-style(
+    $button-primary-disabled-background-color,
+    $button-text-color
+  );
   border: none;
   cursor: not-allowed;
   pointer-events: none;
   box-shadow: none;
 
   &:hover {
-    @include button-style($button-primary-disabled-background-color, $button-text-color);
+    @include button-style(
+      $button-primary-disabled-background-color,
+      $button-text-color
+    );
   }
 }
 
 @each $variant, $style in $button-variants {
-  .button.button-#{$variant}.disabled, .button.button-#{$variant}:disabled {
-    @include button-style(map-get($style, disabled-background-color), $button-text-color);
+  .button.button-#{$variant}.disabled,
+  .button.button-#{$variant}:disabled {
+    @include button-style(
+      map-get($style, disabled-background-color),
+      $button-text-color
+    );
     border: none;
     cursor: not-allowed;
     box-shadow: none;
 
     &:hover {
-      @include button-style(map-get($style, disabled-background-color), $button-text-color);
+      @include button-style(
+        map-get($style, disabled-background-color),
+        $button-text-color
+      );
     }
   }
 }
 
 // Disabled Outlined Button
 
-.button.button-outline.disabled, .button.button.button-outline:disabled {
-  @include button-style(transparent, $button-primary-outline-disabled-text-color);
-    border: 1px solid $button-primary-outline-disabled-border-color;
-    cursor: not-allowed;
-    box-shadow: none;
+.button.button-outline.disabled,
+.button.button.button-outline:disabled {
+  @include button-style(
+    transparent,
+    $button-primary-outline-disabled-text-color
+  );
+  border: 1px solid $button-primary-outline-disabled-border-color;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 @each $variant, $style in $button-variants {
-  .button.button-#{$variant}.button-outline.disabled, .button.button-#{$variant}.button-outline:disabled {
-    @include button-style(transparent, map-get($style, outline-disabled-text-color));
+  .button.button-#{$variant}.button-outline.disabled,
+  .button.button-#{$variant}.button-outline:disabled {
+    @include button-style(
+      transparent,
+      map-get($style, outline-disabled-text-color)
+    );
     border: 1px solid map-get($style, outline-disabled-border-color);
     cursor: not-allowed;
     box-shadow: none;
@@ -340,56 +385,60 @@ $button-sizes: (
 
 // Link Button;
 
-  .button-link, .button.button-link {
-    @include button-style(transparent, $button-primary-link-text-color);
-      border: none;
+.button-link,
+.button.button-link {
+  @include button-style(transparent, $button-primary-link-text-color);
+  border: none;
 
-      &:hover {
-      color: $button-primary-link-hover-text-color;
-      background-color: transparent;
-      }
-
-      &:active {
-        color: $button-primary-link-active-text-color;
-      }
-
-      &:focus {
-        border: none;
-        box-shadow: none;
-      }
+  &:hover {
+    color: $button-primary-link-hover-text-color;
+    background-color: transparent;
   }
 
-  @each $variant, $style in $button-variants {
-    .button.button-#{$variant}.button-link, .button-#{$variant}.button-link {
-      @include button-style(transparent, map-get($style, link-text-color));
-      border: none;
+  &:active {
+    color: $button-primary-link-active-text-color;
+  }
 
-      &:hover {
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@each $variant, $style in $button-variants {
+  .button.button-#{$variant}.button-link,
+  .button-#{$variant}.button-link {
+    @include button-style(transparent, map-get($style, link-text-color));
+    border: none;
+
+    &:hover {
       color: map-get($style, link-hover-text-color);
       background-color: transparent;
-      }
-
-      &:active {
-        color: map-get($style, link-active-text-color);
-      }
-
-      &:focus {
-        border: none;
-        box-shadow: none;
-      }
     }
+
+    &:active {
+      color: map-get($style, link-active-text-color);
+    }
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
 }
 
 // <a> Link style
 
-a, a .link {
+a,
+a .link {
   color: $button-primary-link-text-color;
 
   &:hover {
     color: $link-primary-hover-text-color;
+    cursor: pointer;
   }
 
-  &:active{
+  &:active {
     color: $link-primary-active-text-color;
   }
 }
@@ -397,7 +446,6 @@ a, a .link {
 // Input Field ====================================
 
 @mixin input-focus($focus-color) {
-
   border: 1px solid $focus-color;
   outline: 1px solid $focus-color;
   box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
@@ -414,8 +462,7 @@ a, a .link {
   box-sizing: border-box;
   background-color: $input-background-color;
 
-
-  &::placeholder{
+  &::placeholder {
     color: $input-placeholder-text-color;
   }
 }
@@ -424,22 +471,25 @@ a, a .link {
   border: 1px solid $border-color;
 
   &:focus {
-    @include input-focus($focus-color)
+    @include input-focus($focus-color);
   }
 }
 
 .form-input,
-input[type="text"], 
-input[type="password"], 
-input[type="number"],
-input[type="email"],
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='email'],
 textarea {
   @include input-style();
   @include input-validation-style($input-border-color, $input-focus-color);
 
   &:invalid,
   &.input-invalid {
-    @include input-validation-style($input-danger-border-color, $input-danger-focus-color);
+    @include input-validation-style(
+      $input-danger-border-color,
+      $input-danger-focus-color
+    );
   }
 
   &:disabled,
@@ -455,7 +505,7 @@ textarea {
   }
 }
 
-input[type="password"] {
+input[type='password'] {
   padding-right: $password-input-right-padding;
 }
 
@@ -466,8 +516,8 @@ input[type="password"] {
   align-items: stretch;
   width: 100%;
 
-  i, 
-  svg, 
+  i,
+  svg,
   img {
     position: absolute;
     color: $input-text-color;
@@ -505,7 +555,7 @@ input[type="password"] {
 // Radio Button
 
 .radio {
-  input[type="radio"] {
+  input[type='radio'] {
     position: absolute;
     opacity: 0;
 
@@ -551,35 +601,35 @@ input[type="password"] {
       background-color: $base-white;
       border: 1px solid $radio-button-checked-border-color;
     }
-    
+
     &:checked + .radio-label::after {
       background-color: $radio-button-check-color;
     }
 
-    &:focus + .radio-label::before  {
+    &:focus + .radio-label::before {
       @include input-focus($radio-button-focus-color);
     }
-    
+
     &:checked:disabled + .radio-label::before {
       border-color: $radio-button-disabled-border-color;
-      background:  $radio-button-disabled-background-color;      
-    } 
+      background: $radio-button-disabled-background-color;
+    }
 
     &:checked:disabled + .radio-label::after {
       background-color: $radio-button-disabled-check-color;
     }
-    
+
     &:disabled + .radio-label::before {
       border-color: $radio-button-disabled-border-color;
-      background: $radio-button-disabled-background-color;      
-    } 
+      background: $radio-button-disabled-background-color;
+    }
   }
 }
 
 // Checkbox
 
 .checkbox {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     position: absolute;
     opacity: 0;
 
@@ -591,7 +641,7 @@ input[type="password"] {
     }
 
     + .checkbox-label::before {
-        content: '';
+      content: '';
       background: $checkbox-background-color;
       box-sizing: border-box;
       border-radius: $checkbox-border-radius;
@@ -618,10 +668,10 @@ input[type="password"] {
       border: 1px solid $checkbox-checked-border-color;
     }
 
-    &:focus + .checkbox-label::before  {
+    &:focus + .checkbox-label::before {
       @include input-focus($checkbox-checked-border-color);
     }
-    
+
     &:checked:disabled + .checkbox-label::before {
       font-family: 'bootstrap-icons';
       align-items: center;
@@ -629,22 +679,22 @@ input[type="password"] {
       justify-content: center;
       color: $checkbox-disabled-color;
       border-color: $checkbox-disabled-border-color;
-      background: $checkbox-disabled-background-color;      
-    } 
-    
+      background: $checkbox-disabled-background-color;
+    }
+
     &:disabled + .checkbox-label::before {
       border-color: $checkbox-disabled-border-color;
-      background: $checkbox-disabled-background-color;      
-    } 
+      background: $checkbox-disabled-background-color;
+    }
   }
 }
 
 // Toggle
 .toggle {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     position: absolute;
     opacity: 0;
-    
+
     + .toggle-label {
       position: relative;
       display: flex;
@@ -660,14 +710,14 @@ input[type="password"] {
       width: $toggle-width-size;
       height: $toggle-height-size;
       background-color: $toggle-background-color;
-      border-radius:$toggle-border-radius;
+      border-radius: $toggle-border-radius;
       margin-right: $toggle-margin-right;
       transition: background-color 0.3s ease;
       cursor: pointer;
     }
 
     + .toggle-label::after {
-      content: "";
+      content: '';
       position: absolute;
       width: $toggle-circle-size;
       height: $toggle-circle-size;
@@ -678,7 +728,7 @@ input[type="password"] {
       transition: transform 0.3s ease;
       cursor: pointer;
     }
-    
+
     &:checked + .toggle-label::before {
       background-color: $toggle-checked-background-color;
     }
@@ -688,7 +738,7 @@ input[type="password"] {
     }
 
     &:focus + .toggle-label::before {
-      @include input-focus($toggle-focus-color)
+      @include input-focus($toggle-focus-color);
     }
 
     &:disabled + .toggle-label::after {
@@ -697,7 +747,7 @@ input[type="password"] {
     }
 
     &:checked:disabled + .toggle-label::after {
-      background-color:$toggle-disabled-circle-color;
+      background-color: $toggle-disabled-circle-color;
       cursor: default;
     }
 
@@ -708,35 +758,11 @@ input[type="password"] {
     &:checked:disabled + .toggle-label::before {
       cursor: default;
       background-color: $toggle-disabled-background-color;
-      ;
     }
   }
 }
 
 // Select
-
-// .select {
-//   position: relative;
-//   display: flex;
-
-//   select {
-//     appearance: none;
-//     -moz-appearance: none;
-
-//   }
-
-//   &::after {
-//     content: '\F282';
-//     font-family: 'bootstrap-icons';
-//     top: 12px;
-//     right: 8px;
-//     font-size: $sizing-3 !important;
-//     position: absolute;
-//     align-items: center;
-//     font-size: $checkbox-icon-size;
-//     color: $neutral-700;
-//   }
-// }
 
 .select-input-container {
   display: inline-block;
@@ -751,6 +777,20 @@ input[type="password"] {
     outline: none;
     border: none;
   }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled > .select-input-value {
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-text-color;
+  }
 }
 
 .select-input-value {
@@ -758,19 +798,23 @@ input[type="password"] {
   align-items: center;
   justify-content: space-between;
   @include input-style();
-  border: 1px solid $neutral-300;
+  padding-right: 32px;
+  border: 1px solid $select-border-color;
   cursor: pointer;
   user-select: none;
-  
+
+  &.custom-placeholder {
+    color: $input-placeholder-text-color;
+  }
+
   &::after {
     content: '\F282';
     font-family: 'bootstrap-icons';
     right: 8px;
-    font-size: $sizing-3 !important;
     position: absolute;
     align-items: center;
-    font-size: $checkbox-icon-size;
-    color: $neutral-900;
+    font-size: $select-icon-size;
+    color: $select-icon-color;
   }
 
   &:focus-visible {
@@ -784,14 +828,14 @@ input[type="password"] {
   position: absolute;
   padding: 0;
   margin: 0;
-  border: 1px solid $neutral-100;
-  border-radius: $border-radius-sm;
+  border: 1px solid $select-options-list-border-color;
+  border-radius: $select-options-list-border-radius;
   width: 100%;
-  max-height: 320px;
-  overflow-y: auto; 
-  margin: 8px 0px;
+  max-height: $select-options-list-max-height;
+  overflow-y: auto;
+  margin: $select-options-list-margin;
   z-index: 1;
-  box-shadow: $shadow-sm;
+  box-shadow: $select-options-list-shadow;
 
   &:focus-visible {
     outline: none;
@@ -804,14 +848,152 @@ input[type="password"] {
 }
 
 .select-input-option {
-  background-color: $base-white;
+  background-color: $select-option-background-color;
   position: relative;
-  padding: 6px 12px;
+  padding: $select-option-padding;
   align-items: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
+  font-size: $select-input-font-size;
+  font-weight: $select-input-font-weight;
+  line-height: $select-input-line-height;
+  color: $select-option-text-color;
+  cursor: pointer;
+
+  &.selected::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 4px;
+    background-color: $primary-500;
+  }
+
+  &.disabled {
+    color: $select-option-disabled-text-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.select-input-option:hover {
+  background-color: $select-option-hover-background-color;
+}
+
+// Multiple select
+
+.multiple-select-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &:focus-within > .multiple-select-value {
+    @include input-focus($radio-button-focus-color);
+  }
+
+  &:focus-visible > .multiple-select-value {
+    outline: none;
+    border: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled > .multiple-select-value {
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-text-color;
+  }
+}
+
+.multiple-select-value > .custom-placeholder {
+  color: $input-placeholder-text-color;
+}
+
+.multiple-select-value {
+  display: flex;
+  align-items: center;
+  @include input-style();
+  padding-right: 32px;
+  border: 1px solid $select-border-color;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    right: 8px;
+    position: absolute;
+    align-items: center;
+    font-size: $select-icon-size;
+    color: $select-icon-color;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.option-selected {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 4px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  border: 1px solid $neutral-200;
+  background: $neutral-50;
   color: $neutral-700;
+  font-size: $font-size-3xs;
+  line-height: $line-height-3xs;
+  max-height: 20px;
+
+  &i {
+    font-size: 10px;
+  }
+}
+
+.multiple-select-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 1px solid $select-options-list-border-color;
+  border-radius: $select-options-list-border-radius;
+  width: 100%;
+  max-height: $select-options-list-max-height;
+  overflow-y: auto;
+  margin: $select-options-list-margin;
+  z-index: 1;
+  box-shadow: $select-options-list-shadow;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.multiple-select-options.show {
+  display: block;
+}
+
+.multiple-select-option {
+  background-color: $select-option-background-color;
+  position: relative;
+  padding: $select-option-padding;
+  align-items: center;
+  font-size: $select-input-font-size;
+  font-weight: $select-input-font-weight;
+  line-height: $select-input-line-height;
+  color: $select-option-text-color;
   cursor: pointer;
 
   &.selected::before  {
@@ -825,15 +1007,14 @@ input[type="password"] {
   }
 
   &.disabled {
-    color: $neutral-400;
+    color: $select-option-disabled-text-color;
     cursor: not-allowed;
     pointer-events: none;
   }
-  
 }
 
-.select-input-option:hover {
-  background-color: $neutral-100;
+.multiple-select-option:hover {
+  background-color: $select-option-hover-background-color;
 }
 
 .flex-row {

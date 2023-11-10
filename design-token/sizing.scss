@@ -25,6 +25,9 @@ $sizing-40: 10rem;       // 160px
 $sizing-48: 12rem;       // 192px
 $sizing-56: 14rem;       // 224px
 $sizing-60: 16rem;       // 256px
+$sizing-64: 18rem;       // 288px
+$sizing-72: 20rem;       // 320px
+$sizing-80: 24rem;       // 384px
 
 // Hierarchical Naming Token
 
@@ -48,3 +51,7 @@ $toggle-width-size: $sizing-9;
 $toggle-height-size: $sizing-5;
 
 $toggle-circle-size: $sizing-4;
+
+// Select
+$select-icon-size: $sizing-3;
+$select-options-list-max-height: $sizing-72;
