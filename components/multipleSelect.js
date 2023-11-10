@@ -9,7 +9,7 @@ export default class MultipleSelect {
     this.placeholderElement = document.createElement('span')
     setupCustomElement(this)
 
-    // element.style.display = 'none'
+    element.style.display = 'none'
     element.after(this.customElement)
   }
 
