@@ -8,7 +8,10 @@ export default class MultipleSelect {
     this.customPlaceholder = element.getAttribute('data-placeholder')
     this.placeholderElement = document.createElement('span')
     setupCustomElement(this)
-
+    if (element.disabled) {
+      this.customElement.classList.add('disabled')
+      this.customElement.removeAttribute('tabIndex')
+    }
     element.style.display = 'none'
     element.after(this.customElement)
   }
@@ -116,8 +119,10 @@ function setupCustomElement(multipleSelect) {
     const optionElement = document.createElement('li')
     optionElement.classList.add('multiple-select-option')
     optionElement.classList.toggle('selected', option.selected)
+    optionElement.classList.toggle('disabled', option.disabled)
     optionElement.innerText = option.label
     optionElement.dataset.value = option.value
+    optionElement.dataset.disabled = option.disabled ? 'true' : 'false'
 
     multipleSelect.optionsCustomElement.append(optionElement)
 
@@ -140,6 +145,13 @@ function setupCustomElement(multipleSelect) {
 
   multipleSelect.customElement.addEventListener('blur', () => {
     multipleSelect.optionsCustomElement.classList.remove('show')
+  })
+
+  multipleSelect.customElement.addEventListener('keydown', event => {
+    switch (event.code) {
+      case 'Space':
+        multipleSelect.optionsCustomElement.classList.toggle('show')
+    }
   })
 }
 

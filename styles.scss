@@ -1,4 +1,4 @@
-// Imports
+// Import Tokens
 @import './design-token/border-radius.scss';
 @import './design-token/color.scss';
 @import './design-token/shadow.scss';
@@ -6,6 +6,7 @@
 @import './design-token/typography.scss';
 @import './design-token/sizing.scss';
 
+// Reset CSS
 @import './reset.css';
 
 body {
@@ -823,6 +824,9 @@ input[type='password'] {
   }
 }
 
+.select-input-options > .hover {
+  background-color: $neutral-100;
+}
 .select-input-options {
   display: none;
   position: absolute;
@@ -959,6 +963,11 @@ input[type='password'] {
   &i {
     font-size: 10px;
   }
+
+  &:hover {
+    background-color: $neutral-100;
+    color: $neutral-700;
+  }
 }
 
 .multiple-select-options {
@@ -996,7 +1005,7 @@ input[type='password'] {
   color: $select-option-text-color;
   cursor: pointer;
 
-  &.selected::before  {
+  &.selected::before {
     content: '';
     position: absolute;
     top: 0px;

@@ -990,6 +990,10 @@ input[type=password] {
   border: none;
 }
 
+.select-input-options > .hover {
+  background-color: #F1F5F9;
+}
+
 .select-input-options {
   display: none;
   position: absolute;
@@ -1126,6 +1130,10 @@ input[type=password] {
 }
 .option-selectedi {
   font-size: 10px;
+}
+.option-selected:hover {
+  background-color: #F1F5F9;
+  color: #334155;
 }
 
 .multiple-select-options {

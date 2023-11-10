@@ -35,8 +35,8 @@ export default class Select {
       prevSelectedOption.selected = false
       prevSelectedOption.element.selected = false
       this.optionsCustomElement
-      .querySelector(`[data-value="${prevSelectedOption.value}"]`)
-      .classList.remove('selected')
+        .querySelector(`[data-value="${prevSelectedOption.value}"]`)
+        .classList.remove('selected')
     }
     newSelectedOption.selected = true
     newSelectedOption.element.selected = true
@@ -119,7 +119,6 @@ function setupCustomElement(select) {
         }
         break
       }
-      case 'Enter':
       case 'Escape':
         select.optionsCustomElement.classList.remove('show')
         break
