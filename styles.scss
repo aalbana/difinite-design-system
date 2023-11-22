@@ -1045,7 +1045,7 @@ input[type='password'] {
 
 .datepicker-container {
   position: absolute;
-  padding: $spacing-4;
+  // padding: $spacing-4;
   background-color: $base-white;
   box-shadow: $shadow-sm;
   border-radius: 4px;
@@ -1062,6 +1062,8 @@ input[type='password'] {
 .datepicker-day-content.show {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  padding: $spacing-4;
+  padding-top: 0px;
 }
 
 .datepicker-month-content {
@@ -1072,6 +1074,22 @@ input[type='password'] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px 4px;
+  padding: $spacing-4;
+  padding-top: 0px;
+}
+
+.datepicker-year-content {
+  display: none;
+}
+
+.datepicker-year-content.show {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 4px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: $spacing-4;
+  padding-top: 0px;
 }
 
 .datepicker-month-item {
@@ -1079,6 +1097,28 @@ input[type='password'] {
   align-items: center;
   justify-content: center;
   width: 90px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  color: $neutral-700;
+  cursor: pointer;
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background-color: $neutral-100;
+  }
+
+  &.selected {
+    background-color: $primary-500;
+    color: $base-white;
+  }
+}
+
+.datepicker-year-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
   height: 36px;
   font-size: 14px;
   font-weight: $font-weight-regular;
@@ -1154,6 +1194,8 @@ input[type='password'] {
   justify-content: center;
   align-items: center;
   height: 40px;
+  padding: $spacing-4;
+  padding-bottom: $spacing-2;
 }
 
 .current-date-container {

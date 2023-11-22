@@ -76,7 +76,10 @@ export default class DatePicker {
   }
 
   toggleMonthButtons() {
-    const isMonthContentShown = this.monthContent.classList.contains('show')
+    const isMonthContentShown =
+      this.monthContent.classList.contains('show') ||
+      this.yearContent.classList.contains('show')
+
     this.prevMonthButton.style.display = isMonthContentShown ? 'none' : 'block'
     this.nextMonthButton.style.display = isMonthContentShown ? 'none' : 'block'
   }
@@ -87,7 +90,11 @@ export default class DatePicker {
   }
 
   setDefaultDateContent() {
-    if (this.monthContent.classList.contains('show')) {
+    if (
+      this.monthContent.classList.contains('show') ||
+      this.yearContent.classList.contains('show')
+    ) {
+      this.yearContent.classList.remove('show')
       this.monthContent.classList.remove('show')
       this.dateContent.classList.add('show')
     }
@@ -98,6 +105,8 @@ export default class DatePicker {
         this.selectedDate.getMonth(),
         1
       ).toLocaleString('default', { month: 'long' })
+      this.currentMonth = this.selectedDate.getMonth()
+      this.currentYear = this.selectedDate.getFullYear()
     }
 
     const selectedDayElement = this.dateContent.querySelector(
@@ -111,8 +120,6 @@ export default class DatePicker {
       `.datepicker-month-item[data-month="${this.currentMonth}"]`
     )
 
-    console.log(selectedMonthElement)
-
     if (selectedMonthElement) {
       selectedMonthElement.classList.add('selected')
     } else {
@@ -124,6 +131,7 @@ export default class DatePicker {
       }
     }
 
+    this.updateCalendar()
     this.toggleMonthButtons()
   }
 
@@ -218,6 +226,13 @@ export default class DatePicker {
       monthElement.textContent = month
       monthElement.setAttribute('data-month', index)
 
+      if (
+        index === this.selectedDate.getMonth() &&
+        this.currentYear === this.selectedDate.getFullYear()
+      ) {
+        monthElement.classList.add('selected')
+      }
+
       monthElement.addEventListener('click', (event) => {
         this.selectMonth(index, event)
       })
@@ -227,12 +242,21 @@ export default class DatePicker {
   }
 
   selectMonth(monthIndex, event) {
-    if (event) {
-      event.stopPropagation()
-    }
-
     this.currentMonth = monthIndex
     this.updateCalendar()
+
+    const selectedMonthElement = this.monthContent.querySelector(
+      '.datepicker-month-item.selected'
+    )
+    if (selectedMonthElement) {
+      selectedMonthElement.classList.remove('selected')
+    }
+    const newSelectedMonthElement = this.monthContent.querySelector(
+      `.datepicker-month-item[data-month="${monthIndex}"]`
+    )
+    if (newSelectedMonthElement) {
+      newSelectedMonthElement.classList.add('selected')
+    }
 
     this.monthContent.classList.remove('show')
     this.dateContent.classList.add('show')
@@ -243,12 +267,71 @@ export default class DatePicker {
       1
     ).toLocaleString('default', { month: 'long' })
 
+    if (event) {
+      event.stopPropagation()
+    }
+
     this.toggleMonthButtons()
+  }
+
+  updateYearContent() {
+    const startYear = 1900
+    const endYear = 2100
+    const selectedYear = this.currentYear
+
+    this.yearContent.innerHTML = ''
+
+    for (let year = startYear; year <= endYear; year++) {
+      const yearElement = document.createElement('div')
+      yearElement.classList.add('datepicker-year-item')
+      yearElement.textContent = year
+      yearElement.setAttribute('data-year', year)
+
+      if (year === selectedYear) {
+        yearElement.classList.add('selected')
+      }
+
+      yearElement.addEventListener('click', (event) => {
+        this.selectYear(year, event)
+      })
+
+      this.yearContent.appendChild(yearElement)
+    }
+  }
+
+  selectYear(year, event) {
+    if (event) {
+      event.stopPropagation()
+    }
+
+    this.currentYear = year
+    this.updateCalendar()
+
+    this.yearContent.classList.remove('show')
+    this.dateContent.classList.remove('show')
+    this.monthContent.classList.add('show')
+
+    this.currentYearElement.textContent = year
+
+    const selectedYearElement = this.yearContent.querySelector(
+      '.datepicker-year-item.selected'
+    )
+    if (selectedYearElement) {
+      selectedYearElement.classList.remove('selected')
+    }
+
+    const newSelectedYearElement = this.yearContent.querySelector(
+      `.datepicker-year-item[data-year="${year}"]`
+    )
+    if (newSelectedYearElement) {
+      newSelectedYearElement.classList.add('selected')
+    }
   }
 
   createDatePickerHeader() {
     this.datePickerHeader.classList.add('datepicker-header')
     this.datePickerContainer.append(this.datePickerHeader)
+
     const createButton = (button, iconClass, clickHandler) => {
       button.setAttribute('type', 'button')
       button.classList.add('datepicker-button', 'show')
@@ -279,9 +362,24 @@ export default class DatePicker {
     createButton(this.nextMonthButton, 'bi-chevron-right', this.goToNextMonth)
 
     this.currentMonthElement.addEventListener('click', () => {
-      this.monthContent.classList.toggle('show')
-      this.dateContent.classList.toggle('show')
+      this.monthContent.classList.add('show')
+      this.dateContent.classList.remove('show')
+      this.yearContent.classList.remove('show')
       this.toggleMonthButtons()
+    })
+
+    this.currentYearElement.addEventListener('click', () => {
+      this.yearContent.classList.add('show')
+      this.monthContent.classList.remove('show')
+      this.dateContent.classList.remove('show')
+      this.toggleMonthButtons()
+
+      const selectedYearElement = this.yearContent.querySelector(
+        '.datepicker-year-item.selected'
+      )
+      console.log(selectedYearElement)
+      // this.yearContent.scrollTop = selectedYearElement.offsetTop
+      selectedYearElement.scrollIntoView({ behavior: 'auto', block: 'center' })
     })
   }
 
@@ -313,12 +411,14 @@ function setupCustomeElement(datePicker) {
   datePicker.contentContainer.classList.add('datepicker-content')
   datePicker.datePickerContainer.append(datePicker.contentContainer)
 
-  datePicker.dateContent.classList.add('datepicker-day-content')
-  datePicker.dateContent.classList.add('show')
+  datePicker.dateContent.classList.add('datepicker-day-content', 'show')
   datePicker.contentContainer.append(datePicker.dateContent)
 
   datePicker.monthContent.classList.add('datepicker-month-content')
   datePicker.contentContainer.append(datePicker.monthContent)
+
+  datePicker.yearContent.classList.add('datepicker-year-content')
+  datePicker.contentContainer.append(datePicker.yearContent)
 
   const dateInput = datePicker.element
 
@@ -336,4 +436,5 @@ function setupCustomeElement(datePicker) {
   })
 
   datePicker.updateCalendar()
+  datePicker.updateYearContent()
 }
