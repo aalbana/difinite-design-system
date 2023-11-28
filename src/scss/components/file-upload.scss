@@ -1,0 +1,74 @@
+.dfn-input-file {
+  display: none;
+}
+
+.dfn-upload-button {
+  display: flex;
+  padding: $button-padding;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-2;
+  cursor: pointer;
+  font-weight: $button-font-weight;
+  line-height: $button-medium-line-height;
+  border-radius: $button-border-radius;
+  height: fit-content;
+  background-color: $button-primary-background-color;
+  color: $button-text-color;
+
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  font-weight: $font-weight-medium;
+
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  border: none;
+
+  i,
+  svg {
+    font-size: $button-icon-font-size;
+  }
+}
+
+.list-files {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  & > .file {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 12px;
+    background-color: $neutral-50;
+    border-radius: 4px;
+    align-items: center;
+    gap: 8px;
+
+    & > .file-info-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      & > .file-name {
+        color: $neutral-700;
+        font-size: $font-size-2xs;
+        line-height: $line-height-2xs;
+        font-weight: $font-weight-regular;
+      }
+      & > .file-size {
+        color: $neutral-500;
+        font-size: $font-size-3xs;
+        line-height: $line-height-3xs;
+        font-weight: $font-weight-regular;
+      }
+    }
+  }
+}
+
+.percentage-display {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: $primary-500;
+}

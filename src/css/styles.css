@@ -13,8 +13,7 @@
 .dfn-input-container .dfn-input {
   position: relative;
 }
-.dfn-input-container .dfn-input > .dfn-input-field,
-.dfn-input-container .dfn-input input {
+.dfn-input-container .dfn-input > .dfn-input-field {
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.875rem;
@@ -27,32 +26,39 @@
   width: 100%;
   vertical-align: top;
 }
-.dfn-input-container .dfn-input > .dfn-input-field::placeholder,
-.dfn-input-container .dfn-input input::placeholder {
+.dfn-input-container .dfn-input > .dfn-input-field::placeholder {
   color: #94A3B8;
 }
-.dfn-input-container .dfn-input > .dfn-input-field:focus,
-.dfn-input-container .dfn-input input:focus {
+.dfn-input-container .dfn-input > .dfn-input-field:focus {
   border: 1px solid #99CA45;
   outline: 1px solid #99CA45;
   box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
 }
-.dfn-input-container .dfn-input > .dfn-input-field:disabled, .dfn-input-container .dfn-input > .dfn-input-field.disabled,
-.dfn-input-container .dfn-input input:disabled,
-.dfn-input-container .dfn-input input.disabled {
+.dfn-input-container .dfn-input > .dfn-input-field:invalid, .dfn-input-container .dfn-input > .dfn-input-field.invalid {
+  border: 1px solid #F04438;
+}
+.dfn-input-container .dfn-input > .dfn-input-field:invalid:focus, .dfn-input-container .dfn-input > .dfn-input-field.invalid:focus {
+  border: 1px solid #F04438;
+  outline: 1px solid #F04438;
+  box-shadow: 0 0 0 4px rgba(240, 68, 56, 0.5);
+}
+.dfn-input-container .dfn-input > .dfn-input-field:invalid + .dfn-helper-text, .dfn-input-container .dfn-input > .dfn-input-field.invalid + .dfn-helper-text {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #F04438;
+  margin-top: 0.375rem;
+}
+.dfn-input-container .dfn-input > .dfn-input-field:disabled, .dfn-input-container .dfn-input > .dfn-input-field.disabled {
   background-color: #F8FAFC;
   color: #94A3B8;
   cursor: not-allowed;
   pointer-events: none;
 }
-.dfn-input-container .dfn-input > .dfn-input-field:disabled:focus, .dfn-input-container .dfn-input > .dfn-input-field.disabled:focus,
-.dfn-input-container .dfn-input input:disabled:focus,
-.dfn-input-container .dfn-input input.disabled:focus {
+.dfn-input-container .dfn-input > .dfn-input-field:disabled:focus, .dfn-input-container .dfn-input > .dfn-input-field.disabled:focus {
   box-shadow: none;
 }
-.dfn-input-container .dfn-input > .dfn-input-field:disabled + .dfn-icon, .dfn-input-container .dfn-input > .dfn-input-field.disabled + .dfn-icon,
-.dfn-input-container .dfn-input input:disabled + .dfn-icon,
-.dfn-input-container .dfn-input input.disabled + .dfn-icon {
+.dfn-input-container .dfn-input > .dfn-input-field:disabled + .dfn-icon, .dfn-input-container .dfn-input > .dfn-input-field.disabled + .dfn-icon {
   color: #94A3B8;
 }
 .dfn-input-container .dfn-input.icon > .dfn-input-field,
@@ -127,8 +133,7 @@
   color: #94A3B8;
   margin-top: 0.375rem;
 }
-
-.dfn-feedback-invalid {
+.dfn-helper-text.invalid {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1rem;
@@ -1381,6 +1386,74 @@ a .link:active {
 }
 .datepicker-button.show:hover {
   background-color: #F1F5F9;
+}
+
+.dfn-input-file {
+  display: none;
+}
+
+.dfn-upload-button {
+  display: flex;
+  padding: 0.375rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 1.5rem;
+  border-radius: 4px;
+  height: fit-content;
+  background-color: #99CA45;
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+}
+.dfn-upload-button i,
+.dfn-upload-button svg {
+  font-size: 1rem;
+}
+
+.list-files {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.list-files > .file {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 12px;
+  background-color: #F8FAFC;
+  border-radius: 4px;
+  align-items: center;
+  gap: 8px;
+}
+.list-files > .file > .file-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.list-files > .file > .file-info-container > .file-name {
+  color: #334155;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+.list-files > .file > .file-info-container > .file-size {
+  color: #64748B;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.percentage-display {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #99CA45;
 }
 
 *,

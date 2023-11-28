@@ -44,14 +44,28 @@
   .dfn-input {
     position: relative;
 
-    & > .dfn-input-field,
-    input {
+    & > .dfn-input-field {
       @include input-style();
       @include input-validation-style($input-border-color, $input-focus-color);
 
       width: 100%;
       vertical-align: top;
-      
+
+      &:invalid,
+      &.invalid {
+        @include input-validation-style(
+          $input-danger-border-color,
+          $input-danger-focus-color
+        );
+        & + .dfn-helper-text {
+          font-size: $input-feedback-text-font-size;
+          font-weight: $input-feedback-text-font-weight;
+          line-height: $input-feedback-text-line-height;
+          color: $input-feedback-text-color;
+          margin-top: $input-helper-text-top-padding;
+        }
+      }
+
       &:disabled,
       &.disabled {
         background-color: $input-disabled-background-color;
@@ -133,12 +147,12 @@
   line-height: $input-helper-text-line-height;
   color: $input-helper-text-color;
   margin-top: $input-helper-text-top-padding;
-}
 
-.dfn-feedback-invalid {
-  font-size: $input-feedback-text-font-size;
-  font-weight: $input-feedback-text-font-weight;
-  line-height: $input-feedback-text-line-height;
-  color: $input-feedback-text-color;
-  margin-top: $input-helper-text-top-padding;
+  &.invalid {
+    font-size: $input-feedback-text-font-size;
+    font-weight: $input-feedback-text-font-weight;
+    line-height: $input-feedback-text-line-height;
+    color: $input-feedback-text-color;
+    margin-top: $input-helper-text-top-padding;
+  }
 }

@@ -8,6 +8,7 @@ export default class Select {
     this.customPlaceholder = element.getAttribute('data-placeholder')
 
     setupCustomElement(this)
+    
     if (element.disabled) {
       this.customElement.classList.add('disabled')
       this.customElement.removeAttribute('tabIndex')

@@ -48,3 +48,11 @@ const datePickerElements = document.querySelectorAll('.dfn-datepicker')
 datePickerElements.forEach((datePickerElement) => {
   new DatePicker(datePickerElement)
 })
+
+// File Upload
+import FileUpload from './components/fileUpload.js'
+
+const fileUploadElements = document.querySelectorAll('.dfn-input-file')
+fileUploadElements.forEach((fileUploadElement) => {
+  new FileUpload(fileUploadElement)
+})
