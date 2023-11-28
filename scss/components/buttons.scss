@@ -1,0 +1,430 @@
+.dfn-button {
+  display: flex;
+  padding: $button-padding;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-2;
+  cursor: pointer;
+  font-weight: $button-font-weight;
+  line-height: $button-medium-line-height;
+  border-radius: $button-border-radius;
+  height: fit-content;
+
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  i,
+  svg {
+    font-size: $button-icon-font-size;
+  }
+}
+
+i {
+  vertical-align: middle;
+}
+
+@mixin button-focus($focus-color) {
+  outline: 1px $focus-color;
+  box-shadow: 0px 0px 0px 4px rgba($focus-color, $opacity-50);
+}
+
+@mixin button-style($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Button Color Variant
+
+$button-variants: (
+  primary: (
+    background-color: $button-primary-background-color,
+    hover-background-color: $button-primary-hover-background-color,
+    active-background-color: $button-primary-active-background-color,
+    focus-border-color: $button-primary-focus-border-color,
+
+    disabled-background-color: $button-primary-disabled-background-color,
+
+    outline-border-color: $button-primary-outline-border-color,
+    outline-text-color: $button-primary-outline-text-color,
+    outline-hover-background-color:
+      $button-primary-outline-hover-background-color,
+    outline-hover-border-color: $button-primary-outline-hover-border-color,
+
+    outline-disabled-text-color: $button-primary-outline-disabled-text-color,
+    outline-disabled-border-color: $button-primary-outline-disabled-border-color,
+
+    link-text-color: $button-primary-link-text-color,
+    link-hover-text-color: $button-primary-link-hover-text-color,
+    link-active-text-color: $button-primary-link-active-text-color,
+  ),
+  secondary: (
+    background-color: $button-secondary-background-color,
+    hover-background-color: $button-secondary-hover-background-color,
+    active-background-color: $button-secondary-active-background-color,
+    focus-border-color: $button-secondary-focus-border-color,
+
+    disabled-background-color: $button-secondary-disabled-background-color,
+
+    outline-border-color: $button-secondary-outline-border-color,
+    outline-text-color: $button-secondary-outline-text-color,
+    outline-hover-background-color:
+      $button-secondary-outline-hover-background-color,
+    outline-hover-border-color: $button-secondary-outline-hover-border-color,
+
+    outline-disabled-text-color: $button-secondary-outline-disabled-text-color,
+    outline-disabled-border-color:
+      $button-secondary-outline-disabled-border-color,
+
+    link-text-color: $button-secondary-link-text-color,
+    link-hover-text-color: $button-secondary-link-hover-text-color,
+    link-active-text-color: $button-secondary-link-active-text-color,
+  ),
+  success: (
+    background-color: $button-success-background-color,
+    hover-background-color: $button-success-hover-background-color,
+    active-background-color: $button-success-active-background-color,
+
+    disabled-background-color: $button-success-disabled-background-color,
+
+    focus-border-color: $button-success-focus-border-color,
+    outline-border-color: $button-success-outline-border-color,
+    outline-text-color: $button-success-outline-text-color,
+    outline-hover-background-color:
+      $button-success-outline-hover-background-color,
+    outline-hover-border-color: $button-success-outline-hover-border-color,
+
+    outline-disabled-text-color: $button-success-outline-disabled-text-color,
+    outline-disabled-border-color: $button-success-outline-disabled-border-color,
+
+    link-text-color: $button-success-link-text-color,
+    link-hover-text-color: $button-success-link-hover-text-color,
+    link-active-text-color: $button-success-link-active-text-color,
+  ),
+  warning: (
+    background-color: $button-warning-background-color,
+    hover-background-color: $button-warning-hover-background-color,
+    active-background-color: $button-warning-active-background-color,
+    focus-border-color: $button-warning-focus-border-color,
+
+    disabled-background-color: $button-warning-disabled-background-color,
+
+    outline-border-color: $button-warning-outline-border-color,
+    outline-text-color: $button-warning-outline-text-color,
+    outline-hover-background-color:
+      $button-warning-outline-hover-background-color,
+    outline-hover-border-color: $button-warning-outline-hover-border-color,
+
+    outline-disabled-text-color: $button-warning-outline-disabled-text-color,
+    outline-disabled-border-color: $button-warning-outline-disabled-border-color,
+
+    link-text-color: $button-warning-link-text-color,
+    link-hover-text-color: $button-warning-link-hover-text-color,
+    link-active-text-color: $button-warning-link-active-text-color,
+  ),
+  danger: (
+    background-color: $button-danger-background-color,
+    hover-background-color: $button-danger-hover-background-color,
+    active-background-color: $button-danger-active-background-color,
+    focus-border-color: $button-danger-focus-border-color,
+
+    disabled-background-color: $button-danger-disabled-background-color,
+
+    outline-border-color: $button-danger-outline-border-color,
+    outline-text-color: $button-danger-outline-text-color,
+    outline-hover-background-color:
+      $button-danger-outline-hover-background-color,
+    outline-hover-border-color: $button-danger-outline-hover-border-color,
+
+    outline-disabled-text-color: $button-danger-outline-disabled-text-color,
+    outline-disabled-border-color: $button-danger-outline-disabled-border-color,
+
+    link-text-color: $button-danger-link-text-color,
+    link-hover-text-color: $button-danger-link-hover-text-color,
+    link-active-text-color: $button-danger-link-active-text-color,
+  ),
+);
+
+.dfn-button {
+  @include button-style(
+    map-get(map-get($button-variants, primary), background-color),
+    $button-text-color
+  );
+  border: none;
+
+  &:hover {
+    background-color: map-get(
+      map-get($button-variants, primary),
+      hover-background-color
+    );
+  }
+
+  &:active {
+    background-color: map-get(
+      map-get($button-variants, primary),
+      active-background-color
+    );
+  }
+
+  &:focus-visible {
+    @include button-focus(
+      map-get(map-get($button-variants, primary), focus-border-color)
+    );
+  }
+}
+
+@each $variant, $styles in $button-variants {
+  .dfn-button.#{$variant} {
+    @include button-style(
+      map-get($styles, background-color),
+      $button-text-color
+    );
+    border: none;
+
+    &:hover {
+      background-color: map-get($styles, hover-background-color);
+    }
+
+    &:active {
+      background-color: map-get($styles, active-background-color);
+    }
+
+    &:focus-visible {
+      @include button-focus(map-get($styles, focus-border-color));
+    }
+  }
+}
+
+//Button Outline Style
+.dfn-button.button-outline {
+  @include button-style(transparent, $button-primary-outline-text-color);
+  border: 1px solid $button-primary-outline-border-color;
+
+  &:hover {
+    background-color: $button-primary-outline-hover-background-color;
+    color: $button-text-color;
+    border: 1px solid $button-primary-outline-hover-border-color;
+
+    i,
+    svg {
+      color: $button-text-color;
+    }
+  }
+
+  &:active {
+    background-color: $button-primary-active-background-color;
+    color: $button-text-color;
+  }
+
+  &:focus-visible {
+    @include button-focus($button-primary-focus-border-color);
+  }
+
+  i,
+  svg {
+    color: $button-primary-outline-text-color;
+    font-size: $button-icon-font-size;
+  }
+}
+
+@each $variant, $style in $button-variants {
+  .dfn-button.button-#{$variant}.button-outline {
+    @include button-style(transparent, map-get($style, outline-text-color));
+    border: 1px solid map-get($style, outline-border-color);
+
+    &:hover {
+      background-color: map-get($style, outline-hover-background-color);
+      color: $button-text-color;
+      border: 1px solid map-get($style, outline-hover-border-color);
+
+      i,
+      svg {
+        color: $button-text-color;
+      }
+    }
+
+    &:active {
+      background-color: map-get($style, active-background-color);
+      color: $button-text-color;
+    }
+
+    &:focus-visible {
+      @include button-focus(map-get($style, focus-border-color));
+    }
+
+    i,
+    svg {
+      color: map-get($style, outline-text-color);
+      font-size: $button-icon-font-size;
+    }
+  }
+}
+
+// Button Sizes
+$button-sizes: (
+  sm: (
+    font-size: $button-small-font-size,
+    line-height: $button-small-line-height,
+    square-size: $button-square-small-size,
+  ),
+  md: (
+    font-size: $button-medium-font-size,
+    line-height: $button-medium-line-height,
+    square-size: $button-square-medium-size,
+  ),
+  lg: (
+    font-size: $button-large-font-size,
+    line-height: $button-large-line-height,
+    square-size: $button-square-large-size,
+  ),
+);
+
+.dfn-button {
+  font-size: map-get(map-get($button-sizes, md), font-size);
+  line-height: map-get(map-get($button-sizes, md), line-height);
+}
+
+@each $size, $style in $button-sizes {
+  .dfn-button.#{$size} {
+    font-size: map-get($style, font-size);
+    line-height: map-get($style, line-height);
+  }
+}
+
+// Square Button for Icon Only
+
+.button-square {
+  width: map-get(map-get($button-sizes, md), square-size);
+  height: map-get(map-get($button-sizes, md), square-size);
+}
+
+@each $size, $style in $button-sizes {
+  .button-square.button-#{$size} {
+    width: map-get($style, square-size);
+    height: map-get($style, square-size);
+  }
+}
+
+// Disabled Button
+.dfn-button.disabled,
+.dfn-button:disabled {
+  @include button-style(
+    $button-primary-disabled-background-color,
+    $button-text-color
+  );
+  border: none;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+
+  &:hover {
+    @include button-style(
+      $button-primary-disabled-background-color,
+      $button-text-color
+    );
+  }
+}
+
+@each $variant, $style in $button-variants {
+  .dfn-button.button-#{$variant}.disabled,
+  .dfn-button.button-#{$variant}:disabled {
+    @include button-style(
+      map-get($style, disabled-background-color),
+      $button-text-color
+    );
+    border: none;
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &:hover {
+      @include button-style(
+        map-get($style, disabled-background-color),
+        $button-text-color
+      );
+    }
+  }
+}
+
+// Disabled Outlined Button
+
+.dfn-button.button-outline.disabled,
+.dfn-button.button.button-outline:disabled {
+  @include button-style(
+    transparent,
+    $button-primary-outline-disabled-text-color
+  );
+  border: 1px solid $button-primary-outline-disabled-border-color;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@each $variant, $style in $button-variants {
+  .dfn-button.button-#{$variant}.button-outline.disabled,
+  .dfn-button.button-#{$variant}.button-outline:disabled {
+    @include button-style(
+      transparent,
+      map-get($style, outline-disabled-text-color)
+    );
+    border: 1px solid map-get($style, outline-disabled-border-color);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+// Link Button;
+
+.button-link,
+.dfn-button.button-link {
+  @include button-style(transparent, $button-primary-link-text-color);
+  border: none;
+
+  &:hover {
+    color: $button-primary-link-hover-text-color;
+    background-color: transparent;
+  }
+
+  &:active {
+    color: $button-primary-link-active-text-color;
+  }
+
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@each $variant, $style in $button-variants {
+  .dfn-button.button-#{$variant}.button-link,
+  .button-#{$variant}.button-link {
+    @include button-style(transparent, map-get($style, link-text-color));
+    border: none;
+
+    &:hover {
+      color: map-get($style, link-hover-text-color);
+      background-color: transparent;
+    }
+
+    &:active {
+      color: map-get($style, link-active-text-color);
+    }
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+// <a> Link style
+
+a,
+a .link {
+  color: $button-primary-link-text-color;
+
+  &:hover {
+    color: $link-primary-hover-text-color;
+    cursor: pointer;
+  }
+
+  &:active {
+    color: $link-primary-active-text-color;
+  }
+}

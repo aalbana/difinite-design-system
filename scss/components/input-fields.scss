@@ -1,0 +1,144 @@
+// Mixins
+@mixin input-focus($focus-color) {
+  border: 1px solid $focus-color;
+  outline: 1px solid $focus-color;
+  box-shadow: 0 0 0 4px rgba($focus-color, $opacity-50);
+}
+
+@mixin input-style() {
+  padding: $input-padding;
+  border-radius: $input-border-radius;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-text-color;
+  transition: box-shadow 0.3s;
+  max-width: 100%;
+  background-color: $input-background-color;
+
+  &::placeholder {
+    color: $input-placeholder-text-color;
+  }
+}
+
+@mixin input-validation-style($border-color, $focus-color) {
+  border: 1px solid $border-color;
+
+  &:focus {
+    @include input-focus($focus-color);
+  }
+}
+
+// Components
+.dfn-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+
+  .dfn-label-input {
+    font-size: $input-label-font-size;
+    line-height: $input-label-line-height;
+    color: $input-label-text-color;
+    margin-bottom: $input-label-margin-bottom;
+  }
+
+  .dfn-input {
+    position: relative;
+
+    & > .dfn-input-field,
+    input {
+      @include input-style();
+      @include input-validation-style($input-border-color, $input-focus-color);
+
+      width: 100%;
+      vertical-align: top;
+      
+      &:disabled,
+      &.disabled {
+        background-color: $input-disabled-background-color;
+        color: $input-disabled-text-color;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        + .dfn-icon {
+          color: $input-disabled-text-color;
+        }
+      }
+    }
+
+    &.icon,
+    &.icon.right {
+      & > .dfn-input-field,
+      input {
+        padding-right: 36px;
+      }
+
+      .dfn-icon {
+        color: $neutral-700;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        line-height: 1;
+        align-items: center;
+        right: 12px;
+
+        &.toggle-show-password {
+          cursor: pointer;
+          &:hover {
+            color: $neutral-500;
+          }
+          &:active {
+            color: $neutral-700;
+          }
+        }
+      }
+    }
+    &.icon.left {
+      & > .dfn-input-field,
+      input {
+        padding-left: 36px;
+        padding-right: 12px;
+      }
+
+      .dfn-icon {
+        color: $neutral-700;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        line-height: 1;
+        align-items: center;
+        left: 12px;
+        right: auto;
+      }
+    }
+
+    & > .dfn-textarea,
+    textarea {
+      @include input-style();
+      @include input-validation-style($input-border-color, $input-focus-color);
+      resize: vertical;
+      width: 100%;
+    }
+  }
+}
+
+.dfn-helper-text {
+  font-size: $input-helper-text-font-size;
+  font-weight: $input-helper-text-font-weight;
+  line-height: $input-helper-text-line-height;
+  color: $input-helper-text-color;
+  margin-top: $input-helper-text-top-padding;
+}
+
+.dfn-feedback-invalid {
+  font-size: $input-feedback-text-font-size;
+  font-weight: $input-feedback-text-font-weight;
+  line-height: $input-feedback-text-line-height;
+  color: $input-feedback-text-color;
+  margin-top: $input-helper-text-top-padding;
+}

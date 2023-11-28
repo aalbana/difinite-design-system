@@ -1,0 +1,71 @@
+.dfn-radio {
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+
+    + .dfn-radio-label {
+      display: flex;
+      align-items: center;
+      position: relative;
+      font-size: $radio-button-font-size;
+      font-weight: $radio-button-font-weight;
+      line-height: $radio-button-line-height;
+      color: $radio-button-text-color;
+    }
+
+    + .dfn-radio-label::before {
+      content: '';
+      background: $radio-button-background-color;
+      box-sizing: border-box;
+      border-radius: $radio-button-border-radius;
+      border: 1px solid $radio-button-border-color;
+      display: inline-flex;
+      width: $radio-button-size;
+      height: $radio-button-size;
+      position: relative;
+      margin-right: $radio-button-margin-right;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    + .dfn-radio-label::after {
+      content: '';
+      width: $radio-button-check-size;
+      height: $radio-button-check-size;
+      background-color: transparent;
+      position: absolute;
+      left: $spacing-1;
+      border-radius: $radio-button-check-border-radius;
+      transition: background-color 0.3s ease;
+    }
+
+    &:checked + .dfn-radio-label::before {
+      background-color: $base-white;
+      border: 1px solid $radio-button-checked-border-color;
+    }
+
+    &:checked + .dfn-radio-label::after {
+      background-color: $radio-button-check-color;
+    }
+
+    &:focus + .dfn-radio-label::before {
+      @include input-focus($radio-button-focus-color);
+    }
+
+    &:checked:disabled + .dfn-radio-label::before {
+      border-color: $radio-button-disabled-border-color;
+      background: $radio-button-disabled-background-color;
+    }
+
+    &:checked:disabled + .dfn-radio-label::after {
+      background-color: $radio-button-disabled-check-color;
+    }
+
+    &:disabled + .dfn-radio-label::before {
+      border-color: $radio-button-disabled-border-color;
+      background: $radio-button-disabled-background-color;
+    }
+  }
+}

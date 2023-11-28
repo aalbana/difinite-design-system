@@ -1,0 +1,117 @@
+.select-input-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &:focus-within > .select-input-value {
+    @include input-focus($radio-button-focus-color);
+  }
+
+  &:focus-visible > .select-input-value {
+    outline: none;
+    border: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled > .select-input-value {
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-text-color;
+  }
+}
+
+.select-input-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include input-style();
+  padding-right: 32px;
+  border: 1px solid $select-border-color;
+  cursor: pointer;
+  user-select: none;
+
+  &.custom-placeholder {
+    color: $input-placeholder-text-color;
+  }
+
+  &::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    right: 8px;
+    position: absolute;
+    align-items: center;
+    font-size: $select-icon-size;
+    color: $select-icon-color;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.select-input-options > .hover {
+  background-color: $neutral-100;
+}
+.select-input-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 1px solid $select-options-list-border-color;
+  border-radius: $select-options-list-border-radius;
+  width: 100%;
+  max-height: $select-options-list-max-height;
+  overflow-y: auto;
+  margin: $select-options-list-margin;
+  z-index: 1;
+  box-shadow: $select-options-list-shadow;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.select-input-options.show {
+  display: block;
+}
+
+.select-input-option {
+  background-color: $select-option-background-color;
+  position: relative;
+  padding: $select-option-padding;
+  align-items: center;
+  font-size: $select-input-font-size;
+  font-weight: $select-input-font-weight;
+  line-height: $select-input-line-height;
+  color: $select-option-text-color;
+  cursor: pointer;
+
+  &.selected::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 4px;
+    background-color: $primary-500;
+  }
+
+  &.disabled {
+    color: $select-option-disabled-text-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.select-input-option:hover {
+  background-color: $select-option-hover-background-color;
+}

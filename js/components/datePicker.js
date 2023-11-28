@@ -4,6 +4,7 @@ export default class DatePicker {
     this.datePickerContainer = document.createElement('div')
     this.datePickerHeader = document.createElement('div')
     this.contentContainer = document.createElement('div')
+    this.iconCalendar = document.createElement('i')
     this.dateContent = document.createElement('div')
     this.monthContent = document.createElement('div')
     this.yearContent = document.createElement('div')
@@ -308,8 +309,9 @@ export default class DatePicker {
     this.updateCalendar()
 
     this.yearContent.classList.remove('show')
-    this.dateContent.classList.remove('show')
-    this.monthContent.classList.add('show')
+    this.dateContent.classList.add('show')
+    this.monthContent.classList.remove('show')
+    this.toggleMonthButtons()
 
     this.currentYearElement.textContent = year
 
@@ -337,7 +339,6 @@ export default class DatePicker {
       button.classList.add('datepicker-button', 'show')
       button.addEventListener('click', clickHandler)
       this.datePickerHeader.appendChild(button)
-
       const icon = document.createElement('i')
       icon.classList.add('bi', iconClass)
       button.appendChild(icon)
@@ -377,8 +378,6 @@ export default class DatePicker {
       const selectedYearElement = this.yearContent.querySelector(
         '.datepicker-year-item.selected'
       )
-      console.log(selectedYearElement)
-      // this.yearContent.scrollTop = selectedYearElement.offsetTop
       selectedYearElement.scrollIntoView({ behavior: 'auto', block: 'center' })
     })
   }
@@ -389,6 +388,13 @@ export default class DatePicker {
 }
 
 function setupCustomeElement(datePicker) {
+  const datePickerContainer = datePicker.element.parentNode
+  datePickerContainer.classList.add('icon')
+
+  datePicker.iconCalendar.classList.add('dfn-icon', 'bi', 'bi-calendar')
+  datePicker.element.insertAdjacentElement('afterend', datePicker.iconCalendar)
+
+  datePicker.element.style.cursor = 'pointer'
   datePicker.datePickerContainer.classList.add('datepicker-container')
 
   datePicker.element.addEventListener('click', () => {

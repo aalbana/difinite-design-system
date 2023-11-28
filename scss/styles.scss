@@ -1,0 +1,285 @@
+// Reset CSS
+@import '../css/reset.css';
+
+// Import Tokens
+@import './design-token/border-radius.scss';
+@import './design-token/color.scss';
+@import './design-token/shadow.scss';
+@import './design-token/spacing.scss';
+@import './design-token/typography.scss';
+@import './design-token/sizing.scss';
+
+// Import Components
+@import './components/input-fields.scss';
+@import './components/buttons.scss';
+@import './components/radio-buttons.scss';
+@import './components/checkboxes.scss';
+@import './components/toggles.scss';
+@import './components/selects.scss';
+@import './components/multiple-select.scss';
+@import './components/datepicker.scss';
+
+// Reset border-box
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+// Set Default Font
+body {
+  font-family: $font-family;
+}
+
+// Containers
+$container-max-widths: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  2xl: 1400px,
+);
+
+@mixin container-max-widths($breakpoints...) {
+  @each $breakpoint in $breakpoints {
+    $max-width: map-get($container-max-widths, $breakpoint);
+
+    @if $breakpoint == null {
+      max-width: $max-width;
+    } @else {
+      @media (min-width: $max-width) {
+        max-width: $max-width;
+      }
+    }
+  }
+}
+
+.dfn-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths();
+}
+
+.dfn-container-sm {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths(sm);
+}
+
+.dfn-container-md {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths(md);
+}
+
+.dfn-container-lg {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths(lg);
+}
+
+.dfn-container-xl {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths(xl);
+}
+
+.dfn-container-2xl {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include container-max-widths(2xl);
+}
+// Spacing classes
+
+$spacing-tokens: (
+  0: $spacing-0,
+  0_5: $spacing-0_5,
+  1: $spacing-1,
+  1_5: $spacing-1_5,
+  2: $spacing-2,
+  2_5: $spacing-2_5,
+  3: $spacing-3,
+  3_5: $spacing-3_5,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  7: $spacing-7,
+  8: $spacing-8,
+  9: $spacing-9,
+  10: $spacing-10,
+  11: $spacing-11,
+  12: $spacing-12,
+  14: $spacing-14,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32,
+  40: $spacing-40,
+  48: $spacing-48,
+  56: $spacing-56,
+  60: $spacing-60,
+);
+
+@each $size, $value in $spacing-tokens {
+  .m-#{$size} {
+    margin: $value;
+  }
+
+  .mt-#{$size} {
+    margin-top: $value;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: $value;
+  }
+
+  .mr-#{$size} {
+    margin-right: $value;
+  }
+
+  .ml-#{$size} {
+    margin-left: $value;
+  }
+
+  .mx-#{$size} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .my-#{$size} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+}
+
+@each $size, $value in $spacing-tokens {
+  .p-#{$size} {
+    padding: $value;
+  }
+
+  .pt-#{$size} {
+    padding-top: $value;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: $value;
+  }
+
+  .pr-#{$size} {
+    padding-right: $value;
+  }
+
+  .pl-#{$size} {
+    padding-left: $value;
+  }
+
+  .px-#{$size} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .py-#{$size} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+@each $size, $value in $spacing-tokens {
+  .gap-#{$size} {
+    gap: $value;
+  }
+}
+
+.dfn-check-container,
+.dfn-check-container.vertical {
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin-bottom: $spacing-2;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > * {
+      margin-right: $spacing-4;
+    }
+  }
+}
+
+// Grid System
+$grid-columns: 12;
+$grid-gutter-width: 0;
+
+// Gap utility classes
+@each $size, $value in $spacing-tokens {
+  .gap-#{$size} {
+    gap: $value;
+  }
+}
+
+// Gutter utility classes for Row
+@each $size, $value in $spacing-tokens {
+  .gutter-#{$size}.dfn-row {
+    margin-right: -$value / 2;
+    margin-left: -$value / 2;
+
+    & > * {
+      padding-right: $value / 2;
+      padding-left: $value / 2;
+    }
+  }
+}
+
+// Container
+.dfn-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $grid-gutter-width / 2;
+  padding-left: $grid-gutter-width / 2;
+
+  // Container max widths mixin
+  @include container-max-widths();
+}
+
+// Row
+.dfn-row {
+  margin-right: -$grid-gutter-width / 2;
+  margin-left: -$grid-gutter-width / 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Generic Column
+.dfn-col {
+  flex: 1 0 calc(100% / #{$grid-columns} - #{$grid-gutter-width});
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+}
+
+// Specific Columns
+@for $i from 1 through $grid-columns {
+  .dfn-col-#{$i} {
+    flex: 0 0 auto;
+    width: percentage($i / $grid-columns);
+    max-width: percentage($i / $grid-columns);
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+  }
+}

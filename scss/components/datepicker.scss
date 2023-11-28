@@ -1,0 +1,210 @@
+.datepicker {
+  position: relative;
+  display: flex;
+}
+
+.datepicker::after {
+  content: '\f282';
+  font-family: 'bootstrap-icons';
+  right: 8px;
+  position: absolute;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #262626;
+}
+
+.datepicker-container {
+  position: absolute;
+  background-color: $datepicker-background-color;
+  box-shadow: $datepicker-shadow;
+  border-radius: $datepicker-border-radius;
+  display: none;
+  border: 1px solid $datepicker-border-color;
+  margin-top: $datepicker-container-margin-top;
+  z-index: 1;
+}
+
+.datepicker-container.show {
+  display: block;
+}
+
+.datepicker-day-content.show {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: $datepicker-day-content-padding;
+}
+
+.datepicker-month-content {
+  display: none;
+}
+
+.datepicker-month-content.show {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $datepicker-month-content-gap;
+  min-width: $datepicker-month-content-min-width;
+  padding: $datepicker-month-content-padding;
+}
+
+.datepicker-year-content {
+  display: none;
+}
+
+.datepicker-year-content.show {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $datepicker-year-content-gap;
+  min-width: $datepicker-year-content-min-width;
+  max-height: $datepicker-year-content-max-height;
+  overflow-y: auto;
+  padding: $datepicker-year-content-padding;
+}
+
+.datepicker-month-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $datepicker-month-content-item-width;
+  padding: $datepicker-month-item-padding;
+  font-size: $datepicker-month-item-font-size;
+  line-height: $datepicker-month-item-line-height;
+  font-weight: $datepicker-month-item-font-weight;
+  color: $datepicker-month-item-text-color;
+  cursor: pointer;
+  border-radius: $datepicker-month-item-border-radius;
+
+  &:hover {
+    background-color: $datepicker-month-item-hover-background-color;
+  }
+
+  &.selected {
+    background-color: $datepicker-month-item-selected-background-color;
+    color: $datepicker-month-item-selected-text-color;
+  }
+}
+
+.datepicker-year-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $datepicker-year-content-item-width;
+  padding: $datepicker-year-item-padding;
+  font-size: $datepicker-year-item-font-size;
+  line-height: $datepicker-year-item-line-height;
+  font-weight: $datepicker-year-item-font-weight;
+  color: $datepicker-year-item-text-color;
+  cursor: pointer;
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background-color: $datepicker-year-item-hover-background-color;
+  }
+
+  &.selected {
+    background-color: $datepicker-year-item-selected-background-color;
+    color: $datepicker-year-item-selected-text-color;
+  }
+}
+
+.datepicker-day-content {
+  display: none;
+}
+
+.day-name {
+  display: flex;
+  width: $datepicker-day-name-item-size;
+  height: $datepicker-day-name-item-size;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: $datepicker-day-name-item-font-size;
+  font-weight: $datepicker-day-name-item-font-weight;
+  line-height: $datepicker-day-name-item-line-height;
+  color: $datepicker-day-name-item-text-color;
+}
+
+.datepicker-day-item {
+  display: flex;
+  width: $datepicker-day-item-size;
+  height: $datepicker-day-item-size;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: $datepicker-day-item-font-size;
+  font-weight: $datepicker-day-item-font-weight;
+  line-height: $datepicker-day-item-line-height;
+  color: $datepicker-day-item-text-color;
+  border-radius: $datepicker-day-item-border-radius;
+  cursor: pointer;
+
+  &.date-disabled {
+    color: $datepicker-day-item-disabled-text-color;
+    &:hover {
+      background-color: none;
+      cursor: default;
+    }
+  }
+
+  &:hover {
+    background-color: $datepicker-day-item-hover-text-color;
+  }
+
+  &.selected {
+    background-color: $datepicker-day-item-selected-background-color;
+    color: $datepicker-day-item-selected-text-color;
+  }
+}
+
+.datepicker-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $datepicker-header-height;
+  padding: $datepicker-header-padding;
+}
+
+.current-date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $datepicker-current-date-width;
+}
+
+.current-date {
+  color: $datepicker-current-date-text-color;
+}
+
+.current-month-label,
+.current-year-label {
+  font-size: $datepicker-current-label-font-size;
+  line-height: $datepicker-current-label-line-height;
+  font-weight: $datepicker-current-label-font-weight;
+  color: $datepicker-current-label-text-color;
+  padding: $datepicker-current-label-padding;
+  border-radius: $datepicker-current-label-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $datepicker-current-label-hover-background-color;
+  }
+}
+
+.datepicker-button {
+  display: none;
+}
+
+.datepicker-button.show {
+  display: flex;
+  color: $datepicker-month-button-icon-color;
+  background-color: transparent;
+  border: none;
+  width: $datepicker-month-button-item-size;
+  height: $datepicker-month-button-item-size;
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background-color: $datepicker-month-button-hover-background-color;
+  }
+}

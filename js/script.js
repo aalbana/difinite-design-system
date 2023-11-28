@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Select Script
 import Select from './components/select.js'
 
-const selectElements = document.querySelectorAll('[custom-select]')
+const selectElements = document.querySelectorAll('.dfn-select')
 
 selectElements.forEach((selectElement) => {
   new Select(selectElement)
@@ -33,7 +33,7 @@ selectElements.forEach((selectElement) => {
 import MultipleSelect from './components/multipleSelect.js'
 
 const multipleSelectElements = document.querySelectorAll(
-  '[custom-multiple-select]'
+  '.dfn-multiple-select[multiple]'
 )
 
 multipleSelectElements.forEach((multipleSelectElement) => {
@@ -44,7 +44,7 @@ multipleSelectElements.forEach((multipleSelectElement) => {
 
 import DatePicker from './components/datePicker.js'
 
-const datePickerElements = document.querySelectorAll('[custom-date-picker]')
+const datePickerElements = document.querySelectorAll('.dfn-datepicker')
 datePickerElements.forEach((datePickerElement) => {
   new DatePicker(datePickerElement)
 })

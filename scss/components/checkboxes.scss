@@ -1,0 +1,60 @@
+.dfn-checkbox {
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+
+    + .dfn-checkbox-label {
+      font-size: $checkbox-font-size;
+      font-weight: $checkbox-font-weight;
+      line-height: $checkbox-line-height;
+      color: $checkbox-text-color;
+    }
+
+    + .dfn-checkbox-label::before {
+      content: '';
+      background: $checkbox-background-color;
+      box-sizing: border-box;
+      border-radius: $checkbox-border-radius;
+      border: 1px solid $checkbox-border-color;
+      display: inline-flex;
+      width: $checkbox-button-size;
+      height: $checkbox-button-size;
+      position: relative;
+      margin-right: $checkbox-margin-right;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    &:checked + .dfn-checkbox-label::before {
+      content: '\F272';
+      font-family: 'bootstrap-icons';
+      align-items: center;
+      font-size: $checkbox-icon-size;
+      justify-content: center;
+      color: $base-white;
+      background-color: $checkbox-checked-background-color;
+      border: 1px solid $checkbox-checked-border-color;
+    }
+
+    &:focus + .dfn-checkbox-label::before {
+      @include input-focus($checkbox-checked-border-color);
+    }
+
+    &:checked:disabled + .dfn-checkbox-label::before {
+      font-family: 'bootstrap-icons';
+      align-items: center;
+      font-size: 16px;
+      justify-content: center;
+      color: $checkbox-disabled-color;
+      border-color: $checkbox-disabled-border-color;
+      background: $checkbox-disabled-background-color;
+    }
+
+    &:disabled + .dfn-checkbox-label::before {
+      border-color: $checkbox-disabled-border-color;
+      background: $checkbox-disabled-background-color;
+    }
+  }
+}

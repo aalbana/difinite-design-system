@@ -1,0 +1,71 @@
+.dfn-toggle {
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+
+    + .dfn-toggle-label {
+      position: relative;
+      display: flex;
+      font-size: $font-size-2xs;
+      font-weight: $font-weight-regular;
+      line-height: $line-height-2xs;
+      color: $toggle-text-color;
+      align-items: center;
+    }
+
+    + .dfn-toggle-label::before {
+      content: '';
+      width: $toggle-width-size;
+      height: $toggle-height-size;
+      background-color: $toggle-background-color;
+      border-radius: $toggle-border-radius;
+      margin-right: $toggle-margin-right;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    + .dfn-toggle-label::after {
+      content: '';
+      position: absolute;
+      width: $toggle-circle-size;
+      height: $toggle-circle-size;
+      background-color: $toggle-circle-background-color;
+      border-radius: $toggle-circle-border-radius;
+      left: $spacing-0_5;
+      box-shadow: $toggle-circle-shadow;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    &:checked + .dfn-toggle-label::before {
+      background-color: $toggle-checked-background-color;
+    }
+
+    &:checked + .dfn-toggle-label::after {
+      transform: translateX(100%);
+    }
+
+    &:focus + .dfn-toggle-label::before {
+      @include input-focus($toggle-focus-color);
+    }
+
+    &:disabled + .dfn-toggle-label::after {
+      background-color: $toggle-disabled-circle-color;
+      cursor: default;
+    }
+
+    &:checked:disabled + .dfn-toggle-label::after {
+      background-color: $toggle-disabled-circle-color;
+      cursor: default;
+    }
+
+    &:disabled + .dfn-toggle-label::before {
+      cursor: default;
+    }
+
+    &:checked:disabled + .dfn-toggle-label::before {
+      cursor: default;
+      background-color: $toggle-disabled-background-color;
+    }
+  }
+}

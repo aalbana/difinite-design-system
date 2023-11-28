@@ -1,0 +1,140 @@
+.multiple-select-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &:focus-within > .multiple-select-value {
+    @include input-focus($radio-button-focus-color);
+  }
+
+  &:focus-visible > .multiple-select-value {
+    outline: none;
+    border: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled > .multiple-select-value {
+    background-color: $input-disabled-background-color;
+    color: $input-disabled-text-color;
+  }
+}
+
+.multiple-select-value > .custom-placeholder {
+  color: $input-placeholder-text-color;
+}
+
+.multiple-select-value {
+  display: flex;
+  align-items: center;
+  @include input-style();
+  padding-right: 32px;
+  border: 1px solid $select-border-color;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    right: 8px;
+    position: absolute;
+    align-items: center;
+    font-size: $select-icon-size;
+    color: $select-icon-color;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.option-selected {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 4px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  border: 1px solid $neutral-200;
+  background: $neutral-50;
+  color: $neutral-700;
+  font-size: $font-size-3xs;
+  line-height: $line-height-3xs;
+  max-height: 20px;
+
+  &i {
+    font-size: 10px;
+  }
+
+  &:hover {
+    background-color: $neutral-100;
+    color: $neutral-700;
+  }
+}
+
+.multiple-select-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 1px solid $select-options-list-border-color;
+  border-radius: $select-options-list-border-radius;
+  width: 100%;
+  max-height: $select-options-list-max-height;
+  overflow-y: auto;
+  margin: $select-options-list-margin;
+  z-index: 1;
+  box-shadow: $select-options-list-shadow;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+}
+
+.multiple-select-options.show {
+  display: block;
+}
+
+.multiple-select-option {
+  background-color: $select-option-background-color;
+  position: relative;
+  padding: $select-option-padding;
+  align-items: center;
+  font-size: $select-input-font-size;
+  font-weight: $select-input-font-weight;
+  line-height: $select-input-line-height;
+  color: $select-option-text-color;
+  cursor: pointer;
+
+  &.selected::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 4px;
+    background-color: $primary-500;
+  }
+
+  &.disabled {
+    color: $select-option-disabled-text-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.multiple-select-option:hover {
+  background-color: $select-option-hover-background-color;
+}
