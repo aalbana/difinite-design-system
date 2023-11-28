@@ -194,7 +194,7 @@ $button-variants: (
 }
 
 //Button Outline Style
-.dfn-button.button-outline {
+.dfn-button.outline {
   @include button-style(transparent, $button-primary-outline-text-color);
   border: 1px solid $button-primary-outline-border-color;
 
@@ -226,7 +226,7 @@ $button-variants: (
 }
 
 @each $variant, $style in $button-variants {
-  .dfn-button.button-#{$variant}.button-outline {
+  .dfn-button.#{$variant}.outline {
     @include button-style(transparent, map-get($style, outline-text-color));
     border: 1px solid map-get($style, outline-border-color);
 
@@ -324,8 +324,8 @@ $button-sizes: (
 }
 
 @each $variant, $style in $button-variants {
-  .dfn-button.button-#{$variant}.disabled,
-  .dfn-button.button-#{$variant}:disabled {
+  .dfn-button.#{$variant}.disabled,
+  .dfn-button.#{$variant}:disabled {
     @include button-style(
       map-get($style, disabled-background-color),
       $button-text-color
@@ -345,8 +345,8 @@ $button-sizes: (
 
 // Disabled Outlined Button
 
-.dfn-button.button-outline.disabled,
-.dfn-button.button.button-outline:disabled {
+.dfn-button.outline.disabled,
+.dfn-button.outline:disabled {
   @include button-style(
     transparent,
     $button-primary-outline-disabled-text-color
@@ -357,8 +357,8 @@ $button-sizes: (
 }
 
 @each $variant, $style in $button-variants {
-  .dfn-button.button-#{$variant}.button-outline.disabled,
-  .dfn-button.button-#{$variant}.button-outline:disabled {
+  .dfn-button.#{$variant}.outline.disabled,
+  .dfn-button.#{$variant}.outline:disabled {
     @include button-style(
       transparent,
       map-get($style, outline-disabled-text-color)
@@ -392,8 +392,8 @@ $button-sizes: (
 }
 
 @each $variant, $style in $button-variants {
-  .dfn-button.button-#{$variant}.button-link,
-  .button-#{$variant}.button-link {
+  .dfn-button.#{$variant}.button-link,
+  .#{$variant}.button-link {
     @include button-style(transparent, map-get($style, link-text-color));
     border: none;
 

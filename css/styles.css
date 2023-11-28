@@ -254,170 +254,170 @@ i {
   box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.5);
 }
 
-.dfn-button.button-outline {
+.dfn-button.outline {
   background-color: transparent;
   color: #99CA45;
   border: 1px solid #99CA45;
 }
-.dfn-button.button-outline:hover {
+.dfn-button.outline:hover {
   background-color: #7AA237;
   color: #FFFFFF;
   border: 1px solid #7AA237;
 }
-.dfn-button.button-outline:hover i,
-.dfn-button.button-outline:hover svg {
+.dfn-button.outline:hover i,
+.dfn-button.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-outline:active {
+.dfn-button.outline:active {
   background-color: #5C7929;
   color: #FFFFFF;
 }
-.dfn-button.button-outline:focus-visible {
+.dfn-button.outline:focus-visible {
   outline: 1px #99CA45;
   box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
 }
-.dfn-button.button-outline i,
-.dfn-button.button-outline svg {
+.dfn-button.outline i,
+.dfn-button.outline svg {
   color: #99CA45;
   font-size: 1rem;
 }
 
-.dfn-button.button-primary.button-outline {
+.dfn-button.primary.outline {
   background-color: transparent;
   color: #99CA45;
   border: 1px solid #99CA45;
 }
-.dfn-button.button-primary.button-outline:hover {
+.dfn-button.primary.outline:hover {
   background-color: #7AA237;
   color: #FFFFFF;
   border: 1px solid #7AA237;
 }
-.dfn-button.button-primary.button-outline:hover i,
-.dfn-button.button-primary.button-outline:hover svg {
+.dfn-button.primary.outline:hover i,
+.dfn-button.primary.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-primary.button-outline:active {
+.dfn-button.primary.outline:active {
   background-color: #5C7929;
   color: #FFFFFF;
 }
-.dfn-button.button-primary.button-outline:focus-visible {
+.dfn-button.primary.outline:focus-visible {
   outline: 1px #99CA45;
   box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
 }
-.dfn-button.button-primary.button-outline i,
-.dfn-button.button-primary.button-outline svg {
+.dfn-button.primary.outline i,
+.dfn-button.primary.outline svg {
   color: #99CA45;
   font-size: 1rem;
 }
 
-.dfn-button.button-secondary.button-outline {
+.dfn-button.secondary.outline {
   background-color: transparent;
   color: #334155;
   border: 1px solid #334155;
 }
-.dfn-button.button-secondary.button-outline:hover {
+.dfn-button.secondary.outline:hover {
   background-color: #1E293B;
   color: #FFFFFF;
   border: 1px solid #1E293B;
 }
-.dfn-button.button-secondary.button-outline:hover i,
-.dfn-button.button-secondary.button-outline:hover svg {
+.dfn-button.secondary.outline:hover i,
+.dfn-button.secondary.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-secondary.button-outline:active {
+.dfn-button.secondary.outline:active {
   background-color: #262626;
   color: #FFFFFF;
 }
-.dfn-button.button-secondary.button-outline:focus-visible {
+.dfn-button.secondary.outline:focus-visible {
   outline: 1px #334155;
   box-shadow: 0px 0px 0px 4px rgba(51, 65, 85, 0.5);
 }
-.dfn-button.button-secondary.button-outline i,
-.dfn-button.button-secondary.button-outline svg {
+.dfn-button.secondary.outline i,
+.dfn-button.secondary.outline svg {
   color: #334155;
   font-size: 1rem;
 }
 
-.dfn-button.button-success.button-outline {
+.dfn-button.success.outline {
   background-color: transparent;
   color: #99CA45;
   border: 1px solid #99CA45;
 }
-.dfn-button.button-success.button-outline:hover {
+.dfn-button.success.outline:hover {
   background-color: #7AA237;
   color: #FFFFFF;
   border: 1px solid #7AA237;
 }
-.dfn-button.button-success.button-outline:hover i,
-.dfn-button.button-success.button-outline:hover svg {
+.dfn-button.success.outline:hover i,
+.dfn-button.success.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-success.button-outline:active {
+.dfn-button.success.outline:active {
   background-color: #5C7929;
   color: #FFFFFF;
 }
-.dfn-button.button-success.button-outline:focus-visible {
+.dfn-button.success.outline:focus-visible {
   outline: 1px #99CA45;
   box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
 }
-.dfn-button.button-success.button-outline i,
-.dfn-button.button-success.button-outline svg {
+.dfn-button.success.outline i,
+.dfn-button.success.outline svg {
   color: #99CA45;
   font-size: 1rem;
 }
 
-.dfn-button.button-warning.button-outline {
+.dfn-button.warning.outline {
   background-color: transparent;
   color: #FDA712;
   border: 1px solid #FDA712;
 }
-.dfn-button.button-warning.button-outline:hover {
+.dfn-button.warning.outline:hover {
   background-color: #F79009;
   color: #FFFFFF;
   border: 1px solid #F79009;
 }
-.dfn-button.button-warning.button-outline:hover i,
-.dfn-button.button-warning.button-outline:hover svg {
+.dfn-button.warning.outline:hover i,
+.dfn-button.warning.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-warning.button-outline:active {
+.dfn-button.warning.outline:active {
   background-color: #C56A09;
   color: #FFFFFF;
 }
-.dfn-button.button-warning.button-outline:focus-visible {
+.dfn-button.warning.outline:focus-visible {
   outline: 1px #FDA712;
   box-shadow: 0px 0px 0px 4px rgba(253, 167, 18, 0.5);
 }
-.dfn-button.button-warning.button-outline i,
-.dfn-button.button-warning.button-outline svg {
+.dfn-button.warning.outline i,
+.dfn-button.warning.outline svg {
   color: #FDA712;
   font-size: 1rem;
 }
 
-.dfn-button.button-danger.button-outline {
+.dfn-button.danger.outline {
   background-color: transparent;
   color: #F04438;
   border: 1px solid #F04438;
 }
-.dfn-button.button-danger.button-outline:hover {
+.dfn-button.danger.outline:hover {
   background-color: #DE3024;
   color: #FFFFFF;
   border: 1px solid #DE3024;
 }
-.dfn-button.button-danger.button-outline:hover i,
-.dfn-button.button-danger.button-outline:hover svg {
+.dfn-button.danger.outline:hover i,
+.dfn-button.danger.outline:hover svg {
   color: #FFFFFF;
 }
-.dfn-button.button-danger.button-outline:active {
+.dfn-button.danger.outline:active {
   background-color: #BB241A;
   color: #FFFFFF;
 }
-.dfn-button.button-danger.button-outline:focus-visible {
+.dfn-button.danger.outline:focus-visible {
   outline: 1px #F04438;
   box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.5);
 }
-.dfn-button.button-danger.button-outline i,
-.dfn-button.button-danger.button-outline svg {
+.dfn-button.danger.outline i,
+.dfn-button.danger.outline svg {
   color: #F04438;
   font-size: 1rem;
 }
@@ -477,78 +477,78 @@ i {
   color: #FFFFFF;
 }
 
-.dfn-button.button-primary.disabled,
-.dfn-button.button-primary:disabled {
+.dfn-button.primary.disabled,
+.dfn-button.primary:disabled {
   background-color: #CCE5A2;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.dfn-button.button-primary.disabled:hover,
-.dfn-button.button-primary:disabled:hover {
+.dfn-button.primary.disabled:hover,
+.dfn-button.primary:disabled:hover {
   background-color: #CCE5A2;
   color: #FFFFFF;
 }
 
-.dfn-button.button-secondary.disabled,
-.dfn-button.button-secondary:disabled {
+.dfn-button.secondary.disabled,
+.dfn-button.secondary:disabled {
   background-color: #E2E8F0;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.dfn-button.button-secondary.disabled:hover,
-.dfn-button.button-secondary:disabled:hover {
+.dfn-button.secondary.disabled:hover,
+.dfn-button.secondary:disabled:hover {
   background-color: #E2E8F0;
   color: #FFFFFF;
 }
 
-.dfn-button.button-success.disabled,
-.dfn-button.button-success:disabled {
+.dfn-button.success.disabled,
+.dfn-button.success:disabled {
   background-color: #CCE5A2;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.dfn-button.button-success.disabled:hover,
-.dfn-button.button-success:disabled:hover {
+.dfn-button.success.disabled:hover,
+.dfn-button.success:disabled:hover {
   background-color: #CCE5A2;
   color: #FFFFFF;
 }
 
-.dfn-button.button-warning.disabled,
-.dfn-button.button-warning:disabled {
+.dfn-button.warning.disabled,
+.dfn-button.warning:disabled {
   background-color: #FFEBA8;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.dfn-button.button-warning.disabled:hover,
-.dfn-button.button-warning:disabled:hover {
+.dfn-button.warning.disabled:hover,
+.dfn-button.warning:disabled:hover {
   background-color: #FFEBA8;
   color: #FFFFFF;
 }
 
-.dfn-button.button-danger.disabled,
-.dfn-button.button-danger:disabled {
+.dfn-button.danger.disabled,
+.dfn-button.danger:disabled {
   background-color: #FFCDC9;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
   box-shadow: none;
 }
-.dfn-button.button-danger.disabled:hover,
-.dfn-button.button-danger:disabled:hover {
+.dfn-button.danger.disabled:hover,
+.dfn-button.danger:disabled:hover {
   background-color: #FFCDC9;
   color: #FFFFFF;
 }
 
-.dfn-button.button-outline.disabled,
-.dfn-button.button.button-outline:disabled {
+.dfn-button.outline.disabled,
+.dfn-button.outline:disabled {
   background-color: transparent;
   color: #CCE5A2;
   border: 1px solid #CCE5A2;
@@ -556,8 +556,8 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-primary.button-outline.disabled,
-.dfn-button.button-primary.button-outline:disabled {
+.dfn-button.primary.outline.disabled,
+.dfn-button.primary.outline:disabled {
   background-color: transparent;
   color: #CCE5A2;
   border: 1px solid #CCE5A2;
@@ -565,8 +565,8 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-secondary.button-outline.disabled,
-.dfn-button.button-secondary.button-outline:disabled {
+.dfn-button.secondary.outline.disabled,
+.dfn-button.secondary.outline:disabled {
   background-color: transparent;
   color: #E2E8F0;
   border: 1px solid #E2E8F0;
@@ -574,8 +574,8 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-success.button-outline.disabled,
-.dfn-button.button-success.button-outline:disabled {
+.dfn-button.success.outline.disabled,
+.dfn-button.success.outline:disabled {
   background-color: transparent;
   color: #CCE5A2;
   border: 1px solid #CCE5A2;
@@ -583,8 +583,8 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-warning.button-outline.disabled,
-.dfn-button.button-warning.button-outline:disabled {
+.dfn-button.warning.outline.disabled,
+.dfn-button.warning.outline:disabled {
   background-color: transparent;
   color: #FFEBA8;
   border: 1px solid #FFEBA8;
@@ -592,8 +592,8 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-danger.button-outline.disabled,
-.dfn-button.button-danger.button-outline:disabled {
+.dfn-button.danger.outline.disabled,
+.dfn-button.danger.outline:disabled {
   background-color: transparent;
   color: #FFCDC9;
   border: 1px solid #FFCDC9;
@@ -622,107 +622,107 @@ i {
   box-shadow: none;
 }
 
-.dfn-button.button-primary.button-link,
-.button-primary.button-link {
+.dfn-button.primary.button-link,
+.primary.button-link {
   background-color: transparent;
   color: #99CA45;
   border: none;
 }
-.dfn-button.button-primary.button-link:hover,
-.button-primary.button-link:hover {
+.dfn-button.primary.button-link:hover,
+.primary.button-link:hover {
   color: #7AA237;
   background-color: transparent;
 }
-.dfn-button.button-primary.button-link:active,
-.button-primary.button-link:active {
+.dfn-button.primary.button-link:active,
+.primary.button-link:active {
   color: #5C7929;
 }
-.dfn-button.button-primary.button-link:focus,
-.button-primary.button-link:focus {
+.dfn-button.primary.button-link:focus,
+.primary.button-link:focus {
   border: none;
   box-shadow: none;
 }
 
-.dfn-button.button-secondary.button-link,
-.button-secondary.button-link {
+.dfn-button.secondary.button-link,
+.secondary.button-link {
   background-color: transparent;
   color: #334155;
   border: none;
 }
-.dfn-button.button-secondary.button-link:hover,
-.button-secondary.button-link:hover {
+.dfn-button.secondary.button-link:hover,
+.secondary.button-link:hover {
   color: #1E293B;
   background-color: transparent;
 }
-.dfn-button.button-secondary.button-link:active,
-.button-secondary.button-link:active {
+.dfn-button.secondary.button-link:active,
+.secondary.button-link:active {
   color: #262626;
 }
-.dfn-button.button-secondary.button-link:focus,
-.button-secondary.button-link:focus {
+.dfn-button.secondary.button-link:focus,
+.secondary.button-link:focus {
   border: none;
   box-shadow: none;
 }
 
-.dfn-button.button-success.button-link,
-.button-success.button-link {
+.dfn-button.success.button-link,
+.success.button-link {
   background-color: transparent;
   color: #99CA45;
   border: none;
 }
-.dfn-button.button-success.button-link:hover,
-.button-success.button-link:hover {
+.dfn-button.success.button-link:hover,
+.success.button-link:hover {
   color: #7AA237;
   background-color: transparent;
 }
-.dfn-button.button-success.button-link:active,
-.button-success.button-link:active {
+.dfn-button.success.button-link:active,
+.success.button-link:active {
   color: #5C7929;
 }
-.dfn-button.button-success.button-link:focus,
-.button-success.button-link:focus {
+.dfn-button.success.button-link:focus,
+.success.button-link:focus {
   border: none;
   box-shadow: none;
 }
 
-.dfn-button.button-warning.button-link,
-.button-warning.button-link {
+.dfn-button.warning.button-link,
+.warning.button-link {
   background-color: transparent;
   color: #FDA712;
   border: none;
 }
-.dfn-button.button-warning.button-link:hover,
-.button-warning.button-link:hover {
+.dfn-button.warning.button-link:hover,
+.warning.button-link:hover {
   color: #F79009;
   background-color: transparent;
 }
-.dfn-button.button-warning.button-link:active,
-.button-warning.button-link:active {
+.dfn-button.warning.button-link:active,
+.warning.button-link:active {
   color: #C56A09;
 }
-.dfn-button.button-warning.button-link:focus,
-.button-warning.button-link:focus {
+.dfn-button.warning.button-link:focus,
+.warning.button-link:focus {
   border: none;
   box-shadow: none;
 }
 
-.dfn-button.button-danger.button-link,
-.button-danger.button-link {
+.dfn-button.danger.button-link,
+.danger.button-link {
   background-color: transparent;
   color: #F04438;
   border: none;
 }
-.dfn-button.button-danger.button-link:hover,
-.button-danger.button-link:hover {
+.dfn-button.danger.button-link:hover,
+.danger.button-link:hover {
   color: #DE3024;
   background-color: transparent;
 }
-.dfn-button.button-danger.button-link:active,
-.button-danger.button-link:active {
+.dfn-button.danger.button-link:active,
+.danger.button-link:active {
   color: #BB241A;
 }
-.dfn-button.button-danger.button-link:focus,
-.button-danger.button-link:focus {
+.dfn-button.danger.button-link:focus,
+.danger.button-link:focus {
   border: none;
   box-shadow: none;
 }
