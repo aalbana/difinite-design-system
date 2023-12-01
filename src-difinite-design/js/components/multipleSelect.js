@@ -7,7 +7,9 @@ export default class MultipleSelect {
     this.optionsCustomElement = document.createElement('ul')
     this.customPlaceholder = element.getAttribute('data-placeholder')
     this.placeholderElement = document.createElement('span')
+
     setupCustomElement(this)
+
     if (element.disabled) {
       this.customElement.classList.add('disabled')
       this.customElement.removeAttribute('tabIndex')
@@ -18,6 +20,57 @@ export default class MultipleSelect {
 
   get selectedOptions() {
     return this.options.filter((option) => option.selected)
+  }
+  get selectedOptionIndex() {
+    return this.options.indexOf(this.selectedOption)
+  }
+
+  get focusedOption() {
+    const focusElement = this.optionsCustomElement.querySelector('.focus')
+    if (focusElement) {
+      const dataValue = focusElement.getAttribute('data-value')
+      return this.options.find((option) => option.value === dataValue)
+    }
+    return null
+  }
+
+  get focusedOptionIndex() {
+    const focusedOption = this.focusedOption
+    return focusedOption ? this.options.indexOf(focusedOption) : -1
+  }
+
+  get firstEnabledOption() {
+    for (let i = 0; i < this.options.length; i++) {
+      if (!this.options[i].disabled) {
+        return this.options[i]
+      }
+    }
+    return null
+  }
+
+  focusValue(value) {
+    const newFocusedOption = this.options.find(
+      (option) => option.value === value
+    )
+
+    const prevFocusedOption =
+      this.focusedOption || this.selectedOption || this.firstEnabledOption
+
+    if (prevFocusedOption) {
+      const prevFocusElement = this.optionsCustomElement.querySelector(
+        `[data-value="${prevFocusedOption.value}"]`
+      )
+
+      if (newFocusedOption) {
+        const newFocusElement = this.optionsCustomElement.querySelector(
+          `[data-value="${newFocusedOption.value}"]`
+        )
+
+        prevFocusElement.classList.remove('focus')
+        newFocusElement.classList.add('focus')
+        newFocusElement.scrollIntoView({ block: 'nearest' })
+      }
+    }
   }
 
   selectOption(value) {
@@ -99,8 +152,9 @@ function setupCustomElement(multipleSelect) {
   multipleSelect.selectedList.append(multipleSelect.placeholderElement)
 
   if (multipleSelect.selectedOptions.length === 0) {
-    if(multipleSelect.customPlaceholder){
-      multipleSelect.placeholderElement.innerText = multipleSelect.customPlaceholder
+    if (multipleSelect.customPlaceholder) {
+      multipleSelect.placeholderElement.innerText =
+        multipleSelect.customPlaceholder
     } else {
       multipleSelect.placeholderElement.innerText = 'Select option'
     }
@@ -145,14 +199,96 @@ function setupCustomElement(multipleSelect) {
 
   multipleSelect.customElement.addEventListener('blur', () => {
     multipleSelect.optionsCustomElement.classList.remove('show')
-  })
-
-  multipleSelect.customElement.addEventListener('keydown', event => {
-    switch (event.code) {
-      case 'Space':
-        multipleSelect.optionsCustomElement.classList.toggle('show')
+    const focusElement =
+      multipleSelect.optionsCustomElement.querySelector('.focus')
+    if (focusElement) {
+      focusElement.classList.remove('focus')
     }
   })
+
+  let debounceTimeout
+  let searchTerm = ''
+
+  multipleSelect.customElement.addEventListener('keydown', (e) => {
+    switch (e.code) {
+      case 'Space':
+        multipleSelect.optionsCustomElement.classList.toggle('show')
+        break
+      case 'ArrowUp': {
+        e.preventDefault()
+
+        const prevOption = multipleSelect.findPreviousEnabledOption()
+
+        if (prevOption) {
+          multipleSelect.focusValue(prevOption.value)
+        }
+        break
+      }
+      case 'ArrowDown': {
+        e.preventDefault()
+
+        const nextOption = multipleSelect.findNextEnabledOption()
+
+        if (nextOption) {
+          multipleSelect.focusValue(nextOption.value)
+        }
+        break
+      }
+      case 'Escape':
+        multipleSelect.optionsCustomElement.classList.remove('show')
+        break
+
+      case 'Enter':
+        if (multipleSelect.focusedOption.selected) {
+          multipleSelect.removeSelectedOptionElement(
+            multipleSelect.focusedOption.value
+          )
+          multipleSelect.unSelectOption(multipleSelect.focusedOption.value)
+        } else {
+          multipleSelect.selectOption(multipleSelect.focusedOption.value)
+          multipleSelect.createSelectedOptionElement(
+            multipleSelect.focusedOption.value
+          )
+        }
+        break
+
+      default: {
+        clearTimeout(debounceTimeout)
+        searchTerm += e.key
+        debounceTimeout = setTimeout(() => {
+          searchTerm = ''
+        }, 500)
+
+        const searchedOption = multipleSelect.options.find((option) => {
+          return option.label.toLowerCase().startsWith(searchTerm)
+        })
+        if (searchedOption) {
+          multipleSelect.selectOption(searchedOption.value)
+        }
+      }
+    }
+  })
+  multipleSelect.findPreviousEnabledOption = () => {
+    for (let i = multipleSelect.focusedOptionIndex - 1; i >= 0; i--) {
+      if (!multipleSelect.options[i].disabled) {
+        return multipleSelect.options[i]
+      }
+    }
+    return null
+  }
+
+  multipleSelect.findNextEnabledOption = () => {
+    for (
+      let i = multipleSelect.focusedOptionIndex + 1;
+      i < multipleSelect.options.length;
+      i++
+    ) {
+      if (!multipleSelect.options[i].disabled) {
+        return multipleSelect.options[i]
+      }
+    }
+    return null
+  }
 }
 
 function getFormattedOptions(optionElements) {

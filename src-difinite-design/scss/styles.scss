@@ -234,12 +234,12 @@ $grid-gutter-width: 0;
 // Gutter utility classes for Row
 @each $size, $value in $spacing-tokens {
   .gutter-#{$size}.dfn-row {
-    margin-right: -$value / 2;
-    margin-left: -$value / 2;
+    margin-right: calc($value / -2);
+    margin-left: calc($value / -2);
 
     & > * {
-      padding-right: $value / 2;
-      padding-left: $value / 2;
+      padding-right: calc($value / 2);
+      padding-left: calc($value / 2);
     }
   }
 }
@@ -249,8 +249,8 @@ $grid-gutter-width: 0;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: $grid-gutter-width / 2;
-  padding-left: $grid-gutter-width / 2;
+  padding-right: calc($grid-gutter-width / 2);
+  padding-left: calc($grid-gutter-width / 2);
 
   // Container max widths mixin
   @include container-max-widths();
@@ -258,8 +258,8 @@ $grid-gutter-width: 0;
 
 // Row
 .dfn-row {
-  margin-right: -$grid-gutter-width / 2;
-  margin-left: -$grid-gutter-width / 2;
+  margin-right: calc($grid-gutter-width / -2);
+  margin-left: calc($grid-gutter-width / -2);
   display: flex;
   flex-wrap: wrap;
 }
@@ -270,17 +270,17 @@ $grid-gutter-width: 0;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  padding-left: $grid-gutter-width / 2;
-  padding-right: $grid-gutter-width / 2;
+  padding-left: calc($grid-gutter-width / 2);
+  padding-right: calc($grid-gutter-width / 2);
 }
 
 // Specific Columns
 @for $i from 1 through $grid-columns {
   .dfn-col-#{$i} {
     flex: 0 0 auto;
-    width: percentage($i / $grid-columns);
-    max-width: percentage($i / $grid-columns);
-    padding-right: $grid-gutter-width / 2;
-    padding-left: $grid-gutter-width / 2;
+    width: calc($i / $grid-columns*100%);
+    max-width: calc($i / $grid-columns*100%);
+    padding-right: calc($grid-gutter-width / 2);
+    padding-left: calc($grid-gutter-width / 2);
   }
 }

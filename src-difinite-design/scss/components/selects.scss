@@ -1,13 +1,13 @@
-.multiple-select-container {
+.select-input-container {
   display: inline-block;
   position: relative;
   width: 100%;
 
-  &:focus-within > .multiple-select-value {
+  &:focus-within > .select-input-value {
     @include input-focus($radio-button-focus-color);
   }
 
-  &:focus-visible > .multiple-select-value {
+  &:focus-visible > .select-input-value {
     outline: none;
     border: none;
   }
@@ -21,27 +21,25 @@
     }
   }
 
-  &.disabled > .multiple-select-value {
+  &.disabled > .select-input-value {
     background-color: $input-disabled-background-color;
     color: $input-disabled-text-color;
   }
 }
 
-.multiple-select-value > .custom-placeholder {
-  color: $input-placeholder-text-color;
-}
-
-.multiple-select-value {
+.select-input-value {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   @include input-style();
   padding-right: 32px;
   border: 1px solid $select-border-color;
   cursor: pointer;
   user-select: none;
-  position: relative;
-  gap: 8px;
-  flex-wrap: wrap;
+
+  &.custom-placeholder {
+    color: $input-placeholder-text-color;
+  }
 
   &::after {
     content: '\F282';
@@ -59,31 +57,7 @@
   }
 }
 
-.option-selected {
-  box-sizing: border-box;
-  display: flex;
-  padding: 2px 4px;
-  align-items: center;
-  gap: 8px;
-  border-radius: 2px;
-  border: 1px solid $neutral-200;
-  background: $neutral-50;
-  color: $neutral-700;
-  font-size: $font-size-3xs;
-  line-height: $line-height-3xs;
-  max-height: 20px;
-
-  &i {
-    font-size: 10px;
-  }
-
-  &:hover {
-    background-color: $neutral-100;
-    color: $neutral-700;
-  }
-}
-
-.multiple-select-options {
+.select-input-options {
   display: none;
   position: absolute;
   padding: 0;
@@ -103,11 +77,11 @@
   }
 }
 
-.multiple-select-options.show {
+.select-input-options.show {
   display: block;
 }
 
-.multiple-select-option {
+.select-input-option {
   background-color: $select-option-background-color;
   position: relative;
   padding: $select-option-padding;
@@ -133,8 +107,16 @@
     cursor: not-allowed;
     pointer-events: none;
   }
+
+  &.hover {
+    background-color: $neutral-100;
+  }
+
+  &.focus {
+    background-color: $neutral-200;
+  }
 }
 
-.multiple-select-option:hover {
+.select-input-option:hover {
   background-color: $select-option-hover-background-color;
 }

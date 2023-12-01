@@ -30,9 +30,9 @@
   color: #94A3B8;
 }
 .dfn-input-container .dfn-input > .dfn-input-field:focus {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-input-container .dfn-input > .dfn-input-field:invalid, .dfn-input-container .dfn-input > .dfn-input-field.invalid {
   border: 1px solid #F04438;
@@ -121,9 +121,9 @@
 }
 .dfn-input-container .dfn-input > .dfn-textarea:focus,
 .dfn-input-container .dfn-input textarea:focus {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 
 .dfn-helper-text {
@@ -164,35 +164,35 @@ i {
 }
 
 .dfn-button {
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
   border: none;
 }
 .dfn-button:hover {
-  background-color: #7AA237;
+  background-color: #2E69AD;
 }
 .dfn-button:active {
-  background-color: #5C7929;
+  background-color: #295C97;
 }
 .dfn-button:focus-visible {
-  outline: 1px #99CA45;
-  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+  outline: 1px #3A83D8;
+  box-shadow: 0px 0px 0px 4px rgba(58, 131, 216, 0.5);
 }
 
 .dfn-button.primary {
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
   border: none;
 }
 .dfn-button.primary:hover {
-  background-color: #7AA237;
+  background-color: #2E69AD;
 }
 .dfn-button.primary:active {
-  background-color: #5C7929;
+  background-color: #295C97;
 }
 .dfn-button.primary:focus-visible {
-  outline: 1px #99CA45;
-  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+  outline: 1px #3A83D8;
+  box-shadow: 0px 0px 0px 4px rgba(58, 131, 216, 0.5);
 }
 
 .dfn-button.secondary {
@@ -261,57 +261,57 @@ i {
 
 .dfn-button.outline {
   background-color: transparent;
-  color: #99CA45;
-  border: 1px solid #99CA45;
+  color: #3A83D8;
+  border: 1px solid #3A83D8;
 }
 .dfn-button.outline:hover {
-  background-color: #7AA237;
+  background-color: #2E69AD;
   color: #FFFFFF;
-  border: 1px solid #7AA237;
+  border: 1px solid #2E69AD;
 }
 .dfn-button.outline:hover i,
 .dfn-button.outline:hover svg {
   color: #FFFFFF;
 }
 .dfn-button.outline:active {
-  background-color: #5C7929;
+  background-color: #295C97;
   color: #FFFFFF;
 }
 .dfn-button.outline:focus-visible {
-  outline: 1px #99CA45;
-  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+  outline: 1px #3A83D8;
+  box-shadow: 0px 0px 0px 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-button.outline i,
 .dfn-button.outline svg {
-  color: #99CA45;
+  color: #3A83D8;
   font-size: 1rem;
 }
 
 .dfn-button.primary.outline {
   background-color: transparent;
-  color: #99CA45;
-  border: 1px solid #99CA45;
+  color: #3A83D8;
+  border: 1px solid #3A83D8;
 }
 .dfn-button.primary.outline:hover {
-  background-color: #7AA237;
+  background-color: #2E69AD;
   color: #FFFFFF;
-  border: 1px solid #7AA237;
+  border: 1px solid #2E69AD;
 }
 .dfn-button.primary.outline:hover i,
 .dfn-button.primary.outline:hover svg {
   color: #FFFFFF;
 }
 .dfn-button.primary.outline:active {
-  background-color: #5C7929;
+  background-color: #295C97;
   color: #FFFFFF;
 }
 .dfn-button.primary.outline:focus-visible {
-  outline: 1px #99CA45;
-  box-shadow: 0px 0px 0px 4px rgba(153, 202, 69, 0.5);
+  outline: 1px #3A83D8;
+  box-shadow: 0px 0px 0px 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-button.primary.outline i,
 .dfn-button.primary.outline svg {
-  color: #99CA45;
+  color: #3A83D8;
   font-size: 1rem;
 }
 
@@ -469,7 +469,7 @@ i {
 
 .dfn-button.disabled,
 .dfn-button:disabled {
-  background-color: #CCE5A2;
+  background-color: #B0CDEF;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
@@ -478,13 +478,13 @@ i {
 }
 .dfn-button.disabled:hover,
 .dfn-button:disabled:hover {
-  background-color: #CCE5A2;
+  background-color: #B0CDEF;
   color: #FFFFFF;
 }
 
 .dfn-button.primary.disabled,
 .dfn-button.primary:disabled {
-  background-color: #CCE5A2;
+  background-color: #B0CDEF;
   color: #FFFFFF;
   border: none;
   cursor: not-allowed;
@@ -492,7 +492,7 @@ i {
 }
 .dfn-button.primary.disabled:hover,
 .dfn-button.primary:disabled:hover {
-  background-color: #CCE5A2;
+  background-color: #B0CDEF;
   color: #FFFFFF;
 }
 
@@ -555,8 +555,8 @@ i {
 .dfn-button.outline.disabled,
 .dfn-button.outline:disabled {
   background-color: transparent;
-  color: #CCE5A2;
-  border: 1px solid #CCE5A2;
+  color: #B0CDEF;
+  border: 1px solid #B0CDEF;
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -564,8 +564,8 @@ i {
 .dfn-button.primary.outline.disabled,
 .dfn-button.primary.outline:disabled {
   background-color: transparent;
-  color: #CCE5A2;
-  border: 1px solid #CCE5A2;
+  color: #B0CDEF;
+  border: 1px solid #B0CDEF;
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -609,17 +609,17 @@ i {
 .button-link,
 .dfn-button.button-link {
   background-color: transparent;
-  color: #99CA45;
+  color: #3A83D8;
   border: none;
 }
 .button-link:hover,
 .dfn-button.button-link:hover {
-  color: #7AA237;
+  color: #2E69AD;
   background-color: transparent;
 }
 .button-link:active,
 .dfn-button.button-link:active {
-  color: #5C7929;
+  color: #295C97;
 }
 .button-link:focus,
 .dfn-button.button-link:focus {
@@ -630,17 +630,17 @@ i {
 .dfn-button.primary.button-link,
 .primary.button-link {
   background-color: transparent;
-  color: #99CA45;
+  color: #3A83D8;
   border: none;
 }
 .dfn-button.primary.button-link:hover,
 .primary.button-link:hover {
-  color: #7AA237;
+  color: #2E69AD;
   background-color: transparent;
 }
 .dfn-button.primary.button-link:active,
 .primary.button-link:active {
-  color: #5C7929;
+  color: #295C97;
 }
 .dfn-button.primary.button-link:focus,
 .primary.button-link:focus {
@@ -734,16 +734,16 @@ i {
 
 a,
 a .link {
-  color: #99CA45;
+  color: #3A83D8;
 }
 a:hover,
 a .link:hover {
-  color: #7AA237;
+  color: #2E69AD;
   cursor: pointer;
 }
 a:active,
 a .link:active {
-  color: #5C7929;
+  color: #295C97;
 }
 
 .dfn-radio input[type=radio] {
@@ -787,15 +787,15 @@ a .link:active {
 }
 .dfn-radio input[type=radio]:checked + .dfn-radio-label::before {
   background-color: #FFFFFF;
-  border: 1px solid #99CA45;
+  border: 1px solid #3A83D8;
 }
 .dfn-radio input[type=radio]:checked + .dfn-radio-label::after {
-  background-color: #99CA45;
+  background-color: #3A83D8;
 }
 .dfn-radio input[type=radio]:focus + .dfn-radio-label::before {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-radio input[type=radio]:checked:disabled + .dfn-radio-label::before {
   border-color: #CBD5E1;
@@ -842,13 +842,13 @@ a .link:active {
   font-size: 1rem;
   justify-content: center;
   color: #FFFFFF;
-  background-color: #99CA45;
-  border: 1px solid #99CA45;
+  background-color: #3A83D8;
+  border: 1px solid #3A83D8;
 }
 .dfn-checkbox input[type=checkbox]:focus + .dfn-checkbox-label::before {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-checkbox input[type=checkbox]:checked:disabled + .dfn-checkbox-label::before {
   font-family: "bootstrap-icons";
@@ -900,15 +900,15 @@ a .link:active {
   cursor: pointer;
 }
 .dfn-toggle input[type=checkbox]:checked + .dfn-toggle-label::before {
-  background-color: #99CA45;
+  background-color: #3A83D8;
 }
 .dfn-toggle input[type=checkbox]:checked + .dfn-toggle-label::after {
   transform: translateX(100%);
 }
 .dfn-toggle input[type=checkbox]:focus + .dfn-toggle-label::before {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .dfn-toggle input[type=checkbox]:disabled + .dfn-toggle-label::after {
   background-color: #CBD5E1;
@@ -932,9 +932,9 @@ a .link:active {
   width: 100%;
 }
 .select-input-container:focus-within > .select-input-value {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .select-input-container:focus-visible > .select-input-value {
   outline: none;
@@ -989,10 +989,6 @@ a .link:active {
   border: none;
 }
 
-.select-input-options > .hover {
-  background-color: #F1F5F9;
-}
-
 .select-input-options {
   display: none;
   position: absolute;
@@ -1034,12 +1030,18 @@ a .link:active {
   left: 0px;
   height: 100%;
   width: 4px;
-  background-color: #99CA45;
+  background-color: #3A83D8;
 }
 .select-input-option.disabled {
   color: #94A3B8;
   cursor: not-allowed;
   pointer-events: none;
+}
+.select-input-option.hover {
+  background-color: #F1F5F9;
+}
+.select-input-option.focus {
+  background-color: #E2E8F0;
 }
 
 .select-input-option:hover {
@@ -1052,9 +1054,9 @@ a .link:active {
   width: 100%;
 }
 .multiple-select-container:focus-within > .multiple-select-value {
-  border: 1px solid #99CA45;
-  outline: 1px solid #99CA45;
-  box-shadow: 0 0 0 4px rgba(153, 202, 69, 0.5);
+  border: 1px solid #3A83D8;
+  outline: 1px solid #3A83D8;
+  box-shadow: 0 0 0 4px rgba(58, 131, 216, 0.5);
 }
 .multiple-select-container:focus-visible > .multiple-select-value {
   outline: none;
@@ -1175,12 +1177,15 @@ a .link:active {
   left: 0px;
   height: 100%;
   width: 4px;
-  background-color: #99CA45;
+  background-color: #3A83D8;
 }
 .multiple-select-option.disabled {
   color: #94A3B8;
   cursor: not-allowed;
   pointer-events: none;
+}
+.multiple-select-option.focus {
+  background-color: #E2E8F0;
 }
 
 .multiple-select-option:hover {
@@ -1266,7 +1271,7 @@ a .link:active {
   background-color: #F1F5F9;
 }
 .datepicker-month-item.selected {
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
 }
 
@@ -1287,7 +1292,7 @@ a .link:active {
   background-color: #F1F5F9;
 }
 .datepicker-year-item.selected {
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
 }
 
@@ -1333,7 +1338,7 @@ a .link:active {
   background-color: #F1F5F9;
 }
 .datepicker-day-item.selected {
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
 }
 
@@ -1353,7 +1358,7 @@ a .link:active {
 }
 
 .current-date {
-  color: #99CA45;
+  color: #3A83D8;
 }
 
 .current-month-label,
@@ -1403,7 +1408,7 @@ a .link:active {
   line-height: 1.5rem;
   border-radius: 4px;
   height: fit-content;
-  background-color: #99CA45;
+  background-color: #3A83D8;
   color: #FFFFFF;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1453,7 +1458,7 @@ a .link:active {
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
-  color: #99CA45;
+  color: #3A83D8;
 }
 
 *,

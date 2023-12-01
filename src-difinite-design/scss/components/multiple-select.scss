@@ -1,13 +1,13 @@
-.select-input-container {
+.multiple-select-container {
   display: inline-block;
   position: relative;
   width: 100%;
 
-  &:focus-within > .select-input-value {
+  &:focus-within > .multiple-select-value {
     @include input-focus($radio-button-focus-color);
   }
 
-  &:focus-visible > .select-input-value {
+  &:focus-visible > .multiple-select-value {
     outline: none;
     border: none;
   }
@@ -21,25 +21,27 @@
     }
   }
 
-  &.disabled > .select-input-value {
+  &.disabled > .multiple-select-value {
     background-color: $input-disabled-background-color;
     color: $input-disabled-text-color;
   }
 }
 
-.select-input-value {
+.multiple-select-value > .custom-placeholder {
+  color: $input-placeholder-text-color;
+}
+
+.multiple-select-value {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   @include input-style();
   padding-right: 32px;
   border: 1px solid $select-border-color;
   cursor: pointer;
   user-select: none;
-
-  &.custom-placeholder {
-    color: $input-placeholder-text-color;
-  }
+  position: relative;
+  gap: 8px;
+  flex-wrap: wrap;
 
   &::after {
     content: '\F282';
@@ -57,10 +59,31 @@
   }
 }
 
-.select-input-options > .hover {
-  background-color: $neutral-100;
+.option-selected {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 4px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  border: 1px solid $neutral-200;
+  background: $neutral-50;
+  color: $neutral-700;
+  font-size: $font-size-3xs;
+  line-height: $line-height-3xs;
+  max-height: 20px;
+
+  &i {
+    font-size: 10px;
+  }
+
+  &:hover {
+    background-color: $neutral-100;
+    color: $neutral-700;
+  }
 }
-.select-input-options {
+
+.multiple-select-options {
   display: none;
   position: absolute;
   padding: 0;
@@ -80,11 +103,11 @@
   }
 }
 
-.select-input-options.show {
+.multiple-select-options.show {
   display: block;
 }
 
-.select-input-option {
+.multiple-select-option {
   background-color: $select-option-background-color;
   position: relative;
   padding: $select-option-padding;
@@ -110,8 +133,12 @@
     cursor: not-allowed;
     pointer-events: none;
   }
+  
+  &.focus {
+    background-color: $neutral-200;
+  }
 }
 
-.select-input-option:hover {
+.multiple-select-option:hover {
   background-color: $select-option-hover-background-color;
 }

@@ -8,7 +8,7 @@ export default class Select {
     this.customPlaceholder = element.getAttribute('data-placeholder')
 
     setupCustomElement(this)
-    
+
     if (element.disabled) {
       this.customElement.classList.add('disabled')
       this.customElement.removeAttribute('tabIndex')
@@ -23,6 +23,29 @@ export default class Select {
 
   get selectedOptionIndex() {
     return this.options.indexOf(this.selectedOption)
+  }
+
+  get focusedOption() {
+    const focusElement = this.optionsCustomElement.querySelector('.focus')
+    if (focusElement) {
+      const dataValue = focusElement.getAttribute('data-value')
+      return this.options.find((option) => option.value === dataValue)
+    }
+    return null
+  }
+
+  get focusedOptionIndex() {
+    const focusedOption = this.focusedOption
+    return focusedOption ? this.options.indexOf(focusedOption) : -1
+  }
+
+  get firstEnabledOption() {
+    for (let i = 0; i < this.options.length; i++) {
+      if (!this.options[i].disabled) {
+        return this.options[i]
+      }
+    }
+    return null
   }
 
   selectValue(value) {
@@ -48,6 +71,31 @@ export default class Select {
     )
     newCustomElement.classList.add('selected')
     newCustomElement.scrollIntoView({ block: 'nearest' })
+  }
+
+  focusValue(value) {
+    const newFocusedOption = this.options.find(
+      (option) => option.value === value
+    )
+
+    const prevFocusedOption =
+      this.focusedOption || this.selectedOption || this.firstEnabledOption
+
+    if (prevFocusedOption) {
+      const prevFocusElement = this.optionsCustomElement.querySelector(
+        `[data-value="${prevFocusedOption.value}"]`
+      )
+
+      if (newFocusedOption) {
+        const newFocusElement = this.optionsCustomElement.querySelector(
+          `[data-value="${newFocusedOption.value}"]`
+        )
+
+        prevFocusElement.classList.remove('focus')
+        newFocusElement.classList.add('focus')
+        newFocusElement.scrollIntoView({ block: 'nearest' })
+      }
+    }
   }
 }
 
@@ -95,6 +143,10 @@ function setupCustomElement(select) {
 
   select.customElement.addEventListener('blur', () => {
     select.optionsCustomElement.classList.remove('show')
+    const focusElement = select.optionsCustomElement.querySelector('.focus')
+    if (focusElement) {
+      focusElement.classList.remove('focus')
+    }
   })
 
   let debounceTimeout
@@ -105,24 +157,35 @@ function setupCustomElement(select) {
         select.optionsCustomElement.classList.toggle('show')
         break
       case 'ArrowUp': {
+        e.preventDefault()
+
         const prevOption = select.findPreviousEnabledOption()
+
         if (prevOption) {
-          select.selectValue(prevOption.value)
-          select.labelElement.classList.remove('custom-placeholder')
+          select.focusValue(prevOption.value)
         }
         break
       }
       case 'ArrowDown': {
+        e.preventDefault()
+
         const nextOption = select.findNextEnabledOption()
+
         if (nextOption) {
-          select.selectValue(nextOption.value)
-          select.labelElement.classList.remove('custom-placeholder')
+          select.focusValue(nextOption.value)
         }
         break
       }
       case 'Escape':
         select.optionsCustomElement.classList.remove('show')
         break
+
+      case 'Enter':
+        select.selectValue(select.focusedOption.value)
+        select.optionsCustomElement.classList.remove('show')
+        select.labelElement.classList.remove('custom-placeholder')
+        break
+
       default: {
         clearTimeout(debounceTimeout)
         searchTerm += e.key
@@ -141,7 +204,7 @@ function setupCustomElement(select) {
   })
 
   select.findPreviousEnabledOption = () => {
-    for (let i = select.selectedOptionIndex - 1; i >= 0; i--) {
+    for (let i = select.focusedOptionIndex - 1; i >= 0; i--) {
       if (!select.options[i].disabled) {
         return select.options[i]
       }
@@ -151,7 +214,7 @@ function setupCustomElement(select) {
 
   select.findNextEnabledOption = () => {
     for (
-      let i = select.selectedOptionIndex + 1;
+      let i = select.focusedOptionIndex + 1;
       i < select.options.length;
       i++
     ) {
