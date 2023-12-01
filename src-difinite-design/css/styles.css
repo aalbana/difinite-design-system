@@ -561,6 +561,12 @@ i {
   cursor: not-allowed;
   box-shadow: none;
 }
+.dfn-button.outline.disabled > i,
+.dfn-button.outline.disabled svg,
+.dfn-button.outline:disabled > i,
+.dfn-button.outline:disabled svg {
+  color: #B0CDEF;
+}
 
 .dfn-button.primary.outline.disabled,
 .dfn-button.primary.outline:disabled {

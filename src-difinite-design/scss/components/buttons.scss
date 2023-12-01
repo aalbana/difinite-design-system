@@ -355,6 +355,10 @@ $button-sizes: (
   border: 1px solid $button-primary-outline-disabled-border-color;
   cursor: not-allowed;
   box-shadow: none;
+  & > i,
+  svg {
+    color: $button-primary-outline-disabled-text-color;
+  }
 }
 
 @each $variant, $style in $button-variants {
