@@ -196,8 +196,10 @@ function setupCustomElement(select) {
         const searchedOption = select.options.find((option) => {
           return option.label.toLowerCase().startsWith(searchTerm)
         })
-        if (searchedOption) {
-          select.selectValue(searchedOption.value)
+
+        if (searchedOption && !searchedOption.disabled) {
+          console.log(searchedOption)
+          select.focusValue(searchedOption.value)
         }
       }
     }
