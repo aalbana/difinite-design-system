@@ -1,0 +1,95 @@
+/* TimePicker container */
+.time-picker-container {
+  display: none;
+
+  &.show {
+    position: absolute;
+    display: block;
+    background-color: $base-white;
+    border: 1px solid $neutral-200;
+    box-shadow: $shadow-sm;
+    width: min-content;
+    margin-top: $spacing-1_5;
+    border-radius: $border-radius-sm;
+  }
+}
+
+/* TimePicker content */
+.time-picker-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+}
+/* Time lists styling */
+.time-hour-list,
+.time-minute-list,
+.time-second-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 0 8px;
+  max-height: 200px;
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: scroll;
+    padding-right: 0;
+  }
+}
+
+.time-hour-list,
+.time-minute-list {
+  border-right: 1px solid $neutral-200;
+}
+
+/* Individual time item styling */
+.time-item-hour,
+.time-item-minute,
+.time-item-second {
+  border-radius: 4px;
+  display: flex;
+  padding: 4px 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: $neutral-700;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+
+  &.selected {
+    background-color: $primary-500;
+    color: $base-white;
+
+    &:hover {
+      background-color: $primary-700;
+      color: $base-white;
+    }
+  }
+
+  &:hover {
+    background-color: $neutral-100;
+    color: $neutral-700;
+  }
+
+  &:active {
+    background-color: $neutral-200;
+    color: $neutral-700;
+  }
+}
+
+/* Action button container styling */
+.time-picker-action-container {
+  display: flex;
+  padding: 8px;
+  border-top: 1px solid $neutral-200;
+  width: 100%;
+}
+
+/* Action button styling */
+.time-picker-action-button {
+  width: 100%;
+}

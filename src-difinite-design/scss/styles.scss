@@ -19,6 +19,7 @@
 @import './components/multiple-select.scss';
 @import './components/datepicker.scss';
 @import './components/file-upload.scss';
+@import './components/timepicker.scss';
 
 // Reset border-box
 *,
@@ -286,12 +287,13 @@ $grid-gutter-width: 0;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: $neutral-200;
-  border-radius: 6px;
+  border-radius: 8px;
+  position: absolute;
 }
 
 ::-webkit-scrollbar-track {

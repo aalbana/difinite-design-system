@@ -22,10 +22,10 @@
   border: 1px solid $datepicker-border-color;
   margin-top: $datepicker-container-margin-top;
   z-index: 1;
-}
 
-.datepicker-container.show {
-  display: block;
+  &.show {
+    display: block;
+  }
 }
 
 .datepicker-day-content.show {

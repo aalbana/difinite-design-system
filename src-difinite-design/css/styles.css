@@ -1224,7 +1224,6 @@ a .link:active {
   margin-top: 0.375rem;
   z-index: 1;
 }
-
 .datepicker-container.show {
   display: block;
 }
@@ -1466,6 +1465,107 @@ a .link:active {
   font-weight: 500;
   line-height: 16px;
   color: #3A83D8;
+}
+
+/* TimePicker container */
+.time-picker-container {
+  display: none;
+}
+.time-picker-container.show {
+  position: absolute;
+  display: block;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  width: min-content;
+  margin-top: 0.375rem;
+  border-radius: 4px;
+}
+
+/* TimePicker content */
+.time-picker-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+}
+
+/* Time lists styling */
+.time-hour-list,
+.time-minute-list,
+.time-second-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 0 8px;
+  max-height: 200px;
+  overflow-y: hidden;
+}
+.time-hour-list:hover,
+.time-minute-list:hover,
+.time-second-list:hover {
+  overflow-y: scroll;
+  padding-right: 0;
+}
+
+.time-hour-list,
+.time-minute-list {
+  border-right: 1px solid #E2E8F0;
+}
+
+/* Individual time item styling */
+.time-item-hour,
+.time-item-minute,
+.time-item-second {
+  border-radius: 4px;
+  display: flex;
+  padding: 4px 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #334155;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+}
+.time-item-hour.selected,
+.time-item-minute.selected,
+.time-item-second.selected {
+  background-color: #3A83D8;
+  color: #FFFFFF;
+}
+.time-item-hour.selected:hover,
+.time-item-minute.selected:hover,
+.time-item-second.selected:hover {
+  background-color: #295C97;
+  color: #FFFFFF;
+}
+.time-item-hour:hover,
+.time-item-minute:hover,
+.time-item-second:hover {
+  background-color: #F1F5F9;
+  color: #334155;
+}
+.time-item-hour:active,
+.time-item-minute:active,
+.time-item-second:active {
+  background-color: #E2E8F0;
+  color: #334155;
+}
+
+/* Action button container styling */
+.time-picker-action-container {
+  display: flex;
+  padding: 8px;
+  border-top: 1px solid #E2E8F0;
+  width: 100%;
+}
+
+/* Action button styling */
+.time-picker-action-button {
+  width: 100%;
 }
 
 *,
@@ -3681,12 +3781,13 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #E2E8F0;
-  border-radius: 6px;
+  border-radius: 8px;
+  position: absolute;
 }
 
 ::-webkit-scrollbar-track {

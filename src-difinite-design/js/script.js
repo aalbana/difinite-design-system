@@ -49,6 +49,15 @@ datePickerElements.forEach((datePickerElement) => {
   new DatePicker(datePickerElement)
 })
 
+// Timepicker
+
+import TimePicker from './components/timePicker.js'
+
+const timePickerElements = document.querySelectorAll('.dfn-timepicker')
+timePickerElements.forEach((timePickerElement) => {
+  new TimePicker(timePickerElement)
+})
+
 // File Upload
 import FileUpload from './components/fileUpload.js'
 
