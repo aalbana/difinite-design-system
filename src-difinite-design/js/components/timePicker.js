@@ -8,6 +8,7 @@ export default class TimePicker {
     this.timeSecondList = document.createElement('div')
     this.timePickerActionContainer = document.createElement('div')
     this.selectAction = document.createElement('button')
+    this.iconTime = document.createElement('i')
 
     setupCustomElement(this)
     setupEventListeners(this)
@@ -176,6 +177,12 @@ export default class TimePicker {
 }
 
 function setupCustomElement(timePicker) {
+  const timePickerContainer = timePicker.element.parentNode
+  timePickerContainer.classList.add('icon')
+
+  timePicker.iconTime.classList.add('dfn-icon', 'bi', 'bi-clock')
+  timePicker.element.insertAdjacentElement('afterend', timePicker.iconTime)
+
   timePicker.timePickerContainer.classList.add('time-picker-container')
   timePicker.timePickerContent.classList.add('time-picker-content')
   timePicker.timePickerContainer.appendChild(timePicker.timePickerContent)

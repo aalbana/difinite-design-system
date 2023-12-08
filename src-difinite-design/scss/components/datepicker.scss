@@ -3,16 +3,6 @@
   display: flex;
 }
 
-.datepicker::after {
-  content: '\f282';
-  font-family: 'bootstrap-icons';
-  right: 8px;
-  position: absolute;
-  align-items: center;
-  font-size: 0.75rem;
-  color: #262626;
-}
-
 .datepicker-container {
   position: absolute;
   background-color: $datepicker-background-color;
