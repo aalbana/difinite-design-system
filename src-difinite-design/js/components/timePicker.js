@@ -113,7 +113,6 @@ export default class TimePicker {
   }
 
   populateTimeList(container, maxValue, unit, timePicker) {
-    // Populate the time items
     for (let i = 0; i < maxValue; i++) {
       const item = document.createElement('div')
       item.classList.add(`time-item-${unit}`)
@@ -123,7 +122,6 @@ export default class TimePicker {
       container.appendChild(item)
     }
 
-    // Add click event listener to each time item
     container.addEventListener('click', (event) => {
       const selectedTimeItem = event.target
 
