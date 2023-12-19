@@ -1,8 +1,3 @@
-.datepicker {
-  position: relative;
-  display: flex;
-}
-
 .datepicker-container {
   position: absolute;
   background-color: $datepicker-background-color;
@@ -190,9 +185,11 @@
   color: $datepicker-month-button-icon-color;
   background-color: transparent;
   border: none;
-  width: $datepicker-month-button-item-size;
+  min-width: $datepicker-month-button-item-size;
   height: $datepicker-month-button-item-size;
   border-radius: $border-radius-full;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: $datepicker-month-button-hover-background-color;

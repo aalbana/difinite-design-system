@@ -1,0 +1,141 @@
+.datetime-element-container {
+  display: none;
+}
+.datetime-element-container.show {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  background-color: $base-white;
+  border: 1px solid $neutral-100;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+  width: max-content;
+}
+
+.datetime-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.datetime-datepicker-container {
+  display: none;
+  border: 1px solid $datepicker-border-color;
+  margin-top: $datepicker-container-margin-top;
+  z-index: 1;
+
+  &.show {
+    display: block;
+  }
+}
+
+.datetime-datepicker-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $datepicker-header-height;
+  padding: $datepicker-header-padding;
+}
+
+.datetime-datepicker-button {
+  display: none;
+
+  &.show {
+    display: flex;
+    color: $datepicker-month-button-icon-color;
+    background-color: transparent;
+    border: none;
+    min-width: $datepicker-month-button-item-size;
+    height: $datepicker-month-button-item-size;
+    border-radius: $border-radius-full;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: $datepicker-month-button-hover-background-color;
+    }
+  }
+}
+
+.datetime-current-date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $datepicker-current-date-width;
+}
+
+.datetime-current-month-label,
+.datetime-current-year-label {
+  font-size: $datepicker-current-label-font-size;
+  line-height: $datepicker-current-label-line-height;
+  font-weight: $datepicker-current-label-font-weight;
+  color: $datepicker-current-label-text-color;
+  padding: $datepicker-current-label-padding;
+  border-radius: $datepicker-current-label-border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $datepicker-current-label-hover-background-color;
+  }
+}
+
+.datetime-timepicker-container {
+  display: block;
+  border-left: 1px solid $neutral-200;
+  width: min-content;
+}
+
+.datetime-timepicker-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+  max-height: 336px;
+
+  & > .time-hour-list,
+  & > .time-minute-list,
+  & > .time-second-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px 0 8px;
+    max-height: max-content;
+    overflow-y: hidden;
+
+    &:hover {
+      overflow-y: scroll;
+      padding-right: 0;
+    }
+  }
+}
+
+.datetime-action-container {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid $neutral-100;
+  padding: $spacing-2;
+}
+
+.datetime-action-button {
+  padding: $spacing-1_5 $spacing-4;
+}
+
+.datetime-time-hour-list,
+.datetime-time-minute-list,
+.datetime-time-second-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 0 8px;
+  max-height: 336px;
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: scroll;
+    padding-right: 0;
+  }
+}
+
+.datetime-time-hour-list,
+.datetime-time-minute-list {
+  border-right: 1px solid $neutral-200;
+}

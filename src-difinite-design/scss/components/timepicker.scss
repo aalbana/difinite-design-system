@@ -11,16 +11,16 @@
     width: min-content;
     margin-top: $spacing-1_5;
     border-radius: $border-radius-sm;
+    z-index: 1;
   }
 }
 
-/* TimePicker content */
 .time-picker-content {
   display: flex;
   flex-direction: row;
   padding-top: 8px;
 }
-/* Time lists styling */
+
 .time-hour-list,
 .time-minute-list,
 .time-second-list {
@@ -42,7 +42,6 @@
   border-right: 1px solid $neutral-200;
 }
 
-/* Individual time item styling */
 .time-item-hour,
 .time-item-minute,
 .time-item-second {

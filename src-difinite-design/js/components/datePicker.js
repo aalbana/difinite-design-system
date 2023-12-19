@@ -24,6 +24,7 @@ export default class DatePicker {
 
   goToNextMonth = () => {
     this.currentMonth = (this.currentMonth + 1) % 12
+    console.log(this.currentMonth)
     if (this.currentMonth === 0) {
       this.currentYear++
     }
@@ -31,7 +32,8 @@ export default class DatePicker {
   }
 
   goToPreviousMonth = () => {
-    this.currentMonth = (this.currentMonth - 1) % 12
+    this.currentMonth = (this.currentMonth - 1 + 12) % 12
+    console.log(this.currentMonth)
     if (this.currentMonth === 11) {
       this.currentYear--
     }
@@ -275,6 +277,8 @@ export default class DatePicker {
     this.toggleMonthButtons()
   }
 
+
+
   updateYearContent() {
     const startYear = 1900
     const endYear = 2100
@@ -378,6 +382,7 @@ export default class DatePicker {
       const selectedYearElement = this.yearContent.querySelector(
         '.datepicker-year-item.selected'
       )
+      console.log(selectedYearElement)
       selectedYearElement.scrollIntoView({ behavior: 'auto', block: 'center' })
     })
   }
@@ -411,6 +416,19 @@ function setupCustomeElement(datePicker) {
       datePicker.closeDatePicker()
     }
   })
+
+  const initialDateValue = datePicker.element.value
+  const dateValueitem = initialDateValue.split('/')
+
+  const day = parseInt(dateValueitem[0], 10)
+  const month = parseInt(dateValueitem[1], 10) - 1
+  const year = parseInt(dateValueitem[2], 10)
+
+  if (initialDateValue) {
+    const currentDateValue = new Date(year, month, day)
+    datePicker.selectedDate = currentDateValue
+    datePicker.currentYear = year
+  }
 
   datePicker.createDatePickerHeader()
 

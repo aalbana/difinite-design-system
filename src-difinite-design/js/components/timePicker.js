@@ -92,27 +92,23 @@ export default class TimePicker {
     const zeroSecondElement =
       this.timeSecondList.querySelector(`[data-second="00"]`)
 
-    console.log(zeroHourElement)
-
     if (!elementValue && hourElement && minuteElement && secondElement) {
       hourElement.classList.remove('selected')
       minuteElement.classList.remove('selected')
       secondElement.classList.remove('selected')
 
-      console.log(elementValue)
-
       zeroHourElement.scrollIntoView({ behavior: 'auto', block: 'start' })
       zeroMinuteElement.scrollIntoView({ behavior: 'auto', block: 'start' })
       zeroSecondElement.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
-     if (elementValue && hourElement && minuteElement && secondElement) {
+    if (elementValue && hourElement && minuteElement && secondElement) {
       hourElement.scrollIntoView({ behavior: 'auto', block: 'start' })
       minuteElement.scrollIntoView({ behavior: 'auto', block: 'start' })
       secondElement.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
   }
 
-  populateTimeList(container, maxValue, unit, timePicker) {
+  populateTimeList(container, maxValue, unit) {
     for (let i = 0; i < maxValue; i++) {
       const item = document.createElement('div')
       item.classList.add(`time-item-${unit}`)
