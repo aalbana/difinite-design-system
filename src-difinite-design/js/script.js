@@ -74,3 +74,6 @@ const fileUploadElements = document.querySelectorAll('.dfn-input-file')
 fileUploadElements.forEach((fileUploadElement) => {
   new FileUpload(fileUploadElement)
 })
+
+// Import sidebar.js
+import './components/sidebar.js';

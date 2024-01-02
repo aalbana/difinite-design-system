@@ -21,6 +21,7 @@
 @import './components/file-upload.scss';
 @import './components/timepicker.scss';
 @import './components/datetimepicker.scss';
+@import './components/sidebar.scss';
 
 // Reset border-box
 *,
@@ -58,52 +59,66 @@ $container-max-widths: (
 }
 
 .dfn-container {
+  display: flex;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  max-height: 100vh;
 
   @include container-max-widths();
+
+  .container-sm {
+    display: flex;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include container-max-widths(sm);
+  }
+  .container-md {
+    display: flex;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include container-max-widths(md);
+  }
+
+  .container-lg {
+    display: flex;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include container-max-widths(lg);
+  }
+
+  .container-xl {
+    display: flex;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include container-max-widths(xl);
+  }
+
+  .container-2xl {
+    display: flex;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include container-max-widths(2xl);
+  }
 }
 
-.dfn-container-sm {
+.dfn-content {
+  padding: 24px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-
-  @include container-max-widths(sm);
 }
 
-.dfn-container-md {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  @include container-max-widths(md);
-}
-
-.dfn-container-lg {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  @include container-max-widths(lg);
-}
-
-.dfn-container-xl {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  @include container-max-widths(xl);
-}
-
-.dfn-container-2xl {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  @include container-max-widths(2xl);
-}
 // Spacing classes
 
 $spacing-tokens: (

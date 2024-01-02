@@ -1,0 +1,310 @@
+.dfn-sidebar {
+  position: fixed;
+  height: 100%;
+  width: $sizing-60;
+  top: 0;
+  left: 0;
+  background-color: $base-white;
+  border-right: 1px solid $neutral-100;
+  list-style-type: none;
+  z-index: 10;
+  transition: all 0.3s ease;
+
+  & + .dfn-content {
+    transition: margin-left 0.3s ease;
+    margin-left: 256px;
+  }
+
+  .dfn-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-6 $spacing-4;
+    border-bottom: 1px solid $neutral-100;
+    min-height: $spacing-18;
+
+    .dfn-logo {
+      max-height: 24px;
+      visibility: visible;
+      opacity: 1;
+      transition: display 0.3 ease, opacity 0.3s ease, visibility 0s;
+    }
+
+    i {
+      transition: all 0.3s ease-in-out;
+      color: $neutral-500;
+      font-size: $sizing-5;
+    }
+
+    .dfn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // width: $sizing-6;
+      max-height: $sizing-6;
+      min-width: $sizing-6;
+      border-radius: $border-radius-sm;
+
+      &.active {
+        background-color: $neutral-100;
+        & > i {
+          color: $primary-500;
+        }
+      }
+    }
+  }
+
+  .dfn-sidebar-content {
+    padding: $spacing-4;
+    transition: padding 0.3s ease;
+    .dfn-item-list {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      gap: 8px;
+
+      &.dfn-nav-second-level {
+        .dfn-nav-item {
+          .dfn-nav-link {
+            padding-left: 36px;
+          }
+        }
+      }
+
+      .dfn-nav-title {
+        display: block;
+        padding: $spacing-0 $spacing-0_5;
+        color: $neutral-300;
+        font-size: $font-size-2xs;
+        line-height: $line-height-2xs;
+        font-weight: $font-weight-regular;
+      }
+
+      .dfn-nav-item {
+        .dfn-nav-link {
+          display: flex;
+          gap: $spacing-2;
+          padding: 0 $spacing-3;
+          text-decoration: none;
+          color: $neutral-500;
+          font-size: $font-size-2xs;
+          line-height: $line-height-2xs;
+          font-weight: $font-weight-regular;
+          border-radius: $border-radius-sm;
+          align-items: center;
+          min-height: 36px;
+          min-width: 36px;
+
+          span {
+            width: $sizing-full;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+          }
+
+          &:hover {
+            background-color: $neutral-50;
+          }
+
+          &.active {
+            color: $primary-500;
+            font-weight: $font-weight-semibold;
+          }
+
+          i {
+            font-size: $font-size-xs;
+            height: $sizing-4;
+          }
+
+          .nav-icon {
+            font-size: $font-size-3xs;
+          }
+        }
+      }
+    }
+  }
+
+  &.collapsed {
+    .dfn-sidebar-header {
+      display: flex;
+      justify-content: center;
+      .dfn-logo {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    & + .dfn-content {
+      margin-left: 52px;
+    }
+
+    width: 52px;
+    .dfn-sidebar-content {
+      padding: $spacing-4 $spacing-2;
+      .dfn-item-list {
+        .dfn-nav-link {
+          span {
+            display: none;
+          }
+          i {
+            margin-right: 0;
+          }
+          .nav-icon {
+            display: none;
+          }
+        }
+
+        .dfn-nav-title {
+          height: $sizing-5;
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.opened {
+      width: $sizing-60;
+
+      & + .dfn-content {
+        transition: margin-left 0.3s ease;
+        margin-left: 52px;
+      }
+
+      .dfn-sidebar-header {
+        justify-content: space-between;
+        .dfn-logo {
+          display: block;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      .dfn-sidebar-content {
+        padding: $spacing-4;
+        .dfn-item-list {
+          .dfn-nav-link {
+            span {
+              display: block;
+            }
+            .nav-icon {
+              display: block;
+            }
+          }
+
+          .dfn-nav-title {
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dfn-content {
+    transition: margin-left 0.3s ease;
+  }
+
+  .dfn-nav-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in;
+  }
+
+  .dfn-nav-collapse.show {
+    max-height: 500px;
+  }
+}
+
+.dfn-nav-link .bi-chevron-right {
+  transition: transform 0.3s ease-in;
+}
+
+.dfn-nav-link.collapsed .bi-chevron-right {
+  transform: rotate(0deg);
+}
+
+.dfn-nav-link.expanded .bi-chevron-right {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 1024px) {
+  .dfn-sidebar {
+    .dfn-sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      min-height: $spacing-18;
+      .dfn-logo {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    & + .dfn-content {
+      margin-left: 52px;
+    }
+
+    width: 52px;
+    .dfn-sidebar-content {
+      padding: $spacing-4 $spacing-2;
+      .dfn-item-list {
+        .dfn-nav-link {
+          span {
+            display: none;
+          }
+          i {
+            margin-right: 0;
+          }
+          .nav-icon {
+            display: none;
+          }
+        }
+
+        .dfn-nav-title {
+          height: $sizing-5;
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.opened {
+      width: $sizing-60;
+
+      & + .dfn-content {
+        transition: margin-left 0.3s ease;
+        margin-left: 52px;
+      }
+
+      .dfn-sidebar-header {
+        justify-content: space-between;
+        .dfn-logo {
+          display: block;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      .dfn-sidebar-content {
+        padding: $spacing-4;
+        .dfn-item-list {
+          .dfn-nav-link {
+            span {
+              display: block;
+            }
+            .nav-icon {
+              display: block;
+            }
+          }
+
+          .dfn-nav-title {
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
