@@ -12,17 +12,18 @@
 
   & + .dfn-content {
     transition: margin-left 0.3s ease;
-    margin-left: 256px;
+    // margin-left: 256px;
   }
 
   .dfn-sidebar-header {
     display: flex;
     justify-content: space-between;
-    padding: $spacing-6 $spacing-4;
+    padding: $spacing-4 $spacing-4;
     border-bottom: 1px solid $neutral-100;
-    min-height: $spacing-18;
+    min-height: $sizing-16;
+    align-items: center;
 
-    .dfn-logo {
+    .dfn-img-logo {
       max-height: 24px;
       visibility: visible;
       opacity: 1;
@@ -65,7 +66,7 @@
       gap: 8px;
 
       &.dfn-nav-second-level {
-        .dfn-nav-item {
+        .dfn-nav-item {          
           .dfn-nav-link {
             padding-left: 36px;
           }
@@ -129,14 +130,14 @@
     .dfn-sidebar-header {
       display: flex;
       justify-content: center;
-      .dfn-logo {
+      .dfn-img-logo {
         display: none;
         visibility: hidden;
         opacity: 0;
       }
     }
     & + .dfn-content {
-      margin-left: 52px;
+      padding-left: 52px;
     }
 
     width: 52px;
@@ -169,12 +170,12 @@
 
       & + .dfn-content {
         transition: margin-left 0.3s ease;
-        margin-left: 52px;
+        padding-left: 52px;
       }
 
       .dfn-sidebar-header {
         justify-content: space-between;
-        .dfn-logo {
+        .dfn-img-logo {
           display: block;
           visibility: visible;
           opacity: 1;
@@ -234,16 +235,17 @@
     .dfn-sidebar-header {
       display: flex;
       justify-content: space-between;
-      min-height: $spacing-18;
-      .dfn-logo {
+      min-height: $sizing-16;
+      align-items: center;
+      .dfn-img-logo {
         display: none;
         visibility: hidden;
         opacity: 0;
       }
     }
     & + .dfn-content {
-      margin-left: 52px;
-    }
+      padding-left: 52px;
+    } 
 
     width: 52px;
     .dfn-sidebar-content {
@@ -280,7 +282,7 @@
 
       .dfn-sidebar-header {
         justify-content: space-between;
-        .dfn-logo {
+        .dfn-img-logo {
           display: block;
           visibility: visible;
           opacity: 1;
@@ -307,4 +309,8 @@
       }
     }
   }
+}
+
+.dfn-nav-collapse {
+  padding-top: $spacing-2;
 }

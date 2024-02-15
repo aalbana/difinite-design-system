@@ -1,0 +1,57 @@
+// Alert Styles Map
+$alert-styles: (
+  default: (
+    background-color: $primary-500,
+    text-color: $base-white,
+  ),
+  primary: (
+    background-color: $primary-500,
+    text-color: $base-white,
+  ),
+  secondary: (
+    background-color: $neutral-700,
+    text-color: $base-white,
+  ),
+  success: (
+    background-color: $success-500,
+    text-color: $base-white,
+  ),
+  warning: (
+    background-color: $warning-500,
+    text-color: $base-white,
+  ),
+  danger: (
+    background-color: $danger-500,
+    text-color: $base-white,
+  ),
+);
+
+// Common styles
+$close-btn-color: $base-white;
+
+// Styles
+.dfn-alert {
+  padding: $spacing-4;
+  border-radius: $border-radius-sm;
+  position: relative;
+  color: map-get(
+    map-get($alert-styles, default),
+    text-color
+  ); 
+
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: $close-btn-color;
+  }
+
+  @each $type, $style in $alert-styles {
+    &.dfn-alert-#{$type} {
+      background-color: map-get($style, background-color);
+      color: map-get($style, text-color);
+    }
+  }
+}

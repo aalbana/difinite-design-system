@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="src-difinite-design/css/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="src-difinite-design/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <script
+      src="src-difinite-design/js/script.js"
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <aside class="dfn-sidebar">
+      <div class="dfn-sidebar-header">
+        <a href="#"
+          ><img
+            class="dfn-img-logo"
+            src="src-difinite-design/img/logo.svg"
+            alt="Company Logo"
+        /></a>
+        <a
+          class="dfn-icon action-icon"
+          href="#"
+          ><i class="bi bi-list"></i
+        ></a>
+      </div>
+      <div class="dfn-sidebar-content">
+        <ul class="dfn-item-list">
+          <li class="dfn-nav-title">
+            <span>Menu</span>
+          </li>
+          <li class="dfn-nav-item">
+            <a
+              class="dfn-nav-link expanded"
+              href="#"
+              data-target="collapse1"
+            >
+              <i class="bi bi-layers-fill"></i>
+              <span>Components</span>
+              <i class="bi bi-chevron-right nav-icon"></i>
+            </a>
+            <div
+              class="dfn-nav-collapse show"
+              id="collapse1"
+            >
+              <ul class="dfn-nav-second-level dfn-item-list">
+                <li class="dfn-nav-item">
+                  <a
+                    class="dfn-nav-link"
+                    href="#"
+                  >
+                    <span>Accordion</span>
+                  </a>
+                </li>
+                <li class="dfn-nav-item">
+                  <a
+                    class="dfn-nav-link active"
+                    href="#"
+                  >
+                    <span>Alert</span>
+                  </a>
+                </li>
+                <li class="dfn-nav-item">
+                  <a
+                    class="dfn-nav-link"
+                    href="#"
+                  >
+                    <span>Breadcrumb</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="dfn-sidebar-footer"></div>
+    </aside>
+    <section class="dfn-content">
+      <div class="dfn-navbar">
+        <div class="dfn-container-fluid dfn-navbar-container pr-6">
+          <div class="dfn-navbar-end-content">
+            <div class="dfn-input-container">
+              <div class="dfn-input icon left">
+                <input
+                  type="text"
+                  id="input-field"
+                  class="dfn-input-field"
+                  placeholder="Search"
+                />
+                <i class="dfn-icon bi bi-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dfn-container-fluid px-8">
+        <h1>Alerts</h1>
+        <div class="dfn-card">
+          <div class="dfn-card-header dfn-tabs-list">
+            <a
+              href="#defaultExample"
+              class="dfn-tab-item active"
+            >
+              Tab 1
+            </a>
+            <a
+              href="#defaultHTML"
+              class="dfn-tab-item"
+            >
+              Tab 2
+            </a>
+          </div>
+          <div class="dfn-card-body">
+            <div
+              class="dfn-tab-content active"
+              id="defaultExample"
+            >
+              <div class="dfn-col">
+                <div class="dfn-col gap-1_5 mb-4">
+                  <div class="dfn-alert dfn-alert-primary">
+                    This is primary alert.
+                  </div>
+                  <div class="dfn-alert dfn-alert-secondary">
+                    This is primary alert.
+                  </div>
+                  <div class="dfn-alert dfn-alert-success">
+                    This is success alert.
+                  </div>
+                  <div class="dfn-alert dfn-alert-warning">
+                    This is warning alert.
+                  </div>
+                  <div class="dfn-alert dfn-alert-danger">
+                    This is danger alert.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="dfn-tab-content"
+              id="defaultHTML"
+            >
+              Content Tab 2
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

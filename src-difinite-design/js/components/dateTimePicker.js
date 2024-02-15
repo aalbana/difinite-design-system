@@ -7,6 +7,7 @@ export default class dateTimePicker {
     this.timePickerContainer = document.createElement('div')
     this.actionContainer = document.createElement('div')
     this.actionButton = document.createElement('button')
+    this.iconCalendar = document.createElement('i')
 
     // DatePicker Content
     this.datePickerHeader = document.createElement('div')
@@ -481,10 +482,16 @@ export default class dateTimePicker {
 }
 
 function setupCustomElement(dateTimePicker) {
+  const dateTimePickerContainer = dateTimePicker.element.parentNode
+  dateTimePickerContainer.classList.add('icon')
+
+  dateTimePicker.iconCalendar.classList.add('dfn-icon', 'bi', 'bi-calendar')
+  dateTimePicker.element.insertAdjacentElement('afterend', dateTimePicker.iconCalendar)
+
   dateTimePicker.dateTimePickerContainer.classList.add(
     'datetime-element-container'
   )
-
+  
   dateTimePicker.dateTimeContent.classList.add('datetime-content')
   dateTimePicker.dateTimePickerContainer.append(dateTimePicker.dateTimeContent)
 

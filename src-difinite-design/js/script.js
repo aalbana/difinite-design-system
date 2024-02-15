@@ -76,4 +76,10 @@ fileUploadElements.forEach((fileUploadElement) => {
 })
 
 // Import sidebar.js
-import './components/sidebar.js';
+import './components/sidebar.js'
+
+// Import navbar.js
+import './components/navbar.js'
+
+// Import cardTabs.js
+import './components/cardTabs.js'

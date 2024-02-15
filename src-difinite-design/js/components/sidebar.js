@@ -25,14 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebar = document.querySelector('.dfn-sidebar')
   const actionIcon = document.querySelector('.action-icon')
 
-  sidebar.addEventListener('mouseenter', function () {
-    const sidebar = document.querySelector('.dfn-sidebar')
-    sidebar.classList.add('opened')
-  })
-  sidebar.addEventListener('mouseleave', function () {
-    sidebar.classList.remove('opened')
-  })
-
+  if(sidebar){
+    sidebar.addEventListener('mouseenter', function () {
+      const sidebar = document.querySelector('.dfn-sidebar')
+      sidebar.classList.add('opened')
+    })
+    sidebar.addEventListener('mouseleave', function () {
+      sidebar.classList.remove('opened')
+    })
+  }
   if (sidebar && actionIcon) {
     actionIcon.addEventListener('click', function () {
       if (window.innerWidth < 1024) {

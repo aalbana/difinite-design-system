@@ -22,6 +22,9 @@
 @import './components/timepicker.scss';
 @import './components/datetimepicker.scss';
 @import './components/sidebar.scss';
+@import './components/navbar.scss';
+@import './components/alert.scss';
+@import './components/card.scss';
 
 // Reset border-box
 *,
@@ -36,39 +39,57 @@ body {
 }
 
 // Containers
-$container-max-widths: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  2xl: 1400px,
+$containers: (
+  sm: (
+    breakpoint: 576px,
+    max-width: 544px,
+    margin-x: 16px,
+  ),
+  md: (
+    breakpoint: 768px,
+    max-width: 720px,
+  ),
+  lg: (
+    breakpoint: 992px,
+    max-width: 960px,
+  ),
+  xl: (
+    breakpoint: 1200px,
+    max-width: 1140px,
+  ),
+  2xl: (
+    breakpoint: 1400px,
+    max-width: 1320px,
+  ),
 );
 
 @mixin container-max-widths($breakpoints...) {
   @each $breakpoint in $breakpoints {
-    $max-width: map-get($container-max-widths, $breakpoint);
+    $container: map-get($containers, $breakpoint);
 
     @if $breakpoint == null {
-      max-width: $max-width;
+      max-width: map-get($container, max-width);
+      margin-left: map-get($container, margin-x, 0);
+      margin-right: map-get($container, margin-x, 0);
     } @else {
-      @media (min-width: $max-width) {
-        max-width: $max-width;
+      @media (min-width: map-get($container, breakpoint)) {
+        max-width: map-get($container, max-width);
+        margin-left: map-get($container, margin-x, 0);
+        margin-right: map-get($container, margin-x, 0);
       }
     }
   }
 }
 
 .dfn-container {
-  display: flex;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   max-height: 100vh;
 
-  @include container-max-widths();
+  @include container-max-widths(sm, md, lg, xl, 2xl);
 
   .container-sm {
-    display: flex;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -76,7 +97,6 @@ $container-max-widths: (
     @include container-max-widths(sm);
   }
   .container-md {
-    display: flex;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -85,7 +105,6 @@ $container-max-widths: (
   }
 
   .container-lg {
-    display: flex;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -94,7 +113,6 @@ $container-max-widths: (
   }
 
   .container-xl {
-    display: flex;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -103,7 +121,6 @@ $container-max-widths: (
   }
 
   .container-2xl {
-    display: flex;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -113,12 +130,26 @@ $container-max-widths: (
 }
 
 .dfn-content {
-  padding: 24px;
+  padding-left: 256px;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  padding-top: 0 !important;
+  transition: 0.5s;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
+.dfn-content > .dfn-navbar {
+  position: sticky;
+
+  .dfn-navbar-container {
+    .dfn-navbar-end-content {
+      .dfn-input-container {
+        margin-bottom: $spacing-0;
+      }
+    }
+  }
+}
 // Spacing classes
 
 $spacing-tokens: (
@@ -152,71 +183,71 @@ $spacing-tokens: (
 
 @each $size, $value in $spacing-tokens {
   .m-#{$size} {
-    margin: $value;
+    margin: $value !important;
   }
 
   .mt-#{$size} {
-    margin-top: $value;
+    margin-top: $value !important;
   }
 
   .mb-#{$size} {
-    margin-bottom: $value;
+    margin-bottom: $value !important;
   }
 
   .mr-#{$size} {
-    margin-right: $value;
+    margin-right: $value !important;
   }
 
   .ml-#{$size} {
-    margin-left: $value;
+    margin-left: $value !important;
   }
 
   .mx-#{$size} {
-    margin-left: $value;
-    margin-right: $value;
+    margin-left: $value !important;
+    margin-right: $value !important;
   }
 
   .my-#{$size} {
-    margin-top: $value;
-    margin-bottom: $value;
+    margin-top: $value !important;
+    margin-bottom: $value !important;
   }
 }
 
 @each $size, $value in $spacing-tokens {
   .p-#{$size} {
-    padding: $value;
+    padding: $value !important;
   }
 
   .pt-#{$size} {
-    padding-top: $value;
+    padding-top: $value !important;
   }
 
   .pb-#{$size} {
-    padding-bottom: $value;
+    padding-bottom: $value !important;
   }
 
   .pr-#{$size} {
-    padding-right: $value;
+    padding-right: $value !important;
   }
 
   .pl-#{$size} {
-    padding-left: $value;
+    padding-left: $value !important;
   }
 
   .px-#{$size} {
-    padding-left: $value;
-    padding-right: $value;
+    padding-left: $value !important;
+    padding-right: $value !important;
   }
 
   .py-#{$size} {
-    padding-top: $value;
-    padding-bottom: $value;
+    padding-top: $value !important;
+    padding-bottom: $value !important;
   }
 }
 
 @each $size, $value in $spacing-tokens {
   .gap-#{$size} {
-    gap: $value;
+    gap: $value !important;
   }
 }
 
@@ -244,7 +275,7 @@ $grid-gutter-width: 0;
 // Gap utility classes
 @each $size, $value in $spacing-tokens {
   .gap-#{$size} {
-    gap: $value;
+    gap: $value !important;
   }
 }
 
@@ -270,7 +301,13 @@ $grid-gutter-width: 0;
   padding-left: calc($grid-gutter-width / 2);
 
   // Container max widths mixin
-  @include container-max-widths();
+  @include container-max-widths(sm, md, lg, xl, 2xl);
+}
+
+.dfn-container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 // Row
@@ -283,6 +320,8 @@ $grid-gutter-width: 0;
 
 // Generic Column
 .dfn-col {
+  display: flex;
+  flex-direction: column;
   flex: 1 0 calc(100% / #{$grid-columns} - #{$grid-gutter-width});
   box-sizing: border-box;
   width: 100%;

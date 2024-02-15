@@ -1,0 +1,55 @@
+.dfn-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $neutral-100;
+  border-radius: $border-radius-sm;
+  background-color: $base-white;
+
+  .dfn-card-body {
+    padding: $spacing-6;
+    width: 100%;
+
+    .dfn-tab-content {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .dfn-card-header {
+    &.dfn-tabs-list {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid $neutral-100;
+
+      a.dfn-tab-item {
+        background-color: $base-white;
+        text-decoration: none;
+        padding: $spacing-2 $spacing-4;
+        color: $neutral-400;
+        font-size: $font-size-2xs;
+        line-height: $line-height-2xs;
+        font-weight: $font-weight-medium;
+
+        &:first-child {
+          border-radius: $border-radius-sm 0 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 $border-radius-sm 0 0;
+        }
+
+        &:hover {
+          background-color: $neutral-50;
+        }
+
+        &.active {
+          color: $primary-500;
+          border-bottom: 2px solid $primary-500;
+        }
+      }
+    }
+  }
+}
